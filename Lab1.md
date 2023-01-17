@@ -240,40 +240,6 @@ Submit the hidden word.
 Do not continue with the next part until you are done with the hidden word exercise. 
 
 
-### Working remotely 
-
-The next part of this exercise will take place on the computational cluster Rackham on UPPMAX (Uppsala Multidisciplinary Center for Advanced Computational Science). 
-To connect to a remote Unix server the protocol `ssh` is typically used.
-
-Given that you have an account with Uppmax do the following to connect to Rackham:
-
-```
-ssh your_user_name@rackham.uppmax.uu.se
-```
-
-After entering that command you will be prompted to enter your password.
-
-Our teaching project is called `uppmax2022-2-2`
-
-Navigate to the RESULTS folder (using `cd`):
-to:
-
-```
-/proj/uppmax2022-2-2/private/RESULTS
-```
-
-There you need to make a directory for you to work in. Call it your first name underscore your last name:
-
-`FirstName_LastName`
-
-For the rest of your exercises, you should be working in that directory. I.e copy data there and work on it. 
-
----
-
-
-Ok time for something perhaps a bit more fun. Some genetic data!
-
-
 ### BAM files
 
 The SAM/BAM (Sequence Alignment/Map & Binary Alignment Map) format is a very popular format for storing nucleotide data that is aligned to a reference. 
@@ -286,16 +252,9 @@ https://en.wikipedia.org/wiki/SAM_(file_format)
 
 The main tool for working with SAM/BAM files is called `samtools` and it's installed through the module system on Uppmax. To get access to it:
 
-```
-module load bioinfo-tools
-module load samtools/1.9
-```
+The **BAM** file and corresponding **SAM** file can be found [here](test.bam).
 
-The **BAM** file and corresponding **SAM** file can be found here:
 
-```
-/proj/uppmax2022-2-2/private/DATA/BAM
-```
 
 Before using it have a look at the file sizes of the two different formats.
 
@@ -403,7 +362,7 @@ scp output_file my_user@remote_server:
 ---
 
 
-You can chain any typ of program/script that you can run on the commandline like this, even those you have written yuorself like the `perl` programs you ran in the hidden word excercise or the scripts you will write in Lab 2:
+You can chain any typ of program/script that you can run on the commandline like this, even those you have written yourself like the `perl` programs you ran in the hidden word excercise or the scripts you will write in Lab 2:
 
 ```
 python my_python_script.py inputfile.txt
