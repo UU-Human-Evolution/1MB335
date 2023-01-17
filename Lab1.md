@@ -252,7 +252,7 @@ https://en.wikipedia.org/wiki/SAM_(file_format)
 
 The main tool for working with SAM/BAM files is called `samtools` and it's installed through the module system on Uppmax. To get access to it:
 
-The **BAM** file and corresponding **SAM** file can be found [here](test.bam).
+The **BAM** file and corresponding **SAM** file can be found [here](test.bam) and [here](test.sam).
 
 
 
