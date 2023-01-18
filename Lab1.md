@@ -20,6 +20,7 @@ It's an interpreter and it's own (basic) programming language.
 Enough exposition, let's get going. Open up the terminal and proceed with the exercise. 
 
 ![Figure 1](Figures/Version_7_Unix_SIMH_PDP11_Emulation_DMR.png)
+
 **Terminal display for version 7 of Unix**
 
 *(By Huihermit - Own work, CC0, https://commons.wikimedia.org/w/index.php?curid=30560188)*
