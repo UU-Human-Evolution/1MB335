@@ -1,5 +1,7 @@
 # Session 2 - Python
-In this lab, you will get an introduction to the programming language Python. 
+In this lab, you will get an introduction to the programming language Python and how you can use it to do common tasks in Bioinformatics.
+We recommend to do this on your own computer. UNIX distributions use to come with python already installed and accessible through the terminal, 
+but you won't have any programming assistance tools. It's preferable for you to use some programming or data-analysis oriented text-editor instead, like Spyder, Jupyter or VSCode.
 ## Introduction 
 
 The Wikipedia article for Python has the following to say about it:
@@ -532,8 +534,8 @@ The script should then print out, with some nice padding text:
 Submit the script as a separate file along with your answers.
 
 ### Code review
-The answers you submit to this lab will be review by another student in the class.
-All serious businesses/workplaces that involve work with coding should have some form of code review. This is to make sure that the new code that is developed does not cause problems for the company. In addition, it gives feedback to the coder on how they might simplify their code or make it more robust.
+The answers you submit to this lab will be reviewed by another student in the class.
+All serious businesses/workplaces that involve work with coding should have some form of code review. This is to make sure that the new code that is developed does not cause problems for the company. In addition, it gives feedback to the coder on how they might simplify their code or make it more robust. In order to make this process easier, please comment your code as thoroughly as you feel necessary and try to make it easy to read. 
 
 As a reviewer your job is to assess the following things:
 
