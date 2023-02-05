@@ -214,7 +214,7 @@ Copy over the correct one to your working directory!
 
 We now have a circular mitochondrial genome (thanks to all that hard tiling work we did). The last step is to orient the sequence according to the canonical start location. By convention, non-model organisms' mitochondria are oriented with the *cox1* gene as the first gene of the genome. To do that, you will do a pairwise alignment. But first, you have to find a sequence to compare your mitochondrial sequence to. Open an NCBI blast window and select nucleotide blast. Paste or upload your mitochondrial sequence.
 
-**Question 11.** To which organism does the best hits belong?
+**Question 11.** Which organism do the best hits belong to?
 
 Since you are working with well studied organisms, most likely the first hit will align perfectly to the mitochondrial genome of your species. To make it a bit more interesting, **we are from now on going to  a close relative of your species instead of your species itself**, this is called using a 'reference', that is using a known species to gather information about an unkown one. You are going to recover the appropriate sequence from NCBI. Use the table below to see which species you should be looking for depending on your starting species.
 
