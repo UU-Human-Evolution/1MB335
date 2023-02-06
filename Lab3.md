@@ -3,7 +3,7 @@
 ## General introduction to sessions 3 to 5
 
 
-In these three labs, you will work with mitochondrial genomes. Mitochondria are present in all eukaryotic cells (for a review, see 'Origin and diversification of mitochondria', Roger et al.), where among many other functions it supplies the cells with chemical energy (ATP). Here, we will focus on the genomes present in mitochondria; mitochondrial genomes present the advantage of being relatively small compared to nuclear genomes (e.g. 16,000 base pairs in humans), thus facilitating bioinformatic operations in the labs. They are also present in many copies in the cells, thus they are relatively easy to sequence even in extreme cases where DNA is often limited such as environmental DNA or ancient DNA studies. Although mitochondrial genomes can take many different forms depending on the species, they all contain a series of conserved protein-coding genes as well as rRNA and tRNA; this makes mitochondrial genomes good candidates for comparative analyses between different species.
+In these three labs, you will work with mitochondrial genomes. Mitochondria are present in all eukaryotic cells (for a review, see 'Origin and diversification of mitochondria', Roger et al.), where among many other functions it supplies the cells with chemical energy (ATP). Here, we will focus on the genes present in mitochondria; mitochondrial genomes present the advantage of being relatively small compared to nuclear genomes (e.g. 16,000 base pairs in humans), thus facilitating bioinformatic operations in the labs. They are also present in many copies in the cells, thus they are relatively easy to sequence even in extreme cases where DNA is often limited such as environmental DNA or ancient DNA studies. Although mitochondrial genomes can take many different forms depending on the species, they all contain a series of conserved protein-coding genes as well as rRNA and tRNA; this makes mitochondrial genomes good candidates for comparative analyses between different species.
 
 
 ![](Figures/Mitochondrion_structure.svg)
@@ -57,48 +57,21 @@ By Emmanuel Douzery - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/in
   + orient to the canonical start location in the mitochondrial genome (cox1).
 
 ## Details
-
-### Set up your working space
-
-If you have not done so before, now is a good time to set up your working space on the cluster.
-
-The course is accessible at: `/proj/uppmax2022-2-2/private/`
-
-You will find data in: `/proj/uppmax2022-2-2/private/DATA/` and scripts in `/proj/uppmax2022-2-2/private/SCRIPTS`.
-
-You should already have created your own folder under: `/proj/uppmax2022-2-2/private/RESULTS`. If you haven't, refer to session 1. Think about how you want to organize this folder. For example you might want a folder for each tutorial; you might also want to reproduce the DATA / SCRIPTS / RESULTS structure; etc.
-
 ### Identify the mitochondrial contigs in your assembly    
 
 For this step you need two inputs: the assembly (.fna) and a set of proteins from a species related to your species of interest. The assembly contains many contigs from both mitochondrial and nuclear DNA. You need to identify the mitochondrial contig(s). For this you will use command-line BLAST between your assembly and a set of mitochondrial proteins from a related species. BLAST comes in different flavors, and thus it matters whether the sequences are coded as nucleotides or as amino acids.
 
-The assembly is in a subfolder of: `/proj/uppmax2022-2-2/private/DATA/assemblies`
+The assembly file is too big for GitHub, so you'll need to download it from the Assignment's page in Studium. 
 
-The set of proteins is in: `/proj/uppmax2022-2-2/private/DATA/coding_sequences`
+The set of proteins is in [C_elegans_NC_001328.1_mt_codingsequences.fna](https://github.com/UU-Human-Evolution/1MB335/blob/master/example_data/C_elegans_NC_001328.1_mt_codingsequences.fna)
 
-Start by copying the assembly and the set of proteins to your own folder.
+Start by copying the assembly and the set of proteins to your own folder in Solander.
 
 **Question 1.** Are the sequences for the assembly and the set of proteins in nucleotides or in amino acids? What is the format of these files?
 
 Comment: the assembly file is compressed; use for example `zcat` to visualize it. **OBS If you do not know how to use a bash command, you can type "man *command_name*" on the command line (or google it).**
 
-Before running BLAST, you need to make a database of the set of proteins. Because this is an intense process, you will work in an interactive window. Interactive windows are preferred to working in the login node (i.e. what you do when you log in to Uppmax) for all analyses that involve more computing power than e.g. `ls`. In fact, if you run heavy processes on the login node your session might be killed. When you ask for an interactive window, your request goes into the queue management system (SLURM) which might result in waiting times (usually a few minutes). Run the command below (which asks for a four-hours long interactive window with the smallest computing unit on rackham - the cluster we work on - a "node").
-
-If you have to wait more than five minutes, you might try again asking for less time (one hour should be enough: `-t 1:0:0`). If it still does not work, tell the teaching assistants and we will offer you another solution.
-
-```
-interactive -A uppmax2022-2-2 -M snowy -p core -n 1 -t 4:0:0 --reservation=uppmax2022-2-2_1
-```
-
-For later: Once you have done everything you needed to do in the interactive window, you can exit by simply typing `exit`.
-
-Then you should load module for the BLAST software. We are specifying version 2.9.0+. It is a good practice to always specify which version of the software you want to load to make sure that analyses can be reproduced.
-
-```
-module load bioinfo-tools blast/2.9.0+
-```
-
-You are going to modify file so **if you have not already done so, make a copy to your own folder (of the set of proteins) and work on that copy**. Then, adapt and run the following command:
+Before running BLAST, you need to make a database of the set of proteins. To do so, adapt and run the following command:
 
 ```
 makeblastdb -in path_to_the_protein_set/protein_set.fasta -dbtype nucl 
@@ -137,10 +110,10 @@ awk '$11 < 0.0001 {print}'  < outfile_name.blast |cut -f1 | sort | uniq -c
 
 Now you have to validate that these contigs really belong to the mitochondria. You will use online blast and submit a fragment of the configs that you identified at the previous step. To select the fragments, use the bash command `grep` to find the contig in the assembly file. You will need the `-A` tag as well. Select a good chunk of the contig. **Caution!** Check whether your assembly file is an interleaved (i.e. the sequence is on multiple lines) or a sequential (i.e. the sequence is on a single line) fasta file. If it is interleaved, you need to convert it to a sequential fasta before using the `grep` command above. First, you should uncompress it (for example with `gunzip`). Then, you should have a python script from sessions 1 and 2 that does just that.
 
-If not, or if you script does not allow for multiple entries in the fasta file, you can use this file: `/proj/uppmax2022-2-2/private/SCRIPTS/interleaved_fasta_to_sequential.py` with the following syntax (replace *your_input* and *your_output*):
+If not, or if you script does not allow for multiple entries in the fasta file, you can use this [file](https://github.com/UU-Human-Evolution/1MB335/blob/master/python_scripts/interleaved_fasta_to_sequential.py) with the following syntax (replace *your_input* and *your_output*):
 
 ```
-python /proj/uppmax2022-2-2/private/SCRIPTS/interleaved_fasta_to_sequential.py your_input your_output
+python /your_path/interleaved_fasta_to_sequential.py your_input your_output
 ```
 
 You will use the sequential fasta in the next step too. 
@@ -199,24 +172,24 @@ Most likely your first search resulted in a lot of results. This is expected as 
 **Question 9.** Narrow down the search by selecting some of the categories of data. Think about what you learned about the different sequencing technologies. How many results do you get once you narrowed the search? (write down the criteria you used) You can test different combinations of criteria. Now that you narrowed down your search, open a few of the results and read the information that is provided. For example, what is the size of the file? When was it published? What do you know about the particular sequencing strategy that was used to generate the data?
 
 As you might have noticed, there is a bit of everything in the results. To make it easier for you, we already selected a library of short reads for your species,
-well we actually only have the files for C remanei, but you can use that one no matter which study species you had. You will find it in a subfolder of: `/proj/uppmax2022-2-2/private/DATA/sra/`. 
+where we actually only have the files for C remanei, but you can use that one no matter which study species you had. You will find it in Studium. 
 
 **Question 10.** What is the format of the file? Do you understand what the different lines are? How long are the reads? 
 
 Nowadays doing tiling has become less and less common as long read sequencing has becom more common place. If your read are longer than the mitochodria you are sequencing it's quite easy thing to assemble it!
 
 In the real world you would have now to start going through this procces of tiling and circularizing your mitochondrial seqeuences, but the interest of time we have, as any good cooking show, prepared this step in advance.
-You can find the prepared mitochondrial fasta files here: `/proj/uppmax2022-2-2/private/DATA/mitochondrial_genomes`
+You can find the prepared mitochondrial fasta files [here](example_data/mitochondrial_genomes/)
 
 Copy over the correct one to your working directory!
 
 ### Orient to the canonical start location in the mitochondrial genome (*cox1*).
 
-We now have a circular mitochondrial genome (thanks to all that hard tiling work we did). The last step is to orient the sequence according to the canonical start location. By convention, non-model organisms' mitochondria are oriented with the *cox1* gene as the first gene of the genome. To do that, you will do a pairwise alignment. But first, you have to find a sequence to compare your mitochondrial sequence to. Open an NCBI blast window and select nucleotide blast. Paste or upload your mitochondrial sequence.
+We now have a circular mitochondrial genome (thanks to all that hard tiling work we did ;P). The last step is to orient the sequence according to the canonical start location. By convention, non-model organisms' mitochondria are oriented with the *cox1* gene as the first gene of the genome. To do that, you will do a *pairwise alignment*. But first, you have to find a sequence to compare your mitochondrial sequence to. Open an NCBI blast window and select nucleotide blast. Paste or upload your mitochondrial sequence.
 
 **Question 11.** Which organism do the best hits belong to?
 
-Since you are working with well studied organisms, most likely the first hit will align perfectly to the mitochondrial genome of your species. To make it a bit more interesting, **we are from now on going to  a close relative of your species instead of your species itself**, this is called using a 'reference', that is using a known species to gather information about an unkown one. You are going to recover the appropriate sequence from NCBI. Use the table below to see which species you should be looking for depending on your starting species.
+Since you are working with well studied organisms, most likely the first hit will align perfectly to the mitochondrial genome of your species. To make it a bit more interesting, **we are from now on going to choose a close relative of your species instead of your species itself**, this is called using a 'reference', that is using a known species to gather information about an unkown one. You are going to recover the appropriate sequence from NCBI. Use the table below to see which species you should be looking for depending on your starting species.
 
 ***Table 1. Pairs of study organisms / close relative.***
 
@@ -268,4 +241,4 @@ Please sumbit a text file with the answers to the following questions: 4, 6, 7, 
 ---
 
 This is the end of the lab, please make sure that you completed and wrote down the answers to all of the questions.
-Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them. This goes for both the Unix computers and Uppmax.
+Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them. 
