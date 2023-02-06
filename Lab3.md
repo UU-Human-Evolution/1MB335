@@ -124,7 +124,7 @@ We will take a little detour as it is the first time that you work with NCBI in 
 
 **Question 6.** Go back to the main page. Left of the search field, you have a drop-down menu listing the different databases. Again, which ones do you think will be relevant to us? And where did the input files you received in this lab come from? If you want to see the starting page for a given database, select it in the menu and click 'Search'.
 
-Go back to the main page if you left it and find the BLAST page, then choose nucleotide blast. Paste the chunk of sequence that you selected with the `grep` command above into the dialog box. Below the BLAST button, select 'Show results in a new window'. All other parameters can be kept as default. Perform the blast.
+Go back to the main page if you left it and find the BLAST page, then choose nucleotide blast. Copy a nice chunk of the sequence (from the contigs you selected with the `grep` command), and paste it into the dialog box. Below the BLAST button, select 'Show results in a new window'. All other parameters can be kept as default. Perform the blast.
 
 **Question 7.** Does the fragment belong to a mitochondria? Does it belong to the species you are interested in?
 
