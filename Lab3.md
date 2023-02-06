@@ -61,9 +61,9 @@ By Emmanuel Douzery - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/in
 
 For this step you need two inputs: the assembly (.fna) and a set of proteins from a species related to your species of interest. The assembly contains many contigs from both mitochondrial and nuclear DNA. You need to identify the mitochondrial contig(s). For this you will use command-line BLAST between your assembly and a set of mitochondrial proteins from a related species. BLAST comes in different flavors, and thus it matters whether the sequences are coded as nucleotides or as amino acids.
 
-The assembly file is too big for GitHub, so you'll need to download it from the Assignment's page in Studium. 
+The assembly file is too big for GitHub, so you'll need to download it from our project in [FigShare](https://figshare.com/s/3b29710db0c8b992d090). 
 
-The set of proteins is in [C_elegans_NC_001328.1_mt_codingsequences.fna](https://github.com/UU-Human-Evolution/1MB335/blob/master/example_data/C_elegans_NC_001328.1_mt_codingsequences.fna)
+The set of proteins is in [C_elegans_NC_001328.1_mt_codingsequences.fna](https://figshare.com/s/f5d54b3fcd16114c495e)
 
 Start by copying the assembly and the set of proteins to your own folder in Solander.
 
@@ -110,7 +110,7 @@ awk '$11 < 0.0001 {print}'  < outfile_name.blast |cut -f1 | sort | uniq -c
 
 Now you have to validate that these contigs really belong to the mitochondria. You will use online blast and submit a fragment of the configs that you identified at the previous step. To select the fragments, use the bash command `grep` to find the contig in the assembly file. You will need the `-A` tag as well. Select a good chunk of the contig. **Caution!** Check whether your assembly file is an interleaved (i.e. the sequence is on multiple lines) or a sequential (i.e. the sequence is on a single line) fasta file. If it is interleaved, you need to convert it to a sequential fasta before using the `grep` command above. First, you should uncompress it (for example with `gunzip`). Then, you should have a python script from sessions 1 and 2 that does just that.
 
-If not, or if you script does not allow for multiple entries in the fasta file, you can use this [file](https://github.com/UU-Human-Evolution/1MB335/blob/master/python_scripts/interleaved_fasta_to_sequential.py) with the following syntax (replace *your_input* and *your_output*):
+If not, or if your script does not allow for multiple entries in the fasta file, you can use this [script](https://github.com/UU-Human-Evolution/1MB335/blob/master/python_scripts/interleaved_fasta_to_sequential.py) with the following syntax (replace *your_input* and *your_output*):
 
 ```
 python /your_path/interleaved_fasta_to_sequential.py your_input your_output
@@ -172,7 +172,7 @@ Most likely your first search resulted in a lot of results. This is expected as 
 **Question 9.** Narrow down the search by selecting some of the categories of data. Think about what you learned about the different sequencing technologies. How many results do you get once you narrowed the search? (write down the criteria you used) You can test different combinations of criteria. Now that you narrowed down your search, open a few of the results and read the information that is provided. For example, what is the size of the file? When was it published? What do you know about the particular sequencing strategy that was used to generate the data?
 
 As you might have noticed, there is a bit of everything in the results. To make it easier for you, we already selected a library of short reads for your species,
-where we actually only have the files for C remanei, but you can use that one no matter which study species you had. You will find it in Studium. 
+where we actually only have the files for C remanei, but you can use that one no matter which study species you had. You will find it in [FigShare](https://figshare.com/s/eff75c8523b84fa7f94f). 
 
 **Question 10.** What is the format of the file? Do you understand what the different lines are? How long are the reads? 
 
