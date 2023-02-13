@@ -182,12 +182,12 @@ After locating the tRNA genes and the protein coding genes it is time to look fo
 There are two rRNA genes in the mitochondria, a short and a long one. They are part of the assembly of the ribosomal sub-units (and you know that the ribosomes are the structure responsible for protein synthesis). 
 They are also very useful for phylogenetic studies, and we will work more with them in Session 5.
 
-GeSeq is not very efficient at localizing the location of rRNA, and at the moment there are no other good tools to annotate rRNA. Thus you will proceed like in Step 3, but this time you will use ***blastn*** because your "subject" sequence is in ***nucleotides*** not amino acids.
+GeSeq is not very efficient at localizing the location of rRNA, and at the moment there are no other good tools to annotate rRNA. Thus you will proceed like in Step 3, but this time you will use **blastn** because your "subject" sequence is in **nucleotides** not amino acids.
 
 In short: 
 + go to NCBI; 
-+ find the sequence for the long rRNA gene in your **reference*** genome (the name might differ: l-rRNA, rnl, 16S);
-+ Perform a blastn between your ***study*** species (Query) & your ***reference*** genome (subject); 
++ find the sequence for the long rRNA gene in your **reference** genome (the name might differ: l-rRNA, rnl, 16S);
++ Perform a blastn between your **study** species (Query) & your **reference** genome (subject); 
 + Look at the dot plot and the alignments.
 
 **Question 5. Do the coordinates differ between GeSeq output and what blastn suggests?**
