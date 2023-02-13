@@ -209,11 +209,17 @@ If you do see gaps of > 300 base pairs, write down the coordinates (you can for 
 
 ### Step 6: Look for open reading frames (ORF) with ORFfinder
 
-We are going to use a last annotation tool, [ORFfinder](https://www.ncbi.nlm.nih.gov/orffinder/), to find ***putative genes*** (Open Reading Frames). In particular, we are going to investigate the gaps that you identified in Step 6. 
+We are going to use a last annotation tool, [ORFfinder](https://www.ncbi.nlm.nih.gov/orffinder/), to find ***putative genes*** (Open Reading Frames). In particular, we are going to investigate the gaps that you identified in Question 6. 
+
 If you did not identify any specific gaps, you can instead perform the analysis by looking for ORFs over the lenght of the entire mitochondrial sequence.
 
-+ Go to [ORFfinder](https://www.ncbi.nlm.nih.gov/orffinder/) and copy your mitochondrial sequence. In Search parameters, choose 300 for the minimal ORF length, as it is unlikely that protein coding genes will be shorter than 300 base pairs. You also need to specify the genetic code; select between codes 2 and 5 depending on your species. Finally, in the "ORF start codon to use", choose " 'ATG' and alternative initiation codons". 
++ Go to [ORFfinder](https://www.ncbi.nlm.nih.gov/orffinder/) and copy your mitochondrial sequence. 
++ In Search parameters, choose 300 for the minimal ORF length, as it is unlikely that protein coding genes will be shorter than 300 base pairs. 
++ You also need to specify the genetic code - select between the options 2 and 5 (invertebrata/vertebrata) depending on your species. 
++ Finally, in the "ORF start codon to use", choose " 'ATG' and alternative initiation codons". 
+
 As mentioned before, if you identified gaps in the previous step - you can specify where exactly the program should search in ("From" and "To"). Submit the job.
+
 + If ORFfinder managed to find ORFs, you should see a lot of information. On the top of the results window you have a representation of the mitochondria (or of the region you specified) with the predicted ORFs. Take a look at them. How does their length vary? Do they all have the same orientation? (you know the orientation by looking at the white arrows on the red background) 
 + Below on the right, you can find a summary of the different ORFs. If you highlight one of the ORFs, its sequence (in amino acids) will be shown in the window on the left. 
 + Finally, below that left window, you can click on "SmartBLAST". This option can very quickly identify proteins in the ORFs. This is very useful and can help you decide whether an ORF is really a gene or not (if an ORF has no good hits, it suggests that maybe there is not really a gene there).
