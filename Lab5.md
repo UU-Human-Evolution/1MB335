@@ -51,7 +51,7 @@ Questions are numbered from 1 to 14. Submit answers to all the questions (you ca
 
 #### Step 2a: Identify the mitochondrial genomes
 
-Start by login into Uppmax (rackham). In `/proj/uppmax2022-2-2/private/DATA/session5/Mitochondrial_genomes/` you will find 14 complete mitochondrial genomes that were downloaded from NCBI. They are named from `Seq1.fasta` to `Seq14.fasta`. Copy all the files to your own directory.
+Start by login into Solander. In [GitHub](example_data/session5/Mitochondrial_genomes) you will find 14 complete mitochondrial genomes that were downloaded from NCBI. They are named from `Seq1.fasta` to `Seq14.fasta`. Copy all the files to your own directory.
 
 Your first task is to identify which species the sequences belong to. Look at the content of the files and think about the tools and resources you used in sessions 3 and 4. Once you have identified the species, complete the headers of the files which have an incomplete header (for an example of a complete header, see `Seq2.fasta`): they should have the same information as in `Seq2.fasta` (in particular, sequence identification number and species name).
 
@@ -106,36 +106,17 @@ Once you have managed the task above, you can delete the fasta file with the lon
 
 #### Step 2d: Align the entire mitochondria
 
-Finally, it is time to align your **13 mitochondrial** genomes! We are going to use a software called `mafft`. Look for it on rackham. How many versions are available?
+Finally, it is time to align your **13 mitochondrial** genomes! We are going to use a software called `mafft`. 
 
-```
-module spider mafft
-```
-We will work with version `MAFFT/7.407`.
+Aligning this set of mitochondrial genomes is a computationally intensive task. 
 
-Reminder about computation on Uppmax: Aligning this set of mitochondrial genomes is a computationally intensive task. Thus, you should not run anything on the login node! Running heavy processes on the login nodes result in slower performances for everyone, and if you exceed certain limits your processes will be killed. Thus, you should avoid it as much as possible, either by working in an interactive job or by submitting your jobs through the queue. In the exploratory stage, it is a good solution to work with an interactive job. **To avoid queueing, we asked for a reservation for this tutorial.**
-
-Ask for an interactive session with the following command (replace "name_of_reservation" with the correct reservation, as the TA's.
-
-```
-interactive -A uppmax2022-2-2 -p core -n 1 -t 4:0:0 --reservation=name_of_reservation -M snowy
-```
-
-Now, load mafft:
-
-```
-module load bioinfo-tools MAFFT/7.407
-```
-
-Then, just type `mafft`. You will be asked several questions, among others: input file name, the output file name (include the file extension, `.clustal` in this case), output file format, algorithm. For the output file format, choose `clustal` (sorted). For the algorithm, choose `FFT-NS-1 (fast)`.
-
-Comment: It might be nice to have two terminal windows open, one with the interactive job and one which you use to navigate to the right folder, check the file names, see whether something gets written to the output, etc.
+In order to execute MAFFT, just type `mafft`. You will be asked several questions, among others: input file name, the output file name (include the file extension, `.clustal` in this case), output file format, algorithm. For the output file format, choose `clustal` (sorted). For the algorithm, choose `FFT-NS-1 (fast)`.
 
 Once you have chosen all the options, the corresponding command-line will be printed on the screen.
 
 **Question 5. Write down the command.**
 
-Now, launch the alignment. It will take a while. In the meantime, you can work on the next step, which is another alignment, of a single gene. It is also a good time to take a break!
+Now, launch the alignment. It will take a while. In the meantime, you can work on the next step on another terminal window, which is another alignment, of a single gene. It is also a good time to take a break!
 
 #### Step 2e: Align the sequence for the large mitochondrial ribosomal RNA (l-rRNA)
 
@@ -143,46 +124,17 @@ Nowadays there is an abundance of genomic data available, for organelles and ent
 
 The large mitochondrial ribosomal RNA (l-rRNA) which is part of the large subunit of the ribosome (in the mitochondria) is - and has been - used a lot in phylogenetic inferences, as it is one of the most conserved genes. Depending on the species you are working with, this RNA might have different names, for example, 16S, rnl, l-RNA, 21S, etc.
 
-For this step, we will focus on the multicellular eukaryotic organisms ('Metazoans') in our dataset. In the folder `/proj/uppmax2022-2-2/private/DATA/session5/Ribosomal_large_subunit` you will find seven fasta files, corresponding to the sequence of interest for seven of the species from the previous step. Start by finding the corresponding sequence for three extra species: Seq8, Seq9, and Seq14 (go to NCBI, find the annotated mitochondria, and look for rRNA; be careful, there are two rRNA per mitochondrial genome! Choose the larger one). We will not use the other genomes for this and the following step.
+For this step, we will focus on the multicellular eukaryotic organisms ('Metazoans') in our dataset. [Here](example_data/session5/Ribosomal_large_subunit)  you will find seven fasta files, corresponding to the sequence of interest for seven of the species from the previous step. Start by finding the corresponding sequence for three extra species: Seq8, Seq9, and Seq14 (go to NCBI, find the annotated mitochondria, and look for rRNA; be careful, there are two rRNA per mitochondrial genome! Choose the larger one). We will not use the other genomes for this and the following step.
 
-Then, prepare the alignment input in the same way as in Step 2c: create a fasta file with the **10** sequences and change the headers to short ones, **remember to modify the part of the short header about the type of sequence**. Now, proceed to the alignment with `mafft`. You can take the same command as the one you created when submitting the alignment for the entire genome - remember to modify the input and output file name. Submit it as a job like this - replace YOURCOMMAND, and youremailforUppmax:
+Then, prepare the alignment input in the same way as in Step 2c: create a fasta file with the **10** sequences and change the headers to short ones, **remember to modify the part of the short header about the type of sequence**. Now, proceed to the alignment with `mafft`. You can take the same command as the one you created when aligning for the entire genome.
 
-```
-(echo '#!/bin/bash -l'
-echo '
-module load bioinfo-tools MAFFT/7.407
-YOUR COMMAND
-exit 0') | sbatch -p core -n 1 -t 15:00 -M snowy -A uppmax2022-2-2 -J align_rRNA -o align_rRNA.output -e align_rRNA.output --mail-user youremailforUppmax --mail-type=END,FAIL
-```
+Once it has finished, look at the output file (the .clustal). Do you understand the format?
 
-You will receive an email when the job finishes (or fails). What normally would have been printed to the screen will be printed to align_rRNA.output. Have a look at it!
-
-Look at the output file (the .clustal). Do you understand the format?
-
-To have a better overview of the alignment, we are going to use the `clustalw` program. Using a program with visual forwarding like this one involves a different kind of connection to Uppmax. Open a new tab in your terminal and type:
-
-```
-ssh -Y your_user_name@rackham.uppmax.uu.se
-```
-
-**If you are using a Mac**, then you first need to install `Xquartz`: 
-
-[https://www.xquartz.org/](https://www.xquartz.org/)
-
-
-Like when you loaded `mafft`, look for the versions of `clustalw` installed on rackham and load the module.
-
-**Question 6. Which version of `clustalw` did you load?**
-
-`clustalw` can perform alignments. However, we already have an alignment and are only interested in the visualization part. The following command will open an interface - we add a `&` in the end, as this enables you to continue to use the command-line while having the interface opened.
-
-```
-clustalx &
-```
+To have a better overview of the alignment, we are going to use the `JalView` program. In order to avoid having to download and install the program locally (which can be done following the [instructions](https://www.jalview.org/download/)), we are going to use [JalViewJS](https://www.jalview.org/jalview-js/JalviewJS/), a JavaScript implementation of the program that allows us to use it from our browsers. 
 
 In "File", choose "Load Sequences" and choose your alignment. Can you make sense of what you see? What do you think the bottom window shows?
 
-**Question 7. Normally one of the sequences should stand out. Which one?**
+**Question 6. Normally one of the sequences should stand out. Which one?**
 
 #### Step 2f: Find a new l-rRNA sequence and align one more time
 
@@ -190,7 +142,7 @@ The strange alignment from Step 2e is a genuine example, that was discovered by 
 
 Find the *16S* sequence for the mitochondrial genome with identifier AY463959.1. Perform the alignment again with the new replacement cheetah sequence (see Step 2e). Visualize it. Is the issue solved? 
 
-**Question 8. Show your new alignment to a teaching assistant. If you cannot show it, submit the corresponding alignment file (.clustal).**
+**Question 7. Show your new alignment to a teaching assistant. If you cannot show it, submit the corresponding alignment file (.clustal).**
 
 The main take-home message from this step is that it is important to examine your alignments well. Sometimes some sequences will genuinely be longer or shorter than other sequences; however, it might also be due to some errors!
 
@@ -198,7 +150,7 @@ The main take-home message from this step is that it is important to examine you
 
 By now the alignment of the entire mitochondria should be ready for you to look at! Open it with `clustalx` (see Step 2f). What do you see? Does it match your expectations after filling the feature table?
 
-**Question 9. Do you think that it was meaningful to align these 13 mitochondrial genomes? Would you remove some if you were to do it again? Which?**
+**Question 8. Do you think that it was meaningful to align these 13 mitochondrial genomes? Would you remove some if you were to do it again? Which?**
 
 ---
 ## REPORT
