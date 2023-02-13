@@ -153,20 +153,26 @@ Refer back to tRNAscan for the boundaries of this tRNA. In the GenBank formatted
 The boundaries (i.e. start and end) identified by GeSeq for the different features might not be accurate. One way to verify the accuracy of the boundaries is to perform a blast. For that, you need to navigate to the GenBank entry of your close relative or reference (see Table 1 in Session 3 if you do not remember!). 
 
 Having checked the tRNA genes (Step 2) , we now move on to the rest of the mitochondrial genome.
-GenBank is the default format of the NCBI entry, e.g. [here](https://www.ncbi.nlm.nih.gov/nuccore/NC_001328.1) for Caenorhabditis elegans a.k.a the reference organism). In the top right of your reference’s GenBank page is a dropdown box titled 'send'. Click on this and select 'coding sequences' in .fasta protein format, this will open the file on your computer. The file contains the amino acid sequence of all the **protein coding features** of your reference. We will use these sequences to finalize the boundaries of the protein features that we have imported from GeSeq by BLASTing the reference sequence against your own.
-We will  start by verifying the boundaries of *cox2*. This is similar to the work you did in Session 3 with *cox1*.
+GenBank is the default format of the NCBI entry, e.g. [here](https://www.ncbi.nlm.nih.gov/nuccore/NC_001328.1) for Caenorhabditis elegans a.k.a the reference organism). 
++ On NCBI, Find the reference mitochondrion that is complementary to your study one. 
++ In the top right of your reference’s GenBank page there is a dropdown box titled 'send'. Click on this and select 'coding sequences' in '.fasta' protein format and this will open the file on your computer. The file contains the amino acid sequence of all the **protein coding features** of your reference. We will use these sequences to finalize the boundaries of the protein features that we have imported from GeSeq by BLASTing the reference sequence against your own. We will  start by verifying the boundaries of *cox2*. (This is similar to the work you did in Session 3 with *cox1*).
 
 #### Here are the instructions for *cox2*:
 
-Open the `blastx` page of NCBI and select 'Align two or more sequences'. Within the text file you just downloaded from NCBI, search for the string “cox2” and copy the amino acid sequence for this gene. Return to your blastx window. Now paste your copied *cox2* sequence into the **bottom** of the two dialog windows. Now either paste in or upload your `.fasta` sequence into the **top dialog window**. _Note that we chose a file rather than pasting a nucleotide sequence into the window_. Next, you must **choose the correct genetic code, otherwise your results will be inaccurate**. 
-This will vary according to the taxon and the locus. Depending on your species, you will choose from: 
-
-+ Vertebrate mitochondrial
-+ Invertebrate mitochondrial
++ Open the `blastx` page of NCBI and select 'Align two or more sequences'. 
++ Open the text file containing the reference mitochondrion you just downloaded from NCBI. Search for the string “cox2” and copy the amino acid sequence for this gene. 
++ Return to your blastx window and paste that *cox2* sequence into the **bottom** one of the two dialog windows. 
++ Now upload ***your*** `.fasta` sequence into the **top dialog window**. 
++ Next, **choose the correct genetic code, otherwise your results will be inaccurate**. This will vary according to the taxon and the locus. Depending on your species, you will choose from: 
+a) Vertebrate mitochondrial
+b) Invertebrate mitochondrial
 
 You can find more information about the different genetic code on this [wikipedia page](https://en.wikipedia.org/wiki/List_of_genetic_codes) (which suggests the alternative code 14 for nematodes - those of you working with nematodes can go ahead and try!).
 
-Also, choose 'Show results in a new window' - this will allow you to change parameters more easily if you need to. Now, submit the blast. Go to the 'Dot plot' tab. If you have one solid large line spanning the entire vertical span (or most) of the dot matrix that is an indicator that the gene is complete and in one exon. Then look at the 'Alignments' tab.
++ Also, choose 'Show results in a new window' - this will allow you to change parameters more easily if you need to. 
++ Go ahead and submit the blast. 
++ Go to the 'Dot plot' tab. If you have one solid large line spanning the entire vertical span (or most) of the dot matrix, this is an indicator that the gene is complete and is in one exon. 
++ Then take a look at the 'Alignments' tab.
 
 **Question 3. Is the gene complete and in one exon? If not, how does it look like? About the alignment: what is the first amino acid position of the reference ('Sbjct') which align well to your mitochondrial genome?**
 
