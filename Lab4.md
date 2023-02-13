@@ -98,10 +98,13 @@ Val (V)
 
 To find tRNAs, GeSeq uses the program tRNAscan (Lowe & Eddy 1997). To ensure we have found all of the tRNAs, it is best to double check the lengths and identities of the tRNAs found in GeSeq by using the stand alone tRNAscan program, which has a very easy to use web interface. The program may be found [here](http://lowelab.ucsc.edu/tRNAscan-SE/). In the proper dialog box upload your sequence, change the dropdown box for 'Sequence source' to the right answer for your species and leave everything else as default. Hit submit.
 
-Obs! tRNAscan is a bit annoying with formatting and might complain about the header of your fasta file (for example). In that case, copy your original fasta file and simplify the header before resubmitting. You can also paste the sequence in the search box, if you leave out the header you have to instead click on "Raw sequence" instead of "Formated fasta file".
+Obs! tRNAscan is a bit annoying with formatting and might complain about the header of your fasta file (for example). In that case, you can do one of two things: 
++ either copy your original fasta file and simplify the header before resubmitting and clicking on "Formated fasta file" or 
++ paste the sequence in the search box, leaving out the header and click on "Raw sequence" instead.
 
-After a short while, you will see a list of the tRNAs and their locations in your genome. Compare these results to what GeSeq found and note if anything is missing or locations are divergent. Refer to the table below for a list of all the amino acids that should be present in your genome and for any conversion that you need to make (more details after Question 2).
-Note that depening on your organizm tRNA-Scan might find 3-25 different tRNAs.
+After a short while, you will see a list of the tRNAs and their locations in your genome. Compare these results to what GeSeq found and note if anything is missing or locations are divergent. Refer to the table below for a list of all the amino acids that should be present in your genome and for any conversion that you need to make (more details after Question 2). For easy viewing of what your search found, you can look at the 'OGDraw' output as well. 
+Note that depening on your organism tRNA-Scan might find 3-25 different tRNAs.
++ if you are not getting any hits, try playing with the ***Sequence source*** and choose "other mitochondrial" for example.
 
 ***Table 2. Amino acid names translation table.***
 
@@ -133,8 +136,15 @@ If you did not find all/most of the tRNA's (depending on which study species you
 
 To answer the last question, you can go to the NCBI page of the annotated genome. You can look for example at the length of the tRNA. You can also try to compare directly the coordinates, but because you are working with a genome orientated with *cox1* you will need to shift the coordinates.
 
-If tRNAscan identified features that GeSeq did not find, add them to the GeSeq output as follow: For example, let’s say that tRNAscan found the tRNA for tyrosine, which GeSeq did not find. We will need to add it in the GeSeq output. tRNAscan will use the three-letter code "tyr", we see from our translation table that the one letter code is Y (Table 2). In addition, we see in tRNAscan output that the anti-codon for tyrosine is GTA. Therefore, the correct format for the gene name will be “trnY-GUA” (all T’s become U’s because we are dealing with RNA not DNA, and "trn" stands for tRNA). Refer back to tRNAscan for the boundaries of this tRNA. In the GenBank formatted text file enter the missing tRNAs using the same format as presented for the tRNAs that GeSeq did find.
-
+If tRNAscan identified features that GeSeq did not find, add them to the GeSeq output as follow: 
+For example, let’s say that tRNAscan found the tRNA for tyrosine, which GeSeq did not find. We will need to add it in the GeSeq output. 
+If in the results from tRNAscan, under "tRNA type" we see "Tyr", we know that we've just found the tRNA for tyrosine. Now, if you can check the translation table above you cans see that the one letter code for tyrosine is "Y".(Table 2). 
+In addition, in the same tRNAscan output, under "Anti Codon", we can see that the anti codon for tyrosine is GTA. 
+Finally, in order to add the tRNA sequence we just discovered we need to do it in the correct format - The the gene name will be “trnY-GUA”:
++ all T’s become U’s because we are dealing with RNA not DNA;
++ "trn" stands for tRNA;
++ "Y" stands for tyrosine. 
+Refer back to tRNAscan for the boundaries of this tRNA. In the GenBank formatted text file, enter the missing tRNAs using the same format as presented for the tRNAs that GeSeq did manage to find.
 
 *Note: If you are adding something from a source that does not privide a score (such as tRNA scan) then you of course don't have to add a score line.*
 
@@ -142,14 +152,17 @@ If tRNAscan identified features that GeSeq did not find, add them to the GeSeq o
 
 The boundaries (i.e. start and end) identified by GeSeq for the different features might not be accurate. One way to verify the accuracy of the boundaries is to perform a blast. For that, you need to navigate to the GenBank entry of your close relative or reference (see Table 1 in Session 3 if you do not remember!). 
 
-GenBank is the default format of the NCBI entry, e.g. [here](https://www.ncbi.nlm.nih.gov/nuccore/NC_001328.1) for Caenorhabditis elegans). In the top right of your reference’s GenBank page is a dropdown box titled 'send'. Click on this and select 'coding sequences' in .fasta protein format, this will open the file on your computer. The file contains the amino acid sequence of all the protein coding features of your reference. We will use these sequences to finalize the boundaries of the protein features that we have imported from GeSeq by BLASTing the reference sequence against your own.We will  start by verifying the boundaries of *cox2*. This is similar to the work you did in Session 3 with *cox1*.
+Having checked the tRNA genes (Step 2) , we now move on to the rest of the mitochondrial genome.
+GenBank is the default format of the NCBI entry, e.g. [here](https://www.ncbi.nlm.nih.gov/nuccore/NC_001328.1) for Caenorhabditis elegans a.k.a the reference organism). In the top right of your reference’s GenBank page is a dropdown box titled 'send'. Click on this and select 'coding sequences' in .fasta protein format, this will open the file on your computer. The file contains the amino acid sequence of all the **protein coding features** of your reference. We will use these sequences to finalize the boundaries of the protein features that we have imported from GeSeq by BLASTing the reference sequence against your own.
+We will  start by verifying the boundaries of *cox2*. This is similar to the work you did in Session 3 with *cox1*.
 
 #### Here are the instructions for *cox2*:
 
-Open the `blastx` page of NCBI and select 'Align two or more sequences'. Within the text file you just downloaded from NCBI, search for the string “cox2” and copy the amino acid sequence for this gene. Return to your blastx window. Now paste your copied *cox2* sequence into the bottom of the two dialog windows. Now either paste in or upload your `.fasta` sequence into the top dialog window. _Note that we chose a file rather than pasting a nucleotide sequence into the window_. Also, **note that you must choose the correct genetic code, otherwise your results will be inaccurate**. This will vary according to the taxon and the locus. Depending on your species, you will choose from: 
+Open the `blastx` page of NCBI and select 'Align two or more sequences'. Within the text file you just downloaded from NCBI, search for the string “cox2” and copy the amino acid sequence for this gene. Return to your blastx window. Now paste your copied *cox2* sequence into the **bottom** of the two dialog windows. Now either paste in or upload your `.fasta` sequence into the **top dialog window**. _Note that we chose a file rather than pasting a nucleotide sequence into the window_. Next, you must **choose the correct genetic code, otherwise your results will be inaccurate**. 
+This will vary according to the taxon and the locus. Depending on your species, you will choose from: 
 
-* Vertebrate mitochondrial
-* Invertebrate mitochondrial
++ Vertebrate mitochondrial
++ Invertebrate mitochondrial
 
 You can find more information about the different genetic code on this [wikipedia page](https://en.wikipedia.org/wiki/List_of_genetic_codes) (which suggests the alternative code 14 for nematodes - those of you working with nematodes can go ahead and try!).
 
@@ -165,15 +178,21 @@ Now, choose one more gene from the list of coding sequences that you downloaded 
 
 ### Step 4: Use web-based blast to improve the annotation of rRNA
 
-There are two rRNA genes in the mitochondria, a short and a long one. They are part of the assembly of the ribosomal sub-units (and the ribosomes are the structure responsible for protein synthesis). They are also very useful for phylogenetic studies, and we will work more with them in Session 5.
+After locating the tRNA genes and the protein coding genes it is time to look for the last type of genes present in the mitochondria - the rRNA genes. 
+There are two rRNA genes in the mitochondria, a short and a long one. They are part of the assembly of the ribosomal sub-units (and you know that the ribosomes are the structure responsible for protein synthesis). 
+They are also very useful for phylogenetic studies, and we will work more with them in Session 5.
 
-GeSeq is not very efficient at localizing the location of rRNA, and at the moment there are no other good tools to annotate rRNA. Thus you will proceed like in Step 3, but this time you will use blastn because your "subject" sequence is in nucleotides not amino acids.
+GeSeq is not very efficient at localizing the location of rRNA, and at the moment there are no other good tools to annotate rRNA. Thus you will proceed like in Step 3, but this time you will use ***blastn*** because your "subject" sequence is in ***nucleotides*** not amino acids.
 
-In short: go to NCBI, find the sequence for the long rRNA gene in your reference genome (the name might differ: l-rRNA, rnl, 16S). Perform a blastn between your study species (query) and your reference genome (subject). Look at the dot plot and the alignments.
+In short: 
++ go to NCBI; 
++ find the sequence for the long rRNA gene in your **reference*** genome (the name might differ: l-rRNA, rnl, 16S);
++ Perform a blastn between your ***study*** species (Query) & your ***reference*** genome (subject); 
++ Look at the dot plot and the alignments.
 
 **Question 5. Do the coordinates differ between GeSeq output and what blastn suggests?**
 
-If you trust the blastn result more, update the start and end coordinates in the GeSeq output. Good reasons to trust the blastn output is if GeSeq predicted the genes to be in several pieces; or if the genes predicted by GeSeq were very short (less than 500 base pairs would be short).
+If you trust the blastn result more, update the start and end coordinates in the GeSeq output. Generally, a good reason to trust the blastn output is if GeSeq predicted the genes to be in several pieces; or if the genes predicted by GeSeq were very short (less than 500 base pairs would be short).
 
 ### Step 5: Draw a visual representation of your annotated mitochondria and identify unannotated regions
 
@@ -186,25 +205,25 @@ Upload your GeSeq output (which you should have updated in steps 2, 3 and 4). Ch
 
 **Figure 1: An example output of OGDraw with a gap.** *The black arrow indicates a gap in annotated features where undiscovored proteins may exist. Taken from Pogoda et al. A guide to organellar genome assembly and annotation.*
 
-If you do see gaps of > 300 base pairs, write down the coordinates (you can for example look at the coordinates of the features on both ends of the gap) and proceed to the next step. Should you have no gap at all, save the output of OGDraw (you will need to submit it).
+If you do see gaps of > 300 base pairs, write down the coordinates (you can for example look at the coordinates of the features on both ends of the gap) and proceed to the next step. Should you see no gaps at all, save the output of OGDraw (you will need to submit it).
 
 ### Step 6: Look for open reading frames (ORF) with ORFfinder
 
-We are going to use a last annotation tool, [ORFfinder](https://www.ncbi.nlm.nih.gov/orffinder/), to find putative genes (open reading frames). In particular, we are going to investigate the gaps that you identified in Step 6. If you did not identify any gap, you can perform the analysis on the entire mitochondria.
+We are going to use a last annotation tool, [ORFfinder](https://www.ncbi.nlm.nih.gov/orffinder/), to find ***putative genes*** (Open Reading Frames). In particular, we are going to investigate the gaps that you identified in Step 6. 
+If you did not identify any specific gaps, you can instead perform the analysis by looking for ORFs over the lenght of the entire mitochondrial sequence.
 
-Go to [ORFfinder](https://www.ncbi.nlm.nih.gov/orffinder/) and copy your mitochondrial sequence. In Search parameters, choose 300 for the minimal ORF length, as it is unlikely that protein coding genes will be shorter than 300 base pairs. You also need to specify the genetic code; select between codes 2 and 5 depending on your species. Finally, in the "ORF start codon to use", choose " 'ATG' and alternative initiation codons". If you had identified gaps in the previous step, you can specify where the program should search ("From" and "To"). Submit the job.
++ Go to [ORFfinder](https://www.ncbi.nlm.nih.gov/orffinder/) and copy your mitochondrial sequence. In Search parameters, choose 300 for the minimal ORF length, as it is unlikely that protein coding genes will be shorter than 300 base pairs. You also need to specify the genetic code; select between codes 2 and 5 depending on your species. Finally, in the "ORF start codon to use", choose " 'ATG' and alternative initiation codons". 
+As mentioned before, if you identified gaps in the previous step - you can specify where exactly the program should search in ("From" and "To"). Submit the job.
++ If ORFfinder managed to find ORFs, you should see a lot of information. On the top of the results window you have a representation of the mitochondria (or of the region you specified) with the predicted ORFs. Take a look at them. How does their length vary? Do they all have the same orientation? (you know the orientation by looking at the white arrows on the red background) 
++ Below on the right, you can find a summary of the different ORFs. If you highlight one of the ORFs, its sequence (in amino acids) will be shown in the window on the left. 
++ Finally, below that left window, you can click on "SmartBLAST". This option can very quickly identify proteins in the ORFs. This is very useful and can help you decide whether an ORF is really a gene or not (if an ORF has no good hits, it suggests that maybe there is not really a gene there).
 
-If ORFfinder did find ORFs, you should see a lot of information. On the top of the results window you have a representation of the mitochondria (or of the region you specified) with the predicted ORFs. Have a look at them. How do their length vary? Do they all have the same orientation? (look at the white arrows on the red background) 
+**From now on, the instructions will differ depending on whether you looked at just a certain region of the mitochondria or the entire mitochondria.**
 
-Below on the right, you have a summary of the different ORFs. If you highlight one of the ORFs, its sequence (in amino acids) will be shown in the window on the left. Finally, below that left window, you can click on "SmartBLAST". This option can very quickly identify proteins in the ORFs. This is very useful and can help you decide whether an ORF is really a gene or not (if an ORF has no good hit, it suggests that maybe there is not really a gene there).
+### If you looked at a certain region/s:
 
-**From now on, the instructions will differ whether you looked at a certain region of the mitochondria or if you looked at the entire mitochondria.**
-
-### If you looked at smaller regions:
-
-Did ORFinder find anything? If it didn't, in any of the regions, run it again for the entire mitochondria and proceed to "If you looked at the entire mitochondria".
-
-If ORFfinder did find something, run SmartBLAST on the ORF(s). If the ORF has good hits, this suggest that there is really something in the gap. It is possible that ORFfinder identified several ORFs belonging to the same gene. You can add the new gene to your GeSeq output file. Copy the lines corresponding to an existing gene (both the "gene" and the "CDS" information) and paste it in the right location. Then modify the start and end of the gene, its name and, if you want, add the amino acids sequence. Repeat if you looked at more gaps. Finally, run OGDraw (see Step 5) on your modified GeSeq file. Save the output as you will need to submit it.
++ Did ORFinder find anything? If it didn't, in any of the regions, run it again for the entire mitochondria and proceed to "If you looked at the entire mitochondria".
++ If ORFfinder did find something, run SmartBLAST on the ORF(s). If the ORF has good hits, this suggest that there is really something in the gap. It is also possible that ORFfinder identified several ORFs belonging to the same gene. You can go ahead and add the new gene to your GeSeq output file. Copy the lines corresponding to an existing gene (both the "gene" and the "CDS" information) and paste it in the right location. Then modify the start and end of the gene, its name and, if you want, add the amino acids sequence. Repeat the steps above if you specified more than one gap for ORFfinder to look into. Finally, run OGDraw (see Step 5) on your modified GeSeq file. Save the output as you will need to submit it.
 
 **Question 7 (alternative 1). What are the new genes identified by ORFfinder?**
 
