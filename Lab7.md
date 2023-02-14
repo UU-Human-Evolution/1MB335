@@ -44,59 +44,8 @@ For this Session, we are going to use the files that we created in the previous 
 
 ### Step 1a:
 
-The first step is to do a Multiple Alignment. As our mitochondrial sequences are considerably bigger than the single gene ones, we will submit them as an independent job to Rackham, as we did in Session 5. However, today we are going to use the other method to submit a job using `sbatch`: 
- **a script**.
-It should look like this:
-
-```
-#!/bin/bash -l
-#SBATCH -A uppmax2022-2-2
-#SBATCH -p core
-#SBATCH -n 1
-#SBATCH -t 45:00
-#SBATCH -J align_mt 
-#SBATCH -o align_mt.output 
-#SBATCH -e align_mt.output 
-#SBATCH --mail-user youremailforUppmax 
-#SBATCH --mail-type=END,FAIL
-
-module load bioinfo-tools MAFFT/7.407
-
-YOUR MAFFT COMMAND
-exit 0
-```
-
-
-Open nano (or another text editor on Uppmax) and paste in the text above (with the correct changes of course) then save it to a good filename, such as `run_mafft.sh`.
-`.sh` is often use for shell scripts, such as sbatch.
-
-
-Now, look at the `sbatch` bits. Look familiar? Yes, they are the same (almost) parameters that we used in Session 5, but this time we are imputing them inside the script, instead of specifying them when we call `sbatch`. Remember to change **youremailforUppmax** and **YOUR MAFFT COMMAND** for your own email and command, respectively.
-
-```
-#SBATCH -o align_mt.output 
-#SBATCH -e align_mt.output 
-```
-Will tell slurm to take anything that would normally be printed to the screen and save it to the file `align_mt.output`.
-IF you want to reuse this script later it might be a good idea to change this variable.
-
-Now, in order to submit the job, just use this code:
-
-```
-sbatch -M snowy SCRIPT_NAME
-```
-
-If you want to check that your job has been submitted and in which state it is, use this command:
-
-```
-jobinfo -M snowy -u YOUR_UPPMAX_USER
-```
-
-Comment: if the job has finished, you won't see anything. In that case, check your emails!
-
-### Step 1b:
-
-Now open an interactive session and run the same `mafft` command with your CytB sequences. You should thus not submit this as an `sbatch`-job as it will proably take less than a minute to run.
+The first step is to do a Multiple Alignment. As we have two different files (of quite different sizes), we recommend that you work in two terminal windows. 
+We are going to run MAFFT the same way we did in Lab5, but this time we need to produce an ordered FASTA alingment (be careful not to mix it with your other fasta files). We'll do this for both the whole mitochondria and the 16S datasets. 
 
 ### Step 2:
 
@@ -112,11 +61,8 @@ Once we have the alignment, we can proceed to inferring which of all the possibl
 
 The last two are the state-of-the-art methods for phylogenetic analysis, and have become more and more popular as computing power has increased, as both methods are very demanding in that regard. 
 
-For our project, we are going to use an implementation of the Maximum Likelihood approach called [IQ-TREE](http://www.iqtree.org/doc/Tutorial#first-running-example). This software offers several methods to speed up the analysis. To load the module:
+For our project, we are going to use an implementation of the Maximum Likelihood approach called [IQ-TREE](http://www.iqtree.org/doc/Tutorial#first-running-example) and one of the most popular tools for Bayesian Phylogenetic Inference, [BEAST2](https://www.beast2.org/). We'll start with IQ-Tree, as this software offers several methods to speed up the analysis. 
 
-```
-module load iqtree/1.6.5-omp-mpi
-```
 As we mentioned earlier, any Maximum Likelihood approach is based on a model. In phylogenetics, this model describes the probability of each substitution to happen. [Here](http://evomics.org/resources/substitution-models/nucleotide-substitution-models/) you can find a list of the more common models, and [here](http://www.iqtree.org/doc/Substitution-Models) the ones that are implemented in IQ-TREE. 
 ![Substitution model representation](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fnrg3186/MediaObjects/41576_2012_Article_BFnrg3186_Fig1_HTML.jpg?as=webp)
 
@@ -150,6 +96,54 @@ Now let's look at the *.iqtree* file.
 **Question 4: Now look at both your Maximum Likelihood tree and Consensus Tree. Are they the same? If not, where do they differ?** 
 
 **Question 5: In both trees you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question?**
+
+### Step3:
+BEAST2 is a program for doing Bayesian phylogenetic analysis. The program uses a Markov Chain Monte Carlo (MCMC) method for exploring the parameter space in a stepwise fashion. Each new step is either accepted or rejected based on the change in likelihood. The posterior probability for each parameter is based on the frequency with which the parameter values are observed.
+
+The first step is to decompress it.
+
+`tar fxz ./SRC/BEAST.v2.6.7.Linux.tgz`
+
+To start BEAST2 apps, type
+
+`PATH_TO_BEAST_FOLDER/beast/bin/beast`
+
+BEAST2 uses different GUI apps for the different steps, so we will need to change
+the name of the app accordingly.
+
+
+Its input files are in the NEXUS or FASTA alignment format. You will work on your own two datasets (in nexus format). The first step is to create an XML file with the settings for our BEAST run. This is done with BEAUTi
+
+`./SRC/beast/bin/beauti`
+
+Once the new window pops up, you have to import the alignment file. We want to do this for **both our alignments**. You can do it from the *File/ Import Dataset* menu or by clicking in the "+" symbol in the lower left corner.
+Once you have the alignment loaded, we need to specify the settings we are going to run BEAST with. BEAUTi offers a lot of different options, and we can even subdivide our alignment to apply different models to different regions, estimate split times, etc.
+
+However, as we are only interested on reconstructing the phylogeny of our sequences, we are going to modify only a few of the settings.
+The first one is the Evolution Model, which can be done through the Site Model tab. As we are going to use the same model IQTree selected, and BEAST only have integrated models for JC69, TN93, HKY and GTR, you may need to modify one of these to adapt it to your actual model. This can be done by modifying the XML file (explained here: https://beast.community/custom_substitution_models) or from BEAUTi by following this table (source: https:// justinbagley.rbind.io/2016/10/11/setting-dna-substitution-models-beast/)
+
+![BEAST Model Setup table](./Figures/BEAST2-model-setup.png)
+
+If your model has some other letters, like "+I" or "+R", you can find what they mean here: http:// www.iqtree.org/doc/Substitution-Models and modify the settings accordingly.
+Once we have everything set up in the Site Model, we move to the Priors tab, select Yule Model, and as a birth rate a Gamma distribution with an Alpha (shape) of 0.001 and a Beta (scale) of 1000.
+The last step is to go to the MCMC tab to specify how many steps the MCM chain will take before stopping. This should be set to, at least, 100000.
+Once this is done, we can save the XML file and close BEAUTi.
+
+Once we have our XML file, we can run BEAST2. For this session, we are **only going to run it on the cytB alignment**. Once the window pop, select the XML file, set a
+random seed (keep seeds consistent for reproducibility) and check the "Use BEAGLE library if
+available". This last step will make your analysis faster.
+Then click on "Run" to start.
+
+We'll run the mitochondrial alignment and check the results for both in the next session. 
+
+#####Question 5: 
+**Which setup did you use in BEAST2?** 
+
+
+####OPTIONAL:
+BEAST offers many other options and tools to be sure our estimates are appropriate that were left out from this tutorial because the fall out of our scope, but if anyone is interested, you can check the tutorials in the software webpage or this great introduction https://taming-the-beast.org/tutorials/Introduction-to-BEAST2/
+
+
 
 # REPORT
 
