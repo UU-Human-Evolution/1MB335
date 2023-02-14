@@ -35,6 +35,7 @@ So, with this in our minds, let's get going.
 ## Tools
 + Alignment program: [mafft](https://mafft.cbrc.jp/alignment/software/)
 + Maximum Likelihood  program: [IQTree](http://www.iqtree.org/)
++ Bayesian Inference program: [BEAST2](https://www.beast2.org/)
 
 ## Details
 
@@ -81,7 +82,7 @@ Under OUTGROUP you should put the name of your outrgroup as they appear in the a
 
 ```
 
-Now run IQ-TREE in your interactive session with the CytB data, and set your model to *-m MFP*. *MFP* stands for ModelFinder Plus, and is an algorithm that automatically considers a list of substitution models and estimates which is the one that fits our data better. *-bb 1000* means that we want our algorithm to use [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)). **Once the alignment of the whole mitochondrial dataset is done, run IQ-TREE on that dataset via `sbatch`.** Remember to adapt the script above to run IQ-TREE (keep the module *bioinfo-tools*) and be careful to not over-write your files. 
+Now run IQ-TREE in your interactive session with the CytB data, and set your model to *-m MFP*. *MFP* stands for ModelFinder Plus, and is an algorithm that automatically considers a list of substitution models and estimates which is the one that fits our data better. *-bb 1000* means that we want our algorithm to use [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)). **Once the alignment of the whole mitochondrial dataset is done, run IQ-TREE on that dataset. Remember to adapt the command above to run IQ-TREE and be careful to not over-write your files. 
 
 All the questions below refer only to the CytB output.
 
@@ -136,7 +137,7 @@ Then click on "Run" to start.
 
 We'll run the mitochondrial alignment and check the results for both in the next session. 
 
-#####Question 5: 
+#####Question 6: 
 **Which setup did you use in BEAST2?** 
 
 
