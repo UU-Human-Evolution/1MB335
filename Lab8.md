@@ -9,12 +9,13 @@ This is the last session of the bioinformatics project (and of the course). You 
 
   + Further your understanding of your results
   + Plot trees with a visualization software
-  + Answer the question you were given in Session 5
+  + Answer the question you were given in Session 6
   
 ## Input(s)
 
-  + The trees generated in Sessions 6 and 7
-  + The name conversion tables generated in Session 5
+  + The alignment for the mitochondria from session 7
+  + The trees generated in Sessions 7
+  + The name conversion tables generated in Session 6
 
 ## Output(s)
 
@@ -22,15 +23,16 @@ This is the last session of the bioinformatics project (and of the course). You 
 
 ## Tool(s)
 
+  + BEAST
   + FigTree, a phylogenetic tree visualization software
-  + DensiTree
+  + DensiTree, another phylogenetic tree visualization software
 
 ## Details
 
 ### Step 1: Run the BEAST2 analysis on the MT data
 Repeat the steps followed on Session 7 to run BEAST2, but this time use the mitochondrial alignment instead. This is going to take some time, so move to the next step once BEAST2 is running.
 
-### Step 2: Examine the IQTree and BEAST2 outputs for the mitochondria
+### Step 2: Examine the IQTree output for the mitochondria
 
 In Session 7 you performed a Maximum Likelihood and Bayesian analysis  on two alignments: *cytB* and entire *mitochondria*. You answered  questions relative to the *cytB* run. Now, answer these same questions for the mitochondria run. You might be asked about these during the presentation.
 
@@ -51,7 +53,7 @@ Now let's look at the .iqtree file.
 
 2. **In both trees you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question?**
 
-### Step 3a: Create a visual representation of your  Neighbour Joining and Maximum Likelihood trees
+### Step 3a: Create a visual representation of your Maximum Likelihood trees
 
 In the .iqtree file, you have a representation of the trees. However, it is an unrooted tree. You can root the tree, and do many other things, with the program FigTree.
   
@@ -63,7 +65,7 @@ The three important things you have to do are:
   2. Show the bootstrap values (using `Branch labels` or `Node labels` and selecting the right value to display)
   3. Make sure the tree can be easily understood. For example, you might need to change the name of the species, if you are using the short names that you created in [Session 6](Lab6.md). 
 
-You can use the script we used in Session 6 to change the names in your treefiles.
+You can use the script you created in Session 6 to change the names in your treefiles.
 Once you are done with those, you can play around with the other options (for example Rotate & Different type of trees).
 
 Before you export your tree, think on what else you can do to show your results better. Look on Google for actual published trees, like this ones.
