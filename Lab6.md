@@ -5,7 +5,7 @@ Note that this is meant to be done in pairs, so find a partner in the group you 
 
 We (the lab assistants) will help and guide you through the assembly of your dataset so that you end up with a suitable dataset, but ultimately the choice of samples is yours. 
 
-We made a checklist to help you when a command does not do what you expect it to do [here](Troubleshooting_checklist.md). It includes instructions to use `SFTP` to transfer files to and from Uppmax.
+We made a checklist to help you when a command does not do what you expect it to do [here](Troubleshooting_checklist.md). It includes instructions to use `SFTP` to transfer files to and from Solander.
 
 
 ## Questions:
@@ -130,4 +130,4 @@ Please submit the answer to Question 1 (text) and to Question 2 (a Python script
 
 This is the end of the lab, please make sure that you completed and wrote down the answers to all of the questions.
 Upload the **scripts** (code) that you were asked to submit to studium **in the original format** (i.e. .py or .sh), no `pdf` or word files! Any answers that are not code should of course be in text formats such as `.pdf, .txt & .docx`.
-Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them. This goes for both the Unix computers and Uppmax.
+Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them. This goes for both the Unix computers and Solander.
