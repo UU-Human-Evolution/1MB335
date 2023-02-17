@@ -154,4 +154,4 @@ Submit a file with the answers to all the questions and the *.iqtree* file for t
 
 This is the end of the lab, please make sure that you completed and wrote down the answers to all of the questions.
 Upload the **scripts** (code) that you were asked to submit to studium **in the original format** (i.e. .py or .sh), no `pdf` or word files! Any answers that are not code should of course be in text formats such as `.pdf, .txt & .docx`.
-Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them. This goes for both the Unix computers and Uppmax.
+Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
