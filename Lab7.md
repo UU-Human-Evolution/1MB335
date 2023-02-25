@@ -153,8 +153,7 @@ Once we have everything set up in the Site Model, we move to the **Priors tab**,
 
 As we said earlier, you are running this for the CytB alignment. We'll run the mitochondrial alignment and check the results for both in the next session. 
 
-**Question 6: 
-**Which setup did you use in BEAST2?** 
+**Question 6: Which setup did you use in BEAST2?** 
 
 **OPTIONAL**:
 BEAST offers many other options and tools to be sure our estimates are appropriate that were left out from this tutorial because the fall out of our scope, but if anyone is interested, you can check the tutorials in the software webpage or this great introduction https://taming-the-beast.org/tutorials/Introduction-to-BEAST2/
