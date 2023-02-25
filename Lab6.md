@@ -61,7 +61,7 @@ This will help you later to reflect upon the question and your results. It also 
 
 ## Getting the sequences
 This should be familiar to you, since you have had to find and download sequences before.
-Your task is to gather the full mitochondrial genomic sequences for your species as well as the gene *CytB* (Cytochrome b). You should thus have two fasta files per species!
+Your task is to gather the full **mitochondrial** genomic sequences for your species as well as the gene **CytB** (Cytochrome b). You should thus have two fasta files per species!
 
 #### Method A - preferred
 * Go to the [NCBI browser for organelles genomes](https://www.ncbi.nlm.nih.gov/genome/browse#!/organelles/). 
