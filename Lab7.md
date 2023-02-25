@@ -132,7 +132,7 @@ You will work on your own two datasets (in nexus format).
 
 However, as we are only interested on **reconstructing the phylogeny** of our sequences, we are going to **modify only a few of the settings**.
 
-- The first one is the Evolution Model, which can be done through the Site Model tab. 
+- The first one is the Evolution Model, which can be done through the **Site Model tab**. 
 - As we are going to use the same model IQTree selected and BEAST only has integrated models for JC69, TN93, HKY and GTR, you **may need to modify one of these** to adapt it to your actual model. This can be done by modifying the XML file (explained here: https://beast.community/custom_substitution_models) or from BEAUTi by following this table (source: https:// justinbagley.rbind.io/2016/10/11/setting-dna-substitution-models-beast/)
 
 ![BEAST Model Setup table](./Figures/BEAST2-model-setup.png)
@@ -153,10 +153,10 @@ Once we have everything set up in the Site Model, we move to the **Priors tab**,
 
 As we said earlier, you are running this for the CytB alignment. We'll run the mitochondrial alignment and check the results for both in the next session. 
 
-#####Question 6: 
+**Question 6: 
 **Which setup did you use in BEAST2?** 
 
-####OPTIONAL:
+**OPTIONAL**:
 BEAST offers many other options and tools to be sure our estimates are appropriate that were left out from this tutorial because the fall out of our scope, but if anyone is interested, you can check the tutorials in the software webpage or this great introduction https://taming-the-beast.org/tutorials/Introduction-to-BEAST2/
 
 
