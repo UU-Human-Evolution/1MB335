@@ -94,7 +94,9 @@ Once you found all the sequences for your dataset, you will need to put them tog
 
 ## Create a name conversion file.
 
-Create two (one for the mitochondrial sequences and one for *cytB*) **tab-separated** files with three columns. I.e. there should be a tab charachter `\t` between each column.
+Create two different files (one for the mitochondrial sequences and one for *cytB*). Both files are to be **tab-separated** into three columns. 
+(I.e. there should be a tab charachter `\t` between each column.) 
+
 The files should contain one row for each sequence in your data set, including: 
 
  * a maximum 8-character short-name (enough for you to identify it: e.g. c\_Vurs or mt\_Vurs)
@@ -109,17 +111,20 @@ N_nean	cytB_Homo_Neanderthalensis	NC_004571.2 Homo Neanderthalensis mitochondrio
   ```
 
 
-**Question 2** Now you should write a Python script that takes one of your merged fasta file as input (which has one of the three types of headers in the conversion table), as well as your conversion table, and then can switch between the three different header types. Your script should for this task change the original file you send in, not create a new fasta file!
+**Question 2** Now you should write a Python script that: 
+- takes one of your merged fasta file as input (which at that point has one of the three types of headers in the conversion table);
+- uses your conversion table;
+- and has the option to switch between the three different header types, depending on your choice (short name/easy name/full header). It should be able to change which types of header is saved by an **option from the user**, from one to another and back again; 
+- your script should be able to change the original file you send in and should not create a new fasta file!
 
 
-* Further clarification, it should be able to change wich types of header is saved by an option from the user, from one to another and back again.
-
+* Further clarification, 
+Hints: 
+- When your script is reading the table **remember that your columns are tab separated**, you can use that to differentiate between your different columns. 
+- Remember that you can `sys.argv` to get inputs from the commandline.
 
 
 Submit the script, the two conversion tables and one of the fasta files for *cytB*.
-
-Tip: When your script is reading the table remember that your columns are tab separated, you can use that differentiate between your different columns. 
-Remember that you can `sys.argv` to get inputs from the commandline.
 
 
 ## REPORT
