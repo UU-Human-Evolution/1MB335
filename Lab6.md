@@ -117,9 +117,7 @@ N_nean	cytB_Homo_Neanderthalensis	NC_004571.2 Homo Neanderthalensis mitochondrio
 - and has the option to switch between the three different header types, depending on your choice (short name/easy name/full header). It should be able to change which types of header is saved by an **option from the user**, from one to another and back again; 
 - your script should be able to change the original file you send in and should not create a new fasta file!
 
-
-* Further clarification, 
-Hints: 
+**Hints**: 
 - When your script is reading the table **remember that your columns are tab separated**, you can use that to differentiate between your different columns. 
 - Remember that you can `sys.argv` to get inputs from the commandline.
 
