@@ -88,7 +88,7 @@ If you have multiple outgroups you can separate them with a comma (make sure to 
 
 ```
 
-Now run IQ-TREE in your **interactive session** with the CytB data, and set your model to *-m MFP*. 
+Now run IQ-TREE in your open terminal with the CytB data, and set your model to *-m MFP*. 
 - *MFP* stands for ModelFinder Plus, and is an algorithm that automatically considers a list of substitution models & estimates which model is the one that fits our data better. 
 - *-bb 1000* means that we want our algorithm to use [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)). 
 
