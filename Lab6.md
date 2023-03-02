@@ -36,11 +36,13 @@ _By Ngilbert202 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.
 The test in the above figure would have been to see if `C` is more related to `B` or to `D`, and the answer would then be that `C` is closer to`D` (they share one more common ancestor). 
 
 If you are unsure what would be an appropriate outgroup for your question, ask us!
+*Hint! - Look at the phylogenetic tree. The outgroup should be outside of the clade you are comparing (or the question you are answering) but you don't need to go too far. If you pick a very distantly related group the analysis will probably take very long! For example, if you are working on placental mammals, you can go outside of placental mammals for the outgroup.*
 
 * **Question 3**: You will of course need some whales and dugongs but also several different clades of landliving mammals to determine the potential closest relatives.
 
-* **Question 5**:  In order to be able to answer this question you will need to have species from _several_ different distinct lineages as well as a few squids/octopuses. 
+* **Question 5**:  In order to be able to answer this question you will need to have species from _several_ different distinct lineages as well as a few squids/octopuses. For example, clams, mollucs, sea slugs, the nautilus...all good choices to include!
 
+* **Question 7** Try to add the Pallas's cat. It might be an interesting one!
 
 **N.B.** Since you are going to produce quite a lot of files, try to use self-explanatory files names and a good structure of folders. It will make your work easier. It might be a good idea to write a short description about how the archive is organized and where the files are (trees, scripts, alignments and so forth).
 
@@ -121,6 +123,7 @@ N_nean	cytB_Homo_Neanderthalensis	NC_004571.2 Homo Neanderthalensis mitochondrio
 - When your script is reading the table **remember that your columns are tab separated**, you can use that to differentiate between your different columns. 
 - Remember that you can `sys.argv` to get inputs from the commandline.
 
+*Hint* It's probably a good idea to create a mock fasta file and a mock conversion table, on which you can test your code. Something that is short and simple to analyze.
 
 Submit the script, the two conversion tables and one of the fasta files for *cytB*.
 
