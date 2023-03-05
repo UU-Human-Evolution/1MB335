@@ -48,7 +48,7 @@ For this Session, we are going to use the files that we created in the previous 
 The first step is to do a **Multiple Alignment**. 
 As we have two different files (of quite different sizes), we recommend that you work in two terminal windows. 
 
-We are going to run MAFFT the same way we did in Lab5, but this time we need to produce an **ordered FASTA alingment** (be careful not to mix it with your other fasta files). 
+We are going to run MAFFT the same way we did in Lab5, but this time we need to produce an ordered **FASTA alingment** So make sure you pick the right option in MAFFT. Also be careful not to mix it with your other fasta files. 
 
 We'll do this for both **the whole mitochondria** and the **CytB** datasets. 
 
