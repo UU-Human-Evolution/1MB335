@@ -4,27 +4,27 @@
 Since the eve of Biology as a field of Science, one of the key questions has been how do the different organisms we see today relate to each other, and how they evolved. In the old days, we used anatomical similarities (also known as [homologies](https://en.wikipedia.org/wiki/Homology_(biology))) and dissimilarities to try to reconstruct their evolutionary history. 
 ![Example of Homologies](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Homology_vertebrates-en.svg/1280px-Homology_vertebrates-en.svg.png)
 
-With the dawn of genetic sequencing and the genomic era, we can now establish those relationships with quite more certainty and in a less biased way. Using genetic data for inferring thees relationships is known as Phylogenetics, and it is the "gold-standard" to stablish the relationship between modern species. 
+With the dawn of genetic sequencing and the genomic era, we can now establish those relationships with quite more certainty and in a less biased way. The practice of using genetic data to infer these relationships is known as Phylogenetics, and it is the "gold-standard" for establishing the relationship between modern species. 
 
 ### The Base of Phylogenetic Analysis 
-The basic idea behind it all is quite simple: as species diverge over time, they accumulate mutations that the other groups don't share. So, when comparing several sequences, the bigger the number of differences between them, the larger the time since their common ancestor. However, this simple idea gets complicated quite soon, as we are working with really long sequences and, in some cases, long periods of time. This means that we will need to use robust statistical modeling in order to infer these relationships, that we will represent as a [phylogenetic tree](https://en.wikipedia.org/wiki/Phylogenetic_tree).
+The basic idea behind it all is quite simple: as species diverge over time, they accumulate mutations that the other groups don't share. So, when comparing several sequences, the bigger the number of differences between them, the larger the time since their common ancestor. However, this simple idea gets complicated quite soon, as we are working with really long sequences and, in some cases, long periods of time. This means that we will need to use robust statistical modeling in order to infer these relationships, which we will represent as a [phylogenetic tree](https://en.wikipedia.org/wiki/Phylogenetic_tree).
 
 ![Phylogenetic tree from Ersmark et al. 2016](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Phylogenetic_tree_for_wolves.jpg/468px-Phylogenetic_tree_for_wolves.jpg)
 
 *Phylogenetic tree from Ersmark et al. 2016: https://doi.org/10.3389/fevo.2016.00134*
 
-Each tree is a hypothesis of the relationship between our sequences, and our goal is to identify, from all the possible trees, the one that is most likely to be true according to our data. This may vary depending on the region you are looking at, the models that you use or how you preprocess and align your sequences. 
+Each tree is a hypothesis of the relationship between our sequences, and our goal is to identify (from all the possible trees), the one that is most likely to be true tree, according to our data. This may vary depending on the region you are looking at, the models you are using or how you preprocess and align your sequences. 
 
-So, with this in our minds, let's get going. 
+So, with this in our minds, let's get going... 
 
 ## Goals
-+ Align our sequences from Session 6 
-+ Test which substitution model works better with our data
-+ Work with IQTree and learn how to extract information from its output
-+ Create a phylogenetic tree meaningful for our project's question
++ Align our sequences from Session 6;
++ Test which substitution model works better with our data;
++ Work with IQTree and learn how to extract information from its output;
++ Create a phylogenetic tree that is meaningful for our project's question;
 
 ## Input
-+ Fasta sequences of the complete mitochondrial DNA and CytB that we curated on Lab 6
++ Fasta sequences of the complete **mitochondrial DNA** and **CytB** that we curated in Lab 6
 
 ## Output(s)
 + Multiple Alignment of the complete mitochondria
@@ -39,18 +39,22 @@ So, with this in our minds, let's get going.
 
 ## Details
 
-For this Session, we are going to use the files that we created in the previous one. Make sure you followed the instructions properly and that you have all the files located. 
+For this Session, we are going to use the files that we created in the previous lab. Make sure you followed the instructions properly and that you have all the files you require at hand. 
 
 **It's also a good idea to use the script you created in session 6 to change to one of the shorter names in your fastafile!**
 
 ### Step 1a:
 
-The first step is to do a Multiple Alignment. As we have two different files (of quite different sizes), we recommend that you work in two terminal windows. 
-We are going to run MAFFT the same way we did in Lab5, but this time we need to produce an **ordered FASTA alingment** (be careful not to mix it with your other fasta files). We'll do this for both **the whole mitochondria** and the **16S datasets**. 
+The first step is to do a **Multiple Alignment**. 
+As we have two different files (of quite different sizes), we recommend that you work in two terminal windows. 
+
+We are going to run MAFFT the same way we did in Lab5, but this time we need to produce an **ordered FASTA alingment** (be careful not to mix it with your other fasta files). 
+
+We'll do this for both **the whole mitochondria** and the **16S datasets**. 
 
 ### Step 2:
 
-Once we have the alignment, we can proceed to inferring **which of all the possible trees is the most likely**. 
+Once we have the alignment, we can proceed to inferring **which tree, of all the possible trees, is the most likely one**. 
 There are several methods to do this:
 
 + [Parsimony](https://www.mun.ca/biology/scarr/2900_Parsimony_Analysis.htm): "**the simplest explanation that can explain the data is to be preferred**", so the hypothesis with the smallest number of changes is the most likely. 
@@ -70,18 +74,18 @@ For our project, we are going to use:
 
 We'll start with IQ-Tree, as this software offers several methods to speed up the analysis. 
 
-As we mentioned earlier, any Maximum Likelihood approach is based on a model. In phylogenetics, this model describes the probability of each substitution to happen. [Here](http://evomics.org/resources/substitution-models/nucleotide-substitution-models/) you can find a list of the more common models, and [here](http://www.iqtree.org/doc/Substitution-Models) the ones that are implemented in IQ-TREE. 
+As we mentioned earlier, any Maximum Likelihood approach is **based on a model**. In phylogenetics, this model **describes the probability of each substitution to happen**. [Here](http://evomics.org/resources/substitution-models/nucleotide-substitution-models/) you can find a list of the more common models, and [here](http://www.iqtree.org/doc/Substitution-Models) the ones that are implemented in IQ-TREE. 
 ![Substitution model representation](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fnrg3186/MediaObjects/41576_2012_Article_BFnrg3186_Fig1_HTML.jpg?as=webp)
 
 *Graphical representation of some substitution models from Yang & Rannala, 2012. Nature Reviews Genetics: https://doi.org/10.1038/nrg3186*
 
-Now that we have a general picture of what we are doing, lets start working with IQ-TREE. The basic syntax for this software is:
+Now that we have a general picture of what we are doing, let's start working with IQ-TREE. The basic syntax for this software is:
 
 ```
 iqtree -s ALIGNMENT -o OUTGROUP -m MODEL -pre OUTPUT_PREFIX -bb 1000
 ```
 Under OUTGROUP you should put the **name of your outgroup** as they appear in the alignment file. 
-If you have multiple outgroups you can separate them with a comma (make sure to have no spaces as separators!) eg;
+If you have multiple outgroups you can separate them with a comma (**make sure to have no spaces as separators!**) eg;
 
 ```
 -o c_Vurs,H_sap
@@ -109,9 +113,10 @@ Now let's look at the *.iqtree* file.
 **Question 5: In both trees you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which one is your least supported branch? What does that mean in relation to your question?**
 
 ### Step 3:
+
 BEAST2 is a program for doing Bayesian phylogenetic analysis. The program uses a Markov Chain Monte Carlo (MCMC) method for exploring the parameter space in a stepwise fashion. Each new step is either accepted or rejected based on the change in likelihood. The posterior probability for each parameter is based on the frequency with which the parameter values are observed.
 
-The first step is to decompress it.
+The first step is to **decompress** it.
 
 `tar fxz ./SRC/BEAST.v2.6.7.Linux.tgz`
 
@@ -119,25 +124,29 @@ To start BEAST2 apps, type
 
 `PATH_TO_BEAST_FOLDER/beast/bin/beast`
 
-BEAST2 uses different GUI apps for the different steps, so we will need to change the name of the app accordingly.
+BEAST2 uses different GUI (Graphical User Interface) apps for the different steps, so we will need to change the name of the app accordingly.
 
 The input files for BEAST2 are in the NEXUS or FASTA alignment format. 
-You will work on your own two datasets (in nexus format). 
-- The first step is to create an **XML file** with the settings for our BEAST run. This is done with BEAUTi:
+You will work on your own two datasets (**in nexus format**). 
+- The first step is to create an **XML file** with the settings for our BEAST run. This is done with **BEAUTi**:
 
 `./SRC/beast/bin/beauti`
 
-- Once the new window pops up, you have to import the alignment file. We want to do this for **both our alignments**. You can do it from the *File/ Import Dataset* menu or by clicking in the "+" symbol in the lower left corner.
-- Once you have the alignment loaded, we need to specify the settings we are going to run BEAST with. BEAUTi offers a lot of different options, and we can even subdivide our alignment to apply different models to different regions, estimate split times, etc.
+- Once the new window pops up, you have to **import the alignment file**. 
+- We want to do this for **both our alignments**. You can do it from the *File/ Import Dataset* menu or by clicking in the "+" symbol in the lower left corner.
+- Once you have the alignment loaded, we need to **specify the settings we are going to run BEAST with**. BEAUTi offers a lot of different options, and we can even subdivide our alignment to apply different models to different regions, estimate split times, etc.
 
 However, as we are only interested on **reconstructing the phylogeny** of our sequences, we are going to **modify only a few of the settings**.
 
 - The first one is the Evolution Model, which can be done through the **Site Model tab**. 
-- As we are going to use the same model IQTree selected and BEAST only has integrated models for JC69, TN93, HKY and GTR, you **may need to modify one of these** to adapt it to your actual model. This can be done by modifying the XML file (explained here: https://beast.community/custom_substitution_models) or from BEAUTi by following this table (source: https:// justinbagley.rbind.io/2016/10/11/setting-dna-substitution-models-beast/)
+- As we are going to use the same model IQTree selected and BEAST only has a few integrated models built in (JC69, TN93, HKY and GTR), you **may need to modify one of these** to **adapt it to your actual model**. This can be done by:
+a) **modifying the XML file** (explained here: https://beast.community/custom_substitution_models) 
+b) **or from BEAUTi by following this table** (source: https:// justinbagley.rbind.io/2016/10/11/setting-dna-substitution-models-beast/)
 
 ![BEAST Model Setup table](./Figures/BEAST2-model-setup.png)
 
 If your model has some other letters, like "+I" or "+R", you can find what they mean here: http:// www.iqtree.org/doc/Substitution-Models and modify the settings accordingly.
+
 Once we have everything set up in the Site Model, we move to the **Priors tab**, 
 - select **Yule Model**, 
 - as a birth rate a **Gamma distribution** 
@@ -151,7 +160,7 @@ Once we have everything set up in the Site Model, we move to the **Priors tab**,
 - check the **"Use BEAGLE library if available"**. This last step will make your analysis faster.
 - Then click on "Run" to start.
 
-As we said earlier, you are running this for the CytB alignment. We'll run the mitochondrial alignment and check the results for both in the next session. 
+As we said earlier, you are running this for the CytB alignment. We'll be running the mitochondrial alignment and check the results for both in the next session. 
 
 **Question 6: Which setup did you use in BEAST2?** 
 
