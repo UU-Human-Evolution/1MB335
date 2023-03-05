@@ -140,7 +140,9 @@ However, as we are only interested on **reconstructing the phylogeny** of our se
 
 - The first one is the Evolution Model, which can be done through the **Site Model tab**. 
 - As we are going to use the same model IQTree selected and BEAST only has a few integrated models built in (JC69, TN93, HKY and GTR), you **may need to modify one of these** to **adapt it to your actual model**. This can be done by:
+
 a) **modifying the XML file** (explained here: https://beast.community/custom_substitution_models) 
+
 b) **or from BEAUTi by following this table** (source: https:// justinbagley.rbind.io/2016/10/11/setting-dna-substitution-models-beast/)
 
 ![BEAST Model Setup table](./Figures/BEAST2-model-setup.png)
