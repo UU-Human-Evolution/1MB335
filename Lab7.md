@@ -50,7 +50,7 @@ As we have two different files (of quite different sizes), we recommend that you
 
 We are going to run MAFFT the same way we did in Lab5, but this time we need to produce an **ordered FASTA alingment** (be careful not to mix it with your other fasta files). 
 
-We'll do this for both **the whole mitochondria** and the **16S datasets**. 
+We'll do this for both **the whole mitochondria** and the **CytB** datasets. 
 
 ### Step 2:
 
