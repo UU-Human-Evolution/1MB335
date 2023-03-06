@@ -126,11 +126,15 @@ To start BEAST2 apps, type
 
 BEAST2 uses different GUI (Graphical User Interface) apps for the different steps, so we will need to change the name of the app accordingly.
 
+In a new window login like this:
+
+`ssh -Y USERNAME@solander.ibg.uu.se`
+
 The input files for BEAST2 are in the NEXUS or FASTA alignment format. 
 You will work on your own two datasets (**in nexus format**). 
 - The first step is to create an **XML file** with the settings for our BEAST run. This is done with **BEAUTi**:
 
-`./SRC/beast/bin/beauti`
+`PATH_TO_BEAST_FOLDER/beast/bin/beauti`
 
 - Once the new window pops up, you have to **import the alignment file**. 
 - We want to do this for **both our alignments**. You can do it from the *File/ Import Dataset* menu or by clicking in the "+" symbol in the lower left corner.
