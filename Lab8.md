@@ -56,6 +56,8 @@ Now let's look at the .iqtree file.
 ### Step 3a: Create a visual representation of your Maximum Likelihood trees
 
 In the .iqtree file, you have a representation of the trees. However, it is an unrooted tree. You can root the tree, and do many other things, with the program FigTree.
+
+*If you can't get FigTree to work in terminal you can try downloading it from https://github.com/rambaut/figtree/releases and installing it locally on your computer.*
   
 When you call FigTree, a visual interface will open. In `File`, choose `Open` and select one of your Maximum Likelihood trees. If the software asks you to select a name for the labels on the tree, you can keep the default or choose a keyword, for example `bootstrap`. **Note that you do *not* want the `.iqtree`, that file is more of a logfile than an actual tree.**
 
