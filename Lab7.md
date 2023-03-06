@@ -116,9 +116,11 @@ Now let's look at the *.iqtree* file.
 
 BEAST2 is a program for doing Bayesian phylogenetic analysis. The program uses a Markov Chain Monte Carlo (MCMC) method for exploring the parameter space in a stepwise fashion. Each new step is either accepted or rejected based on the change in likelihood. The posterior probability for each parameter is based on the frequency with which the parameter values are observed.
 
+You can find BEAST here https://github.com/UU-Human-Evolution/1MB335/tree/master/SRC
+
 The first step is to **decompress** it.
 
-`tar fxz /home/martdahl/1MB438/SRC/BEAST.v2.6.7.Linux.tgz`
+`tar fxz pathtobeast/BEAST.v2.6.7.Linux.tgz`
 
 To start BEAST2 apps, type
 
