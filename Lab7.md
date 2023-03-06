@@ -138,6 +138,9 @@ You will work on your own two datasets (**in nexus format**).
 
 `PATH_TO_BEAST_FOLDER/beast/bin/beauti`
 
+*In case you can't get it to run, you can try downloading BEAST on your computer and running it locally*
+https://www.beast2.org/
+
 - Once the new window pops up, you have to **import the alignment file**. 
 - We want to do this for **both our alignments**. You can do it from the *File/ Import Dataset* menu or by clicking in the "+" symbol in the lower left corner.
 - Once you have the alignment loaded, we need to **specify the settings we are going to run BEAST with**. BEAUTi offers a lot of different options, and we can even subdivide our alignment to apply different models to different regions, estimate split times, etc.
