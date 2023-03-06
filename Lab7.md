@@ -118,7 +118,7 @@ BEAST2 is a program for doing Bayesian phylogenetic analysis. The program uses a
 
 The first step is to **decompress** it.
 
-`tar fxz ./SRC/BEAST.v2.6.7.Linux.tgz`
+`tar fxz /home/martdahl/1MB438/SRC/BEAST.v2.6.7.Linux.tgz`
 
 To start BEAST2 apps, type
 
