@@ -38,8 +38,11 @@ In Session 7 you performed a Maximum Likelihood and Bayesian analysis  on two al
 
 #####Question 1:
 **Which files do IQ-TREE output? Explain briefly what each of them is.**
+
+IQ-TREE creates several tipes of trees. In order to properly visualize your tree, you'll need to use specific software, as trees are not represented in a way we can easily understand in our files. In order to plot them, we are going to use [FigTree](SRC/FigTree_v1.4.4). Download it into your computer and run it the same way you run BEAST. 
+
 #####Question 2:
-**IQ-TREE creates several tipes of trees. Compare the *.bionj* tree with the ML tree. Are there any differences? If so, explain what they are and why do you believe they are there.**
+** Compare the *.bionj* tree with the ML tree. Are there any differences? If so, explain what they are and why do you believe they are there.**
 
 Now let's look at the .iqtree file.
 
