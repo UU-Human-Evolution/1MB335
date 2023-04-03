@@ -15,7 +15,7 @@ You will have to:
 
 
 ### Requirements
-Before starting, the [hidden\_word\_exercise.zip](hidden_word_exercise.zip) file with the exercise material must be downloaded to a Linux computer, and unpacked in your home directory. Use `unzip` on the command line to extract it: 
+Before starting, the [hidden\_word\_exercise.zip](hidden_word_exercise.zip) file with the exercise material must be downloaded to a Linux computer, and unpacked in your home directory. You can use `wget` to download it. Use `unzip` on the command line to extract it: 
 
 ```
 unzip hidden_word_exercise.zip  
