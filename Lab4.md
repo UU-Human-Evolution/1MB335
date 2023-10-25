@@ -3,8 +3,8 @@
 * use BLAST
 * we can't do too much annotation since that will only be in the lectures the week after this lab
 * Maybe pick one species from the dataset, and obtain some protein sequences for e.g. cytB, COX1, ND6
-* BLAST to find positions of the genes in the MT genome
-* check these positions in the alignment from Lab 3, do you notice any differences between this part of the alignment and other regions of the MT genome
+* blastx to find positions of the genes in the MT genome (or use all MT genomes as custom database?)
+* check these positions in the alignment from Lab 3, do you notice any differences between in the alignment quality around the boundaries
 * for those who want to replace sequences in their database: descibe BLAST option (last part of the session as we previously had in lab 6, `Method B`)
 
 ## OLD lab 3
