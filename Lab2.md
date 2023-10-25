@@ -42,7 +42,7 @@ _By Ngilbert202 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.
 The test in the above figure would have been to see if `C` is more related to `B` or to `D`, and the answer would then be that `C` is closer to`D` (they share one more common ancestor). 
 
 If you are unsure what would be an appropriate outgroup for your question, ask us!
-*Hint! - Look at the phylogenetic tree. The outgroup should be outside of the group you are comparing (or the question you are answering) but you don't need to go too far. For example, if you are comparing cats and dogs, you could use a bird as an outgroup. (the more distant your outgroup is, the longer some bioinformatic analyses will take)*
+*Hint! - Look at the phylogenetic tree. The outgroup should be outside of the group you are comparing (or the question you are answering) but you don't need to go too far. For example, if you are comparing cats and dogs, you could use a platypus as an outgroup. (the more distant your outgroup is, the longer some bioinformatic analyses will take)*
 
 **N.B.** Since you are going to produce quite a lot of files, try to use self-explanatory files names and a good structure of folders. It will make your work easier. It might be a good idea to write a short description about how the archive is organized and where the files are (trees, scripts, alignments and so forth).
 
