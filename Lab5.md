@@ -103,8 +103,6 @@ All the questions below **refer only to the CytB** output.
 
 Now let's look at the *.iqtree* file. 
 
-**HOW ARE THEY LOOKING AT THE TREES? JUST IN THE NEWICK FORMAT?**
-
 **Question 2: Which model did ModelFinder choose? From all the criteria calculated by this software, which one was used to determine the best-fitting model?**
 
 **Question 3: Briefly explain the best-fitting model.**
