@@ -49,7 +49,7 @@ Questions are numbered from 1 to 14. Submit answers to all the questions (you ca
 
 ### Step 2: Multiple alignments
 
-You will now be working with the sequences you have collected last time. This also means that the results will depend on your selection. An outcome of today could also be that you decide to replace certain sequences as the alignment indicates some issues with them (e.g. they are not covering the full length or seem to show many mismatches/gaps).
+You will now be working with the sequences you have collected last time. This also means that the results will depend on your selection. An outcome of today could also be that you decide to replace certain sequences as the alignment indicates some issues with them (e.g. they are not covering the full length or seem to show many mismatches/gaps). **During this session, we only perform the alignments, if you decide that you need to replace or add sequences, we will do that as part of Lab 4.**
 
 #### Step 2a: Align the entire mitochondria
 
