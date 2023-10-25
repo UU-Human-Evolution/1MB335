@@ -34,11 +34,6 @@ In this session, you will focus on alignments. As you have seen in the lecture, 
 
   + Step 1: Pairwise alignment exercise
   + Step 2: Multiple alignment exercise
-    + Step 2a: Identify the mitochondrial genomes
-    + Step 2b: Make a prediction about the alignment
-    + Step 2c: Prepare the input file for the alignment program
-    + Step 2d: Align the entire mitochondria
-    + Step 2e: Align the sequence for cytB
 
 ## Details
 
