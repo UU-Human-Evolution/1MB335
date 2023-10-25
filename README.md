@@ -1,3 +1,5 @@
+**NEEDS UPDATE**
+
 ## Overview of the sessions
 
 You are now starting a series of eight computer sessions (or labs), each lasting four hours. The overarching goals of these labs are to familiarize yourselves with modern bioinformatic tools and best practices, and to illustrate-by-doing the most important topics discussed in class. By completing all sessions and the final project, you will get a good idea of the work of bioinformaticians and biologists today. To improve the flow and the logic of each step in the bioinformatic workflow, we have designed most labs to be connected to each other; however, should you have troubles to complete one lab, we will help you (for example by providing intermediate results) so you are not penalized for the following sessions.
