@@ -1,6 +1,7 @@
 ### Ideas:
 * Work with the sequences from lab 2
 * use BLAST
+* we can't do too much annotation since that will only be in the lectures the week after this lab
 * Maybe pick one species from the dataset, and obtain some protein sequences for e.g. cytB, COX1, ND6
 * BLAST to find positions of the genes in the MT genome
 * check these positions in the alignment from Lab 3, do you notice any differences between this part of the alignment and other regions of the MT genome
