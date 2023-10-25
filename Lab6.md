@@ -13,7 +13,7 @@ This is the last session of the bioinformatics project (and of the course). You 
   
 ## Input(s)
 
-  + The alignment for the mitochondria from session 5
+  + The alignment for the mitochondria from session 3/5
   + The trees generated in Sessions 5
   + The name conversion tables generated in Session 2
 
@@ -22,9 +22,8 @@ This is the last session of the bioinformatics project (and of the course). You 
   + .pdf files of your trees
 
 ## Tool(s)
-
+  + IQ-TREE
   + FigTree, a phylogenetic tree visualization software
-  + DensiTree, another phylogenetic tree visualization software
 
 ## Details
 
