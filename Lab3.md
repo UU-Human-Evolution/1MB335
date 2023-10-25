@@ -28,6 +28,8 @@ In this session, you will focus on alignments. As you have seen in the lecture, 
   + Alignment program: [mafft](https://mafft.cbrc.jp/alignment/software/)
   + Alignment visualization program: clustalw / clustalx
 
+    **ARE WE ACTUALLY USING ALL OF THESE TOOLS?**
+
 ## Steps
 
   + Step 1: Pairwise alignment exercise
@@ -36,8 +38,7 @@ In this session, you will focus on alignments. As you have seen in the lecture, 
     + Step 2b: Make a prediction about the alignment
     + Step 2c: Prepare the input file for the alignment program
     + Step 2d: Align the entire mitochondria
-    + Step 2e: Align the sequence for the large mitochondrial ribosomal RNA (l-rRNA)
-    + Step 2f: Find a new l-rRNA sequence and align one more time
+    + Step 2e: Align the sequence for cytB
 
 ## Details
 
@@ -59,7 +60,7 @@ Finally, we will start by aligning your **full mitochondrial** genomes! We are g
 
 Aligning this set of mitochondrial genomes is a computationally intensive task. 
 
-In order to execute MAFFT, just type `mafft`. You will be asked several questions, among others: input file name, the output file name (include the file extension, `.clustal` in this case), output file format, algorithm. For the output file format, choose `clustal` (sorted). For the algorithm, choose `FFT-NS-1 (fast)`.
+In order to execute MAFFT, just type `mafft`. You will be asked several questions, among others: the input file name, the output file name (include the file extension, `.clustal` in this case), output file format, algorithm. For the output file format, choose `clustal` (sorted). For the algorithm, choose `FFT-NS-1 (fast)`.
 
 Once you have chosen all the options, the corresponding command-line will be printed on the screen.
 
@@ -71,7 +72,7 @@ Now, launch the alignment. It will take a while. In the meantime, you can work o
 
 Nowadays there is an abundance of genomic data available, for organelles and entire genomes, for a large number of species. This is why in this session and the bioinformatics project, you are aligning the entire mitochondria. However, for a long time, it was more common to work with alignments of single genes (and in some cases, for instance when exploring the diversity in a given environment, it is still a common approach). Aligning single genes might also be a good approach when working with diverse species. And of course, it is much faster!
 
-**add some text about cytB**
+**ADD SOME BIOLOGY ABOUT cytB**
 
 Proceed to the alignment with `mafft`. You can take the same command as the one you created when aligning for the entire genome.
 
@@ -104,7 +105,7 @@ By now the alignment of the entire mitochondria should be ready for you to look 
 
 Pairwise alignment tutorial: submit answers to all questions (you can number them 1-1, 1-2, etc).
 
-Multiple alignment: submit answers to questions 2-1 through 2-4. For Question 2-2 and 2-4, it can be useful to include a screenshot of what you saw. Only submit the alignment (clustal file) only if you could not show it to a teaching assistant.
+Multiple alignment: submit answers to questions 2-1 through 2-4. For Question 2-2 and 2-4, it can be useful to include a screenshot of what you saw. Only submit the alignment (clustal file) if you cannot show it to a teaching assistant.
 
 **SHOULD WE MAKE THEM PRODUCE FASTA FILES HERE OR ARE THEY ALIGNING THEM AGAIN IN LAB 5??**
 
