@@ -28,7 +28,7 @@ In this session, you will focus on alignments. As you have seen in the lecture, 
   + Alignment program: [mafft](https://mafft.cbrc.jp/alignment/software/)
   + Alignment visualization program: clustalw / clustalx
 
-    **ARE WE ACTUALLY USING ALL OF THESE TOOLS?**
+    **ARE WE ACTUALLY USING ALL OF THESE TOOLS? WHAT ABOUT JALVIEW**
 
 ## Steps
 
@@ -107,6 +107,6 @@ Pairwise alignment tutorial: submit answers to all questions (you can number the
 
 Multiple alignment: submit answers to questions 2-1 through 2-4. For Question 2-2 and 2-4, it can be useful to include a screenshot of what you saw. Only submit the alignment (clustal file) if you cannot show it to a teaching assistant.
 
-**SHOULD WE MAKE THEM PRODUCE FASTA FILES HERE OR ARE THEY ALIGNING THEM AGAIN IN LAB 5??**
+**SHOULD WE MAKE THEM PRODUCE FASTA FILES HERE OR ARE THEY ALIGNING THEM AGAIN IN LAB 5? DO WE ACTUALLY NEED CLUSTAL AND FASTA OR CAN WE USE FASTA FOR EVERYTHING?**
 
 ---
