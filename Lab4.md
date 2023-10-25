@@ -1,3 +1,11 @@
+### Ideas:
+* Work with the sequences from lab 2
+* use BLAST
+* Maybe pick one species from the dataset, and obtain some protein sequences for e.g. cytB, COX1, ND6
+* BLAST to find positions of the genes in the MT genome
+* check these positions in the alignment from Lab 3, do you notice any differences between this part of the alignment and other regions of the MT genome
+* for those who want to replace sequences in their database: descibe BLAST option (last part of the session as we previously had in lab 6, `Method B`)
+
 ## OLD lab 3
 
 You will receive a whole-genome assembly comprising nuclear and mitochondrial contigs of various sizes. Before you can start the annotation, you will need to reconstruct the mitochondrial genome, by identifying mitochondrial contigs and placing them in the right order so that they form a circular genome (we will work only with species with a circular mitochondrial genome). To do that, you will use different types of BLAST as well as a very useful command, `grep`. Moreover, you will need additional resources, which are described in the 'input' section. Once you have a circular genome, you will need to localize the canonical start (to orient the genome). After all of this is done, you will be all set for starting annotating in session 4!
