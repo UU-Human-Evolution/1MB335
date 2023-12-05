@@ -1,3 +1,56 @@
+During the last sessions, you collected and aligned mitochondrial sequences from databases that you will be using for the remaining sessions. Today, you will attempt to find genes in them using a simple similarity-based approach with BLAST.
+
+## Goals
+
+## Input(s)
+
+## Output(s)
+
+## Tools
+
+![](https://upload.wikimedia.org/wikipedia/commons/1/15/Map_of_the_human_mitochondrial_genome.svg)
+**Figure 2: Map of the Human mitochondira**
+By Emmanuel Douzery - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=46726514
+
+From the full mitochondrial genome sequences you collected in lab 2, select one species of interest (your choice!). Please check the Genbank entry for that sequence to make sure that it contains information about the start and end positions of the genes.
+
+**Question 1** What species did you select? Please record the ID of the Genbank entry.
+
+Now that you have a species that you want to focus on, we want to obtain protein sequences for three genes of interest. Protein sequences can be obtained from e.g. [UniProt](https://www.uniprot.org/). Search the database for the proteins *CytB*, *COX1* and *ND6*, and download each sequence into a separate FASTA file.
+
+We now want to search for these protein sequences in our mitochondrial genomes to identify the corresponding coding regions in that nucleotide sequence. For obvious reasons, we cannot directly align protein sequences with a nucleotide sequence as they are composed from a different alphabet and there are often alternative codons in the translation process, so the assignment of an amino acid to three nucleotides is ambiguous. [tblastn](https://ftp.ncbi.nlm.nih.gov/pub/factsheets/HowTo_BLASTGuide.pdf) is a handy tool for this purpose as it takes a protein sequence as input and compares this to a nucleotide database. As part of the process, the nucleotides in the database are translated into hypothetical proteins using all six possible reading frames.
+
+We want to compare the proteins to the specific sequences you collected earlier, so we want to run BLAST using it as a custom database. This means we cannot actually use the online version of BLAST as illustrated in the lectures but we need to run it locally (for us: Solander).
+
+First, we need to prepare our sequence file for BLAST searches. We use the comment makeblastdb to preprocess the database. This preprocessing of the database for multiple searches is one of the main reasons why BLAST is such an efficient search algorithm.
+
+```
+makeblastdb -in your_alignment_of_full_mitogenomes.fasta -dbtype nucl 
+```
+
+**Question 2.** How many new files are created? Can you read them?
+
+Now we can perform the BLAST search for our first protein, let's start with *CytB*.
+
+```
+Fill in the exact BLAST command to run tblastn with CYTB.fasta as query and your_alignment_of_full_mitogenomes.fasta as database, use an informative output file name
+```
+
+Open the output file. What do you see? Can you make sense of the different columns?
+
+**Question 3.** Did you find a good hit in your species of interest? Is this actually the best hit compared to the other species (in terms of how long the hit is, identity and E-value)?
+
+Now repeat these steps for *COX1* and *ND6* using informative names for the output files so you don't overwrite your previous results.
+
+**Question 4.** Answer the same questions as for Q3 for these other two proteins. Is one of the proteins standing out from the others?
+
+Return to the Genbank entry for the full mitochondrial genome of your species of interest. Locate the position information of the three genes.
+
+**Question 5.** Has your BLAST search identified the same start and end locations as listed in Genbank? If there are differences, can you speculate about their reason?
+
+**FINAL: provide possibility to find more sequences using online BLAST if you had less than some number of sequences after Lab 2**
+
+
 ### Ideas:
 * Work with the sequences from lab 2
 * use BLAST
@@ -5,7 +58,7 @@
 * Maybe pick one species from the dataset, and obtain some protein sequences for e.g. cytB, COX1, ND6
 * blastx to find positions of the genes in the MT genome (or use all MT genomes as custom database?)
 * check these positions in the alignment from Lab 3, do you notice any differences between in the alignment quality around the boundaries
-* for those who want to replace sequences in their database: descibe BLAST option (last part of the session as we previously had in lab 6, `Method B`)
+* for those who want to replace sequences in their database: describe BLAST option (last part of the session as we previously had in lab 6, `Method B`)
 
 ## OLD lab 3
 
