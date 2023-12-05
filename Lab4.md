@@ -48,17 +48,21 @@ Return to the Genbank entry for the full mitochondrial genome of your species of
 
 **Question 5.** Has your BLAST search identified the same start and end locations as listed in Genbank? If there are differences, can you speculate about their reason?
 
-**FINAL: provide possibility to find more sequences using online BLAST if you had less than some number of sequences after Lab 2**
+## Bonus: Collect additional mitochondrial genomes using online BLAST
 
+**This section only applies to those who did not find at least 15 sequences when performing their database searches in Lab 2**
 
-### Ideas:
-* Work with the sequences from lab 2
-* use BLAST
-* we can't do too much annotation since that will only be in the lectures the week after this lab
-* Maybe pick one species from the dataset, and obtain some protein sequences for e.g. cytB, COX1, ND6
-* blastx to find positions of the genes in the MT genome (or use all MT genomes as custom database?)
-* check these positions in the alignment from Lab 3, do you notice any differences between in the alignment quality around the boundaries
-* for those who want to replace sequences in their database: describe BLAST option (last part of the session as we previously had in lab 6, `Method B`)
+You may not have found at least 15 sequences in Genbank in Lab 2, for example, due to the quality of annotation of certain entries. It is very likely that there are far more sequences that are homologous to your sequences of interest than those found with your initial Genbank search. Therefore, use a few of your full mitochondrial genomes and CytB sequences to perform an [online BLAST search](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome). You can copy the sequence from your FASTA file and paste them into the query field on the BLAST website. From your BLAST hits, download enough sequences in FASTA format to fill up your dataset to a total of 15. Download only one hit per species.
+
+*OBS!* Before choosing a sequence have a look at its length - the hits should not be much shorter than the query. Additionally, as a sanity check, you should see that all of your sequences have a relatively similar position on the mitochondrial genome (except possibly your outgroup sequences).
+
+Add the new sequences to the FASTA file you created in Lab 2 and repeat the alignment with MAFFT. We will use this multiple sequence alignment in the coming sessions. Remember that these steps need to be done for both, the full mitochondrial genome as well as CytB.
+
+---
+## Report:
+Please submit a text file with the answers to the following questions: 1, 2, 3 and 5.
+
+---
 
 ## OLD lab 3
 
