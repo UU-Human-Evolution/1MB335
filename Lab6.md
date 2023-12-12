@@ -3,7 +3,7 @@
 
 ## Introduction / Background information to session 6
 
-This is the last session of the bioinformatics project (and of the course). You will wrap up the project and present your results to the teaching assistants (details below).
+This is the last session of the bioinformatics project (and of the course). You will wrap up the project and present your results to the class on March 6. The first 4 hour session will be used to prepare for the presentation.
 
 ## Goals
 
@@ -15,11 +15,12 @@ This is the last session of the bioinformatics project (and of the course). You 
 
   + The alignment for the mitochondria from session 3/5
   + The trees generated in Sessions 5
-  + The name conversion tables generated in Session 2
 
+  
 ## Output(s)
 
-  + .pdf files of your trees
+  + Image files of your trees
+  + Slides for the presentation
 
 ## Tool(s)
   + IQ-TREE
@@ -49,7 +50,7 @@ Now let's look at the .iqtree file.
 
 2. **In both trees you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question?**
 
-### Step 2: Create a visual representation of your Maximum Likelihood trees
+### Step 1: Create a visual representation of your Maximum Likelihood trees
 
 In the .iqtree file, you have a representation of the trees. However, it is an unrooted tree. You can root the tree, and do many other things, with the program FigTree.
 
@@ -80,7 +81,7 @@ Before you export your tree, think about what else you can do to show your resul
 
 
 
-### Step 3: Reflect on your results
+### Step 2: Reflect on your results
 
 By now you have assembled a dataset to answer the question from Session 2; you collected *cytB* sequences and entire mitochondrial genomes for all species in the dataset; you aligned the species; you performed phylogenetic analysis and looked at some aspects of it, for example the model chosen; and you obtained a visual representation of your rooted trees.
 
@@ -98,23 +99,21 @@ At this stage, you should have two sets of trees: one for *cytB* and one for the
 
 - Do you think your choice of species (including the outgroup) was appropriate to answer the question? If you were to redo the analysis, would you change something?
 
-
-We will also expect you to remind us briefly of the question you worked with, and list which species you chose to include and why, so take a moment to prepare that too.
-
+**Upload your slides to Studium before 10 am on March 6 so we can download them to the computer that will be used for the presentations.**
 
 ---
 ## Presentation
 
-Once you feel like you are ready to present (and not later than one hour before the end of the session), write your names on the board so the teaching assistants can come to listen to you. The presentation will last 5-10 minutes, at your desk.
+On March 6th, we will meet in a lecture hall instead of the computer room. Each group will give a 5-10 minutes presentation about their project, presented with slides. The presentation should include (but is not limited to):
+  + Introduce your question for everyone
+  + Briefly summarize the data you collected
+  + Show your trees
+  + Answer the main question of your project
+  + Explain the outcome of your reflections (see questions above)
 
-You do not have to submit anything for this session (if you present orally).
 
 ---
-## Back-up submission: Written report
-
-In case you cannot finish in time, please let the teaching assistants know and submit a written document with your trees (the ones you made with FigTree) and 15-30 lines (or more if you are inspired) answering the questions. Do not forget to indicate which question you worked with and which species were included in the dataset. Exceptionally one submission by group is allowed - but remember to state the people involved.
-
----
+## END OF LABS, PLEASE READ THIS PART
 
 This is the end of the lab, please make sure that you completed and wrote down the answers to all of the questions.
 Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
