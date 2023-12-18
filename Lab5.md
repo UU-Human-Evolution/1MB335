@@ -18,23 +18,21 @@ Each tree is a hypothesis of the relationship between our sequences, and our goa
 So, with this in mind, let's get going... 
 
 ## Goals
-+ Align our sequences from Session 2;
-+ Test which substitution model works better with our data;
++ Test which substitution model works best with our data;
 + Work with IQTree and learn how to extract information from its output;
 + Create a phylogenetic tree that is meaningful for our project's question;
 
 ## Input
-+ Fasta sequences of the complete **mitochondrial DNA** and **CytB** that we curated in Lab 6
++ Fasta sequences of the complete **mitochondrial DNA** and **CytB** that we aligned in Lab 4
 
 ## Output(s)
-+ Multiple Alignment of the complete mitochondria
-+ Multiple Alignment of the CytB
 + IQTree file with relevant info on our tree
-+ Tree file 
++ Tree file
++ Image files of your trees
 
 ## Tools
-+ Alignment program: [mafft](https://mafft.cbrc.jp/alignment/software/)
 + Maximum Likelihood  program: [IQTree](http://www.iqtree.org/)
++ FigTree, a phylogenetic tree visualization software
 
 ## Details
 
@@ -42,19 +40,8 @@ For this Session, we will use the files we created in the previous labs. Please 
 
 **It's also a good idea to use the script you created in session 2 to change to one of the shorter names in your fasta file!**
 
-### Step 1a:
 
-The first step is to do a **Multiple Alignment**. 
-As we have two different files (of quite different sizes), we recommend that you work in two terminal windows. 
-
-We are going to run MAFFT the same way we did in Lab3, but this time we need to produce an ordered **FASTA alignment**. So make sure you pick the right option in MAFFT. Also, be careful not to mix it with your other fasta files. 
-
-We'll do this for both **the whole mitochondria** and the **CytB** datasets. 
-
-### Step 2:
-
-Once we have the alignment, we can proceed to infer **which tree, of all the possible trees, is the most likely one**. 
-There are several methods to do this:
+Since we have produced an alignment in the previous session, we can proceed to infer **which tree, of all the possible trees, is the most likely one**. There are several methods to do this:
 
 + [Parsimony](https://www.mun.ca/biology/scarr/2900_Parsimony_Analysis.htm): "**the simplest explanation that can explain the data is to be preferred**", so the hypothesis with the smallest number of changes is the most likely. 
  However, this method has plenty of assumptions that we know are false, so it is not used anymore.
@@ -95,9 +82,33 @@ Now run IQ-TREE in your open terminal with the CytB data, and set your model to 
 - *MFP* stands for ModelFinder Plus, and is an algorithm that automatically considers a list of substitution models & estimates which model is the one that fits our data better. 
 - *-bb 1000* means that we want our algorithm to use [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)). 
 
-**Once the alignment of the whole mitochondrial dataset is done, run IQ-TREE on that dataset. Remember to adapt the command above to run IQ-TREE and be careful to not over-write your files.** 
 
-All the questions below **refer only to the CytB** output.
+In the .iqtree file, you have a representation of the trees. However, it is an unrooted tree. You can root the tree, and do many other things, with the program FigTree.
+
+*If you can't get FigTree to work in a terminal you can try downloading it from https://github.com/rambaut/figtree/releases and installing it locally on your computer.*
+  
+When you call FigTree, a visual interface will open. In `File`, choose `Open` and select one of your Maximum Likelihood trees. If the software asks you to select a name for the labels on the tree, you can keep the default or choose a keyword, for example `bootstrap`. **Note that you do *not* want the `.iqtree`, that file is more of a logfile than an actual tree.**
+
+The three important things you have to do are:
+  
+  1. Root the tree with your outgroup (select the branch and then select `Reroot`)
+  2. Show the bootstrap values (using `Branch labels` or `Node labels` and selecting the right value to display)
+  3. Make sure the tree can be easily understood. For example, you might need to change the name of the species, if you are using the short names that you created in [Session 2](Lab2.md). 
+
+You can use the script you created in Session 2 to change the names in your treefiles.
+Once you are done with those, you can play around with the other options (for example Rotate and different type of trees).
+
+Before you export your tree, think about what else you can do to show your results better. Look on Google for actually published trees, like the ones shown below
+ 
+<p float ="left">
+	<img src="./Figures/Phylogenetic-analysis-of-orchids-The-phylogenetic-tree-was-based-on-the-chloroplast.png" width="500">
+	<img src="./Figures/Phylogenetic-tree-of-the-species-used-for-the-evolutionary-analysis-of-Hox-genes.png" width="500">
+	<img src="./Figures/fig-3-corrected.png" width="500">
+	<img src="./Figures/41598_2020_70287_Fig1_HTML.png" width="500">
+</p>	
+
+
+**Do not forget to export your trees as image files. You will have to show them during the presentation.**
 
 **Question 1: Which files did IQ-TREE output? Explain briefly what each of them is.** 
 
@@ -111,6 +122,7 @@ Now let's look at the *.iqtree* file.
 
 **Question 5: In both trees, you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which one is your least supported branch? What does that mean in relation to your question?**
 
+**Repeat these steps for the full mitochondrial genome alignments. Remember to adapt the command above to run IQ-TREE and be careful to not over-write your files.** 
 
 # REPORT
 
