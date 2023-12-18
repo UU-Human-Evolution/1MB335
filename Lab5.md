@@ -63,6 +63,8 @@ As we mentioned earlier, any Maximum Likelihood approach is **based on a model**
 
 *Graphical representation of some substitution models from Yang & Rannala, 2012. Nature Reviews Genetics: https://doi.org/10.1038/nrg3186*
 
+## IQ-Tree -- Generating ML trees
+
 Now that we have a general picture of what we are doing, let's start working with IQ-TREE. The basic syntax for this software is:
 
 ```
@@ -82,6 +84,7 @@ Now run IQ-TREE in your open terminal with the CytB data, and set your model to 
 - *MFP* stands for ModelFinder Plus, and is an algorithm that automatically considers a list of substitution models & estimates which model is the one that fits our data better. 
 - *-bb 1000* means that we want our algorithm to use [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)). 
 
+## FigTree -- Create a visual representation of your Maximum Likelihood trees
 
 In the .iqtree file, you have a representation of the trees. However, it is an unrooted tree. You can root the tree, and do many other things, with the program FigTree.
 
@@ -110,17 +113,25 @@ Before you export your tree, think about what else you can do to show your resul
 
 **Do not forget to export your trees as image files. You will have to show them during the presentation.**
 
-**Question 1: Which files did IQ-TREE output? Explain briefly what each of them is.** 
 
-Now let's look at the *.iqtree* file. 
+**Question 1: Which files do IQ-TREE output? Explain briefly what each of them is.**
 
-**Question 2: Which model did ModelFinder choose? From all the criteria calculated by this software, which one was used to determine the best-fitting model?**
+IQ-TREE creates several types of trees (e.g. a Neighbour Joining tree saved as .bionj file and an ML tree saved as .treefile). In order to properly visualize your tree, you'll need to use specific software, as trees are not represented in a way we can easily understand in our files. In order to plot them, we are going to use [FigTree](SRC/FigTree_v1.4.4). Download it onto your computer and start it. 
 
-**Question 3: Briefly explain the best-fitting model.**
+**Question 2: Compare the *.bionj* tree with the ML tree. Are there any differences? If so, explain what they are and why do you believe they are there.**
 
-**Question 4: Now look at both your Maximum Likelihood tree and Consensus Tree. Are they the same? If not, where do they differ?** 
+Now let's look at the .iqtree file.
 
-**Question 5: In both trees, you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which one is your least supported branch? What does that mean in relation to your question?**
+#####Question 3:
+1. **Which model did ModelFinder choose? From all the criteria calculated by this software, which was used to determine the best-fitting model?**
+
+2. **Briefly explain the best-fitting model.**
+
+#####Question 4:
+1. **Now look at both your Maximum Likelihood tree and Consensus Tree. Are they the same? If not, where do they differ?**
+
+2. **In both trees you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question?**
+
 
 **Repeat these steps for the full mitochondrial genome alignments. Remember to adapt the command above to run IQ-TREE and be careful to not over-write your files.** 
 
@@ -131,5 +142,5 @@ Submit a file with the answers to all the questions and the *.iqtree* file for t
 ---
 
 This is the end of the lab, please make sure that you completed and wrote down the answers to all of the questions.
-Upload the **scripts** (code) that you were asked to submit to studium **in the original format** (i.e. .py or .sh), no `pdf` or word files! Any answers that are not code should, of course, be in text formats such as `.pdf, .txt & .docx`.
+Upload the **scripts** (code) that you were asked to submit to Studium **in the original format** (i.e. .py or .sh), no `pdf` or word files! Any answers that are not code should, of course, be in text formats such as `.pdf, .txt & .docx`.
 Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
