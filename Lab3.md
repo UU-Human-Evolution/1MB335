@@ -23,7 +23,7 @@ In this session, you will focus on alignments. As you have seen in the lecture, 
 
 ## Tools
 
-  + [Online alignment tools](https://www.ebi.ac.uk/Tools/psa/)
+  + Online alignment tools
   + Alignment program: [mafft](https://mafft.cbrc.jp/alignment/software/)
   + Alignment visualization program: clustalw / clustalx
 
