@@ -1,162 +1,146 @@
-# Session 5 - Alignments of mitochondrial sequences
+# Session 5 - Phylogenetic Analysis
 
-## Introduction / Background information to Session 5
+## An Introduction to Phylogenetics
+Since the eve of Biology as a field of Science, one of the key questions has been how do the different organisms we see today relate to each other, and how they evolved. In the old days, we used anatomical similarities (also known as [homologies](https://en.wikipedia.org/wiki/Homology_(biology))) and dissimilarities to try to reconstruct their evolutionary history. 
+![Example of Homologies](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Homology_vertebrates-en.svg/1280px-Homology_vertebrates-en.svg.png)
 
-In this session, you will focus on alignments. As you have seen in the lecture, you can align two sequences (pairwise alignment) or multiple sequences (multiple alignments). Today, you will do a bit of both. For the pairwise alignment part, you will follow a tutorial that was developed by Rasmus Wernersson. For the multiple alignment part, you will continue to work with the mitochondrial genomes from Sessions 3 and 4. You will also work with additional mitochondrial genomes. This will prepare you for the bioinformatics project, as one of the first steps of the project will be to align sequences.
+With the dawn of genetic sequencing and the genomic era, we can now establish those relationships with quite more certainty and in a less biased way. The practice of using genetic data to infer these relationships is known as Phylogenetics, and it is the "gold-standard" for establishing the relationship between modern species. 
+
+### The Base of Phylogenetic Analysis 
+The basic idea behind it all is quite simple: as species diverge over time, they accumulate mutations that the other groups don't share. So, when comparing several sequences, the bigger the number of differences between them, the larger the time since their common ancestor. However, this simple idea gets complicated quite soon, as we are working with really long sequences and, in some cases, long periods of time. This means that we will need to use robust statistical modeling in order to infer these relationships, which we will represent as a [phylogenetic tree](https://en.wikipedia.org/wiki/Phylogenetic_tree).
+
+![Phylogenetic tree from Ersmark et al. 2016](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Phylogenetic_tree_for_wolves.jpg/468px-Phylogenetic_tree_for_wolves.jpg)
+
+*Phylogenetic tree from Ersmark et al. 2016: https://doi.org/10.3389/fevo.2016.00134*
+
+Each tree is a hypothesis of the relationship between our sequences, and our goal is to identify (from all the possible trees), the one that is most likely to be a true tree, according to our data. This may vary depending on the region you are looking at, the models you are using or how you preprocess and align your sequences. 
+
+So, with this in mind, let's get going... 
 
 ## Goals
++ Test which substitution model works best with our data;
++ Work with IQTree and learn how to extract information from its output;
++ Create a phylogenetic tree that is meaningful for our project's question;
 
-  + Perform local and global pairwise alignments with different algorithms
-  + Explore parameters of pairwise alignments
-  + Perform multiple alignments and visualize them
-  + Manipulate files
-
-## Input(s)
-
-  + complete mitochondrial genomes
-  + sequences for the ribosomal large subunit (l-rRNA)
+## Input
++ Fasta sequences of the complete **mitochondrial DNA** and **CytB** that we aligned in Lab 4
 
 ## Output(s)
-
-  + An alignment of mitochondrial genomes
-  + Two alignments of the ribosomal large subunit
++ IQTree file with relevant info on our tree
++ Tree file
++ Image files of your trees
 
 ## Tools
-
-  + [Online alignment tools](https://www.ebi.ac.uk/Tools/psa/)
-  + [Online tool to randomly shuffle a protein sequence](http://www.bioinformatics.org/sms2/shuffle_protein.html)
-  + Alignment program: [mafft](https://mafft.cbrc.jp/alignment/software/)
-  + Alignment visualization program: clustalw / clustalx
-
-## Steps
-
-  + Step 1: Pairwise alignment exercise
-  + Step 2: Multiple alignment exercise
-    + Step 2a: Identify the mitochondrial genomes
-    + Step 2b: Make a prediction about the alignment
-    + Step 2c: Prepare the input file for the alignment program
-    + Step 2d: Align the entire mitochondria
-    + Step 2e: Align the sequence for the large mitochondrial ribosomal RNA (l-rRNA)
-    + Step 2f: Find a new l-rRNA sequence and align one more time
++ Maximum Likelihood  program: [IQTree](http://www.iqtree.org/)
++ FigTree, a phylogenetic tree visualization software
 
 ## Details
 
-### Step 1: Pairwise alignment
+For this Session, we will use the files we created in the previous labs. Please make sure you follow the instructions properly and that you have all the files you need. 
 
-Please go through the tutorial on [this page](http://teaching.bioinformatics.dtu.dk/teaching/index.php/Exercise:_Pairwise_alignment).
+**It's also a good idea to use the script you created in session 2 to change to one of the shorter names in your fasta file!**
 
-Questions are numbered from 1 to 14. Submit answers to all the questions (you can number them 1-1, 1-2, etc to distinguish them from the answers to the next part).
 
-### Step 2: Multiple alignments
+Since we have produced an alignment in the previous session, we can proceed to infer **which tree, of all the possible trees, is the most likely one**. There are several methods to do this:
 
-#### Step 2a: Identify the mitochondrial genomes
++ [Parsimony](https://www.mun.ca/biology/scarr/2900_Parsimony_Analysis.htm): "**the simplest explanation that can explain the data is to be preferred**", so the hypothesis with the smallest number of changes is the most likely. 
+ However, this method has plenty of assumptions that we know are false, so it is not used anymore.
++ [Neighbour-joining](https://academic.oup.com/mbe/article/4/4/406/1029664): A slightly more refined version of parsimony in which we chose the best tree by **minimizing branch lengths** in the tree. More computationally intensive than parsimony, but still something that a modern computer can do fairly quickly.
++ [Maximum Likelihood](http://ib.berkeley.edu/courses/ib200a/lect/ib200a_lect11_Will_likelihood.pdf): "Likelihood is defined to be a quantity proportional to the probability of observing the data given the model". This means that, **by providing a model of how DNA sequences change, we can determine which tree is the most probable to be true**. 
++ [Bayesian Inference](https://www.sciencemag.org/site/feature/data/1050262.pdf): This method uses Bayesian Statistics to combine **prior information** that we know about our data (also known as Prior Probability Distribution) **with the likelihood**, in order to transform it into a more accurate probability distribution, known as the **Posterior**.
+![](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5624502/bin/emss-73449-f001.jpg)
 
-Start by login into Solander. In [GitHub](example_data/session5/Mitochondrial_genomes) you will find 14 complete mitochondrial genomes that were downloaded from NCBI. They are named from `Seq1.fasta` to `Seq14.fasta`. Copy all the files to your own directory.
+*Prior, likelihood and posterior distribution for a two-parameter phylogenetic example in Nascimento et al. 2017: https://dx.doi.org/10.1038%2Fs41559-017-0280-x*
 
-Your first task is to identify which species the sequences belong to. Look at the content of the files and think about the tools and resources you used in sessions 3 and 4. Once you have identified the species, complete the headers of the files which have an incomplete header (for an example of a complete header, see `Seq2.fasta`): they should have the same information as in `Seq2.fasta` (in particular, sequence identification number and species name).
+The last two are the state-of-the-art methods for phylogenetic analysis, and have become more and more popular as computing power has increased, as both methods are very demanding in that regard. 
 
-Hint: you can use `nano` to modify files in the command line.
+For our project, we are going to use: 
+- an implementation of the Maximum Likelihood approach called [IQ-TREE](http://www.iqtree.org/doc/Tutorial#first-running-example) 
 
-**Question 1. To which species do the different sequences belong?** 
 
-**Question 2. There one sequence that should stand out from the others. Write down the name of the corresponding fasta file, the species name, and the type of sequence. How did you identify it?**
+As we mentioned earlier, any Maximum Likelihood approach is **based on a model**. In phylogenetics, this model **describes the probability of each substitution to happen**. [Here](http://evomics.org/resources/substitution-models/nucleotide-substitution-models/) you can find a list of the more common models, and [here](http://www.iqtree.org/doc/Substitution-Models) the ones that are implemented in IQ-TREE. 
+![Substitution model representation](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fnrg3186/MediaObjects/41576_2012_Article_BFnrg3186_Fig1_HTML.jpg?as=webp)
 
-How much do you know about the species that are in the dataset? Do you know how they are related? To start to answer these questions, [Wikipedia](https://en.wikipedia.org/) and the [taxonomy browser](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Root) (yet another NCBI tool!) are very helpful.
+*Graphical representation of some substitution models from Yang & Rannala, 2012. Nature Reviews Genetics: https://doi.org/10.1038/nrg3186*
 
-Start by looking up the species from Seq4 in Wikipedia. Which family does it belong to? (inspect the box on the right). Now, go to the taxonomy browser and look for that species. One of the items on the page is the full "lineage" of that species, from the widest to the most specific category. Find the family name and click on it.
+## IQ-Tree -- Generating ML trees
 
-**Question 3. What is the common name of this family of species? Which other species from the dataset belong to that same family? Perform the same thing (and answer the second part of the question) with the species from Seq14.**
+Now that we have a general picture of what we are doing, let's start working with IQ-TREE. The basic syntax for this software is:
 
-Before you continue, look up quickly the species that you don't know about in wikipedia (or the tool you prefer).
+```
+iqtree -s ALIGNMENT -o OUTGROUP -m MODEL -pre OUTPUT_PREFIX -bb 1000
+```
+Replace the capitalized variables with your choices, e.g. replace `ALIGNMENT` with the name of your aligned FASTA file for the cytB gene.
 
-#### Step 2b: Make a prediction about the alignment
+Under OUTGROUP you should put the **name of your outgroup** as they appear in the alignment file. 
+If you have multiple outgroups you can separate them with a comma (**make sure to have no spaces as separators!**) eg;
 
-Before aligning sequences, it is useful to have an idea of how much the sequences might differ. Have a look at Figure 3 in the review [The Origin and Diversification of Mitochondria](https://www.sciencedirect.com/science/article/pii/S096098221731179X?via%3Dihub) Roger et al., Current Biology Review 20170. Focus on the 'Opisthokonta'. You won't find information for all the species in the dataset - in particular, the only representative of the Metazoa (animals) in the table is 'Homo'. Look at the absence/presence of genes in these different mitochondrial genomes.
+```
+-o c_Vurs,H_sap
+
+```
+
+Now run IQ-TREE in your open terminal with the CytB data, and set your model to *-m MFP*. 
+- *MFP* stands for ModelFinder Plus, and is an algorithm that automatically considers a list of substitution models & estimates which model is the one that fits our data better. 
+- *-bb 1000* means that we want our algorithm to use [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)). 
+
+## FigTree -- Create a visual representation of your Maximum Likelihood trees
+
+In the .iqtree file, you have a representation of the trees. However, it is an unrooted tree. You can root the tree, and do many other things, with the program FigTree.
+
+*If you can't get FigTree to work in a terminal you can try downloading it from https://github.com/rambaut/figtree/releases and installing it locally on your computer.*
+  
+When you call FigTree, a visual interface will open. In `File`, choose `Open` and select one of your Maximum Likelihood trees. If the software asks you to select a name for the labels on the tree, you can keep the default or choose a keyword, for example `bootstrap`. **Note that you do *not* want the `.iqtree`, that file is more of a logfile than an actual tree.**
+
+The three important things you have to do are:
+  
+  1. Root the tree with your outgroup (select the branch and then select `Reroot`)
+  2. Show the bootstrap values (using `Branch labels` or `Node labels` and selecting the right value to display)
+  3. Make sure the tree can be easily understood. For example, you might need to change the name of the species, if you are using the short names that you created in [Session 2](Lab2.md). 
+
+You can use the script you created in Session 2 to change the names in your treefiles.
+Once you are done with those, you can play around with the other options (for example Rotate and different type of trees).
+
+Before you export your tree, think about what else you can do to show your results better. Look on Google for actually published trees, like the ones shown below
  
-**Question 4. What do you learn from this table? What can you expect from the alignment? (make at least one hypothesis)**
+<p float ="left">
+	<img src="./Figures/Phylogenetic-analysis-of-orchids-The-phylogenetic-tree-was-based-on-the-chloroplast.png" width="500">
+	<img src="./Figures/Phylogenetic-tree-of-the-species-used-for-the-evolutionary-analysis-of-Hox-genes.png" width="500">
+	<img src="./Figures/fig-3-corrected.png" width="500">
+	<img src="./Figures/41598_2020_70287_Fig1_HTML.png" width="500">
+</p>	
 
-Another thing that is not visible in the figure from the review but which will impact your alignment is the length of the mitochondrial sequences.
 
-#### Step 2c: Prepare the input file for the alignment program
+**Do not forget to export your trees as image files. You will have to show them during the presentation.**
 
-Now that you have a better idea of the sequences you are working with, it is time to prepare the input for the alignment program. For that, you will need **one** fasta file with **all the mitochondrial sequences**. Try to use the command line: You can do it as below (or in a smarter way using `*` if you remember)
 
-```
-cat file1 file2 file2 > threefiles
-```
+**Question 1: Which files do IQ-TREE output? Explain briefly what each of them is.**
 
-Before you proceed with the alignment, you have one more task to do: modify the headers of the fasta file (i.e. the lines starting with `>`). As of now, your headers looks something like this:
+IQ-TREE creates several types of trees (e.g. a Neighbour Joining tree saved as .bionj file and an ML tree saved as .treefile). In order to properly visualize your tree, you'll need to use specific software, as trees are not represented in a way we can easily understand in our files. In order to plot them, we are going to use [FigTree](SRC/FigTree_v1.4.4). Download it onto your computer and start it. 
 
-```
->NC_001328.1 Caenorhabditis elegans mitochondrion, complete genome
-```
-This is very informative, but having long names and/or cryptic identification numbers will make it difficult for you to identify the sequences when you visualize alignments (and later during the bioinformatic project, when you plot phylogenetic trees). Moreover, some programs (particularly older ones) have a limitation on the number of characters in headers. You should thus shorten the headers before you proceed further (for example with the text editor `nano`). One suggestion for a shortened header is:
+**Question 2: Compare the *.bionj* tree with the ML tree. Are there any differences? If so, explain what they are and why do you believe they are there.**
 
-```
->C_ele_mt
-```
-You can choose a different format, but keep in mind that it should enable to recognize rapidly the species and also the type of sequence (in this case, the mitochondria). If you want to write a script to do this instead of using a text editor, see **Optional**.
+Now let's look at the .iqtree file.
 
-Once you have managed the task above, you can delete the fasta file with the long headers, as you can easily recreate it from the separate fasta files and it is redundant with the fasta files with short headers.
+#####Question 3:
+1. **Which model did ModelFinder choose? From all the criteria calculated by this software, which was used to determine the best-fitting model?**
 
----
-**Optional:** Alternatively, you can write a Python script that will shorten the headers. For example, it could be a script that takes as input a fasta file with long headers and outputs a fasta file with shortened headers. Moreover, the script should output a file that has both the long and the short header on the same line, to make sure that it is possible to go back to the long headers.
+2. **Briefly explain the best-fitting model.**
 
----
+#####Question 4:
+1. **Now look at both your Maximum Likelihood tree and Consensus Tree. Are they the same? If not, where do they differ?**
 
-#### Step 2d: Align the entire mitochondria
+2. **In both trees you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question?**
 
-Finally, it is time to align your **13 mitochondrial** genomes! We are going to use a software called `mafft`. 
 
-Aligning this set of mitochondrial genomes is a computationally intensive task. 
+**Repeat these steps for the full mitochondrial genome alignments. Remember to adapt the command above to run IQ-TREE and be careful to not over-write your files.** 
 
-In order to execute MAFFT, just type `mafft`. You will be asked several questions, among others: input file name, the output file name (include the file extension, `.clustal` in this case), output file format, algorithm. For the output file format, choose `clustal` (sorted). For the algorithm, choose `FFT-NS-1 (fast)`.
+# REPORT
 
-Once you have chosen all the options, the corresponding command-line will be printed on the screen.
-
-**Question 5. Write down the command.**
-
-Now, launch the alignment. It will take a while. In the meantime, you can work on the next step on another terminal window, which is another alignment, of a single gene. It is also a good time to take a break!
-
-#### Step 2e: Align the sequence for the large mitochondrial ribosomal RNA (l-rRNA)
-
-Nowadays there is an abundance of genomic data available, for organelles and entire genomes, for a large number of species. This is why in this session and the bioinformatics project, you are aligning the entire mitochondria. However, for a long time, it was more common to work with alignments of single genes (and in some cases, for instance when exploring the diversity in a given environment, it is still a common approach). Aligning single genes might also be a good approach when working with diverse species. And of course, it is much faster!
-
-The large mitochondrial ribosomal RNA (l-rRNA) which is part of the large subunit of the ribosome (in the mitochondria) is - and has been - used a lot in phylogenetic inferences, as it is one of the most conserved genes. Depending on the species you are working with, this RNA might have different names, for example, 16S, rnl, l-RNA, 21S, etc.
-
-For this step, we will focus on the multicellular eukaryotic organisms ('Metazoans') in our dataset. [Here](example_data/session5/Ribosomal_large_subunit)  you will find seven fasta files, corresponding to the sequence of interest for seven of the species from the previous step. Start by finding the corresponding sequence for three extra species: Seq8, Seq9, and Seq14 (go to NCBI, find the annotated mitochondria, and look for rRNA; be careful, there are two rRNA per mitochondrial genome! Choose the larger one). We will not use the other genomes for this and the following step.
-
-Then, prepare the alignment input in the same way as in Step 2c: create a fasta file with the **10** sequences and change the headers to short ones, **remember to modify the part of the short header about the type of sequence**. Now, proceed to the alignment with `mafft`. You can take the same command as the one you created when aligning for the entire genome.
-
-Once it has finished, look at the output file (the .clustal). Do you understand the format?
-
-To have a better overview of the alignment, we are going to use the `JalView` program. In order to avoid having to download and install the program locally (which can be done following the [instructions](https://www.jalview.org/download/)), we are going to use [JalViewJS](https://www.jalview.org/jalview-js/JalviewJS/), a JavaScript implementation of the program that allows us to use it from our browsers. 
-
-In "File", choose "Load Sequences" and choose your alignment. Can you make sense of what you see? What do you think the bottom window shows?
-
-**Question 6. Normally one of the sequences should stand out. Which one?**
-
-#### Step 2f: Find a new l-rRNA sequence and align one more time
-
-The strange alignment from Step 2e is a genuine example, that was discovered by students who took this course previously. It results from a mis-annotation in the reference mitochondrial genome for the cheetah. A new genome, with the proper annotation, has been submitted since then.
-
-Find the *16S* sequence for the mitochondrial genome with identifier AY463959.1. Perform the alignment again with the new replacement cheetah sequence (see Step 2e). Visualize it. Is the issue solved? 
-
-**Question 7. Show your new alignment to a teaching assistant. If you cannot show it, submit the corresponding alignment file (.clustal).**
-
-The main take-home message from this step is that it is important to examine your alignments well. Sometimes some sequences will genuinely be longer or shorter than other sequences; however, it might also be due to some errors!
-
-#### Back to Step 2d
-
-By now the alignment of the entire mitochondria should be ready for you to look at! Open it with `clustalx` (see Step 2f). What do you see? Does it match your expectations after filling the feature table?
-
-**Question 8. Do you think that it was meaningful to align these 13 mitochondrial genomes? Would you remove some if you were to do it again? Which?**
+Submit a file with the answers to all the questions and the *.iqtree* file for the CytB run.
 
 ---
-## REPORT
 
-Pairwise alignment tutorial: submit answers to all questions (you can number them 1-1, 1-2, etc).
-
-Multiple alignment: submit answers to questions 1 through 9 (you can number them 2-1, 2-2 etc). For Question 8, submit the alignment (clustal file) only if you could not show it to a teaching assistant.
-
----
+This is the end of the lab, please make sure that you completed and wrote down the answers to all of the questions.
+Upload the **scripts** (code) that you were asked to submit to Studium **in the original format** (i.e. .py or .sh), no `pdf` or word files! Any answers that are not code should, of course, be in text formats such as `.pdf, .txt & .docx`.
+Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
