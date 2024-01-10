@@ -1,3 +1,5 @@
+# Genomics and Bioinformatics (1MB335) -- Computer practicals
+
 You are now starting the computer practicals of the course. The practical is split into several sessions, each designed to last a full calendar week. Each session comes with its own assignments, either text submissions in Studium or (group) presentations, these assignments need to be passed to complete this part of the course. *Most exercises are done in groups and the final presentation is done in a group but all written assignments are graded per student.*
 
 **IMPORTANT:** The exercises are designed to work by booting the IBG computers into "Linux (EBC)" from where we will connect to an IBG server "Solander" which has all the tools needed set up. Working remotely on a server or cluster is a very realistic scenario for working as a bioinformatician. *If you decide to use your own computers for logging in to Solander, you are doing that at your own risk. There might be parts of the labs that won't work that way. The TAs are present for the teaching part, not to help with IT issues caused by different computers, clients and operating systems.*
