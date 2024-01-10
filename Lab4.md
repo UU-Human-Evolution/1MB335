@@ -1,12 +1,21 @@
 During the last sessions, you collected and aligned mitochondrial sequences from databases that you will be using for the remaining sessions. Today, you will attempt to find genes in them using a simple similarity-based approach with BLAST.
 
 ## Goals
++ Revisit sequence databases from Lab 2
++ Become familiar with BLAST and its output
++ Find coding regions in the mitochondrial genomes using a similarity-based approach
 
 ## Input(s)
++ Full mitochondrial genomes collected in previous sessions
++ Protein sequences in FASTA format
 
 ## Output(s)
++ Alignments of genes with full mitochondrial genomes
++ Lists of hits in the different mitogenomes
 
 ## Tools
++ Sequence databases
++ (command line) BLAST
 
 ![](https://upload.wikimedia.org/wikipedia/commons/1/15/Map_of_the_human_mitochondrial_genome.svg)
 **Figure 2: Map of the Human mitochondira**
@@ -33,10 +42,10 @@ makeblastdb -in your_alignment_of_full_mitogenomes.fasta -dbtype nucl
 Now we can perform the BLAST search for our first protein, let's start with *CytB*.
 
 ```
-Fill in the exact BLAST command to run tblastn with CYTB.fasta as query and your_alignment_of_full_mitogenomes.fasta as database, use an informative output file name
+tblastn -query CYTB.fasta -db your_alignment_of_full_mitogenomes.fasta -outfmt 6 -out CYTB.blast
 ```
 
-Open the output file. What do you see? Can you make sense of the different columns?
+Make sure to use the names of your respective files. Open the output file. What do you see? Can you make sense of the different columns?
 
 **Question 3.** Did you find a good hit in your species of interest? Is this actually the best hit compared to the other species (in terms of how long the hit is, identity and E-value)?
 
@@ -48,6 +57,12 @@ Return to the Genbank entry for the full mitochondrial genome of your species of
 
 **Question 5.** Has your BLAST search identified the same start and end locations as listed in Genbank? If there are differences, can you speculate about their reason?
 
+---
+## Report:
+Please submit a text file with the answers to the following questions: 1, 2, 3 and 5.
+
+---
+
 ## Bonus: Collect additional mitochondrial genomes using online BLAST
 
 **This section only applies to those who did not find at least 15 sequences when performing their database searches in Lab 2**
@@ -58,8 +73,4 @@ You may not have found at least 15 sequences in Genbank in Lab 2, for example, d
 
 Add the new sequences to the FASTA file you created in Lab 2 and repeat the alignment with MAFFT. We will use this multiple sequence alignment in the coming sessions. Remember that these steps need to be done for both, the full mitochondrial genome as well as CytB.
 
----
-## Report:
-Please submit a text file with the answers to the following questions: 1, 2, 3 and 5.
 
----
