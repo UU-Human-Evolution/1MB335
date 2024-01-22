@@ -56,6 +56,10 @@ On March 6th, we will meet in a lecture hall instead of the computer room. Each 
   + Answer the main question of your project
   + Explain the outcome of your reflections (see questions above)
 
+---
+## Back-up submission: Written report
+
+In case you could not finish in time or if you are unable to present on March 6th, please let the teaching assistants know and submit a written document with your trees and 15-30 lines (or more if you are inspired) answering the questions through Studium. Do not forget to indicate which question you worked with and which species were included in the dataset. Exceptionally one submission by group is allowed - but remember to state the people involved.
 
 ---
 ## END OF LABS, PLEASE READ THIS PART
