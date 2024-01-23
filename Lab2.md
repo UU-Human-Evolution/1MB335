@@ -20,7 +20,7 @@ We made a checklist to help you when a command does not do what you expect it to
 ## Questions:
 1. Are bats more closely related to horses than to cows?
 
-2. Both whales and seq cows originate from land-living animals. Do they have a common ancestor that transitioned from land-to-water or has this transition occurred twice independently?
+2. Both whales and sea cows originate from land-living animals. Do they have a common ancestor that transitioned from land-to-water or has this transition occurred twice independently?
 
 3. Are salamanders more closely related to frogs than to lizards?
 
@@ -31,6 +31,12 @@ We made a checklist to help you when a command does not do what you expect it to
 6. What other cat-like animal is most closely related to the cheetah?
 
 7. Are egg-laying mammals (platypus and echidna) more closely related to birds than to placental mammals?
+
+8. Are moose more closely related to reindeer than to other deer species?
+
+9. Describe the phylogeny of primates!
+
+10. What type of wolves is the ancestor of domestic dogs?
 
 ## Session 2
 
