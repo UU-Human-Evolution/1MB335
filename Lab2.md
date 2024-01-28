@@ -38,6 +38,8 @@ We made a checklist to help you when a command does not do what you expect it to
 
 10. What type of wolves is the ancestor of domestic dogs?
 
+11. Are Porcupines closer to pigs or to hedgehogs?
+
 ## Session 2
 
 In this session, you will collect your data to work with during the coming sessions. For collecting your sequences you need to think about what species you want to test/compare. Your question does not include a particular species but rather groups of species, so you will need to collect multiple sequences per group. In addition to the species directly connected to your question, you should include one distantly related species to all of them (a so-called "outgroup") which is required for later analyses. The picture below helps to understand the concept of "ingroup" and "outgroup", we will get back to this in the phylogenetics part of the course: 
