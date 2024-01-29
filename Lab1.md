@@ -32,7 +32,7 @@ Download it from [https://iterm2.com/](https://iterm2.com/)
 
 MacOS comes with a very bare-bones version of Unix which lacks many tools that most Unix installations come with. Thus we recommend that you install [Homebrew](https://brew.sh/) which is a package manager for Mac which makes it super easy to install missing programs and tools.
 
-To installl `Homebrew`; open the terminal and run:
+To install `Homebrew`; open the terminal and run:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
