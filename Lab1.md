@@ -363,7 +363,7 @@ scp output_file my_user@remote_server:
 ---
 
 
-You can chain any typ of program/script that you can run on the commandline like this, even those you have written yourself like the `perl` programs you ran in the hidden word excercise or the scripts you will write in Lab 2:
+You can chain any type of program/script that you can run on the commandline like this, even those you have written yourself like the `perl` programs you ran in the hidden word excercise or the scripts you will write in Lab 2:
 
 ```
 python my_python_script.py inputfile.txt
