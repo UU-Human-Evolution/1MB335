@@ -263,7 +263,18 @@ The main tool for working with SAM/BAM files is called `samtools` and it's insta
 
 The **BAM** file and corresponding **SAM** file can be found [here](test.bam) and [here](test.sam).
 
-One way of getting the files to your home directory is:
+One way of transfering the files to your home directory is:
+
+```
+wget https://github.com/UU-Human-Evolution/1MB335/raw/master/test.bam
+```
+
+Another example of transfering files from a local to a remote server 
+
+```
+### Standing at the local server 
+scp fullpathto/file my_user@remote_server:fullpathto/directory
+```
 
 You'll be working on the **BAM** but before that, take a look at the file sizes of the two different formats.
 
@@ -353,19 +364,6 @@ bash sleep.sh
 ```
 
 You can see that the code is executed sequentially, it does not progress to the next line until the previous one has finished.
-
-An example of a use case could be that you have data on a local server that you want to transfer to a remote server where you want to perform some kind of analysis and then transfer the results back to your local server. That would look something like this:
-
-
-```
-### Standing at the remote server copy the local files there
-scp my_user@remote_server:local_file .
-### Do the analysis
-run_analysis.sh local_file > output_file
-### Copy results back
-scp output_file my_user@remote_server:
-```
-
 
 ---
 
