@@ -251,7 +251,7 @@ Do not continue with the next part until you are done with the hidden word exerc
 
 ### BAM files
 
-The SAM/BAM (Sequence Alignment/Map & Binary Alignment Map) format is a very popular format for storing nucleotide data that is aligned to a reference. 
+The SAM/BAM (Sequence Alignment/Map & Binary Alignment Map) format is a very popular format for storing nucleotide data that is **aligned to a reference**. 
 
 If you want to read more about the file format(s) you can have a look at the official documentation:
 https://samtools.github.io/hts-specs/SAMv1.pdf
