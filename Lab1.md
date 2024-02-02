@@ -6,7 +6,7 @@ Before doing anything, make sure you open the terminal window and log in, using 
 ssh username@solander.uu.ibg.se
 ```
 - You might be asked to type in yes/no - type `yes`.
-- Then type in your password (*you won't be able to see what you're typing in as the password but it is working*)
+- Then type in your password (*you won't be able to see what you're typing in in the password field but it is working*)
 
 *P.S. Make sure you're typing in the correct letters (confusion can occur as lower case 'l'/upper case 'I', the letter 'O' and zero etc may look the same)*
 
