@@ -1,7 +1,15 @@
 # Session 1 - basic command line tutorial
 
+Before doing anything, make sure you open the terminal window and log in, using the credentials you received from uppmax into your Solander accounts.
 
+```
+ssh username@solander.uu.ibg.se
+```
+You might be asked to type in yes/no - type `yes`.
+Then type in your password (*you won't be able to see what you're typing in as the password but it is working*)
+*P.S. Make sure you're typing in the correct letters (confusion can occur as lower case 'l'/upper case 'I', the letter 'O' and zero etc)*
 
+Awesome. Once that's done we can start with the exercizes.
 
 ### What is UNIX?
 Unix is an operating system that was originally developed at Bell Labs in the 1970s. It is based around a "modular design" where tools do very distinct and narrow tasks. To complete more complex tasks multiple modules are then combined through the use of "pipes" - more about those later. 
@@ -25,7 +33,7 @@ Enough exposition, let's get going. Open up the terminal and proceed with the ex
 
 *(By Huihermit - Own work, CC0, https://commons.wikimedia.org/w/index.php?curid=30560188)*
 
-#### For Mac users
+#### For Mac users (Only if you are using your own computer)
 The macOS operating system is a Unix-system so modern Macs can natively interact with other Unix systems. macOS comes with an inbuilt terminal application called simply `Terminal`. 
 It is functional and gets the job down, we, however, recommend that you instead install `iTerm2`, which comes with several quality of life improvements.
 Download it from [https://iterm2.com/](https://iterm2.com/)
@@ -48,7 +56,7 @@ Then you can install some useful tools:
 
 ```
 
-#### For Windows users
+#### For Windows users (Only if you are using your own computer)
 If you are on a Windows machine then the easiest option for you is to download `MomaXterm`.
 
 [https://mobaxterm.mobatek.net/](https://mobaxterm.mobatek.net/)
@@ -162,14 +170,11 @@ Just `cd` with no options takes you to your home directory.
 
 
 
-
-
 ### Playing around with files
 
 ```
 w3m -dump https://en.wikipedia.org/wiki/Principal_component_analysis > PCA.txt
 ```
-
 
 The above command reads the Wikipedia page for Principal Component Analysis and extracts the body text and saves it to the file `PCA.txt`. The `>` is used to redirect output to a file.
 
@@ -179,12 +184,13 @@ Now that we have some text to work here are some tools for inspecting files, try
 ```
 cat - concatenates the file contents to standard out (the screen)
 less - a nice and easy file viewer, press q to quit!
+more - more than less
 head - look at the head of a file, by default the first 10 lines.
 tail - looks at the tail of a file, by default the 10 last lines.
 ```
 
 It turns out that the PCA article is quite big, how big?
-Counting is hard and slow for humans but easy for machines. Use the word count command `wc` on the file to figure out how many lines and words it contains. 
+Counting is hard and slow for humans but easy for machines. Use the word count command `wc` on the file to figure out how many lines, words and characters it contains. 
 
 **Question 1: What did you get? How many lines and words?**
 
@@ -229,7 +235,8 @@ grep PCA short_pca.txt | wc -l
 
 Try it for the full article as well!
 
-**Question 2:** **Write down how many times the term`"PCA"` appears in both the full `PCA.txt` and the `short_pca.txt` files.** Remember that there can be more than one hit per line so you need to account for that!
+**Question 2:** **Write down how many times the term`"PCA"` appears in both the full `PCA.txt` and the `short_pca.txt` files.** 
+Remember that there can be more than one hit per line so you need to account for that!
 
 --
 
@@ -255,9 +262,9 @@ The main tool for working with SAM/BAM files is called `samtools` and it's insta
 
 The **BAM** file and corresponding **SAM** file can be found [here](test.bam) and [here](test.sam).
 
+One way of getting the files to your home directory is:
 
-
-Before using it have a look at the file sizes of the two different formats.
+You'll be working on the **BAM** but before that, take a look at the file sizes of the two different formats.
 
 ```
 ls -lh 
@@ -265,9 +272,10 @@ ls -lh
 
 With that information, you can probably see why it's a generally good idea to store data in binary formats as much as possible. The original full file was **117 GB** for reference.
 
-##### The `.bam` file is just for a small part of the genome, which one? 
-**Question 4:** use `samtools view` and `head` and `tail` to **figure out the first and last basepair position in the file**. Also include the exact command you used!
- 
+##### The `.bam` file is just for a small part of the genome, which one (hint - the information is in the header)? 
+
+**Question 4:** use `samtools view` and `head` and `tail` to **figure out the first and last nucleotide as well as the basepair position in the file**.  
+Also include the exact command you used!
 
 ##### Use `cut` to extract only the name and nucleotide sequence from the `.bam` file. 
 
@@ -275,8 +283,6 @@ First, figure out which fields it is that you want and then investigate `man cut
 
 **Question 5:** Write down the command you used to extract the name and nucleotide sequence!
 This should be done in **one** command.
-
-
 
 
 ### sed and regex
