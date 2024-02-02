@@ -269,12 +269,13 @@ One way of transfering the files to your home directory is:
 wget https://github.com/UU-Human-Evolution/1MB335/raw/master/test.bam
 ```
 
-Another example of transfering files from a local to a remote server 
-
+Another example of transfering files from a local to a remote server:
+First, download a file to your computer.
 ```
 ### Standing at the local server 
 scp fullpathto/file my_user@remote_server:fullpathto/directory
 ```
+*You will be asked for your password.*
 
 You'll be working on the **BAM** but before that, take a look at the file sizes of the two different formats.
 
