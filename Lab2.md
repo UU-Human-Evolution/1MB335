@@ -1,6 +1,6 @@
 # Session 2 - Database search
 
-Mitochondria are present in all eukaryotic cells (for a review, see 'Origin and diversification of mitochondria', Roger et al.), where among many other functions it supplies the cells with chemical energy (ATP). Here, we will focus on the genes present in mitochondria; mitochondrial genomes present the advantage of being relatively small compared to nuclear genomes (e.g. 16,000 base pairs in humans), thus facilitating bioinformatic operations in the labs. They are also present in many copies in the cells, thus they are relatively easy to sequence even in extreme cases where DNA is often limited such as environmental DNA or ancient DNA studies. Although mitochondrial genomes can take many different forms depending on the species, they all contain a series of conserved protein-coding genes as well as rRNA and tRNA; this makes mitochondrial genomes good candidates for comparative analyses between different species.
+Mitochondria are present in all eukaryotic cells (for a review, see 'Origin and diversification of mitochondria', Roger et al.), where among many other functions it supplies the cells with chemical energy (ATP). Here, we will focus on the genes present in mitochondria; mitochondrial genomes present the advantage of being relatively small compared to nuclear genomes (e.g. 16,000 base pairs in humans), facilitating bioinformatic operations in the labs. They are also present in many copies in the cells, thus they are relatively easy to sequence even in extreme cases where DNA is often limited such as environmental DNA or ancient DNA studies. Although mitochondrial genomes can take many different forms depending on the species, they all contain a series of conserved protein-coding genes as well as rRNA and tRNA; this makes mitochondrial genomes good candidates for comparative analyses between different species.
 
 ## General introduction to sessions 2 to 6
 
@@ -10,14 +10,16 @@ Mitochondria are present in all eukaryotic cells (for a review, see 'Origin and 
 **Figure 1: Simplified structure of a mitochondrion.** 
 *By Kelvinsong; modified by Sowlos - Own work based on: Mitochondrion mini.svg, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=27731882*
 
-For the remaining labs you will work in groups on a bioinformatics project where you will try to answer one of the evolutionary biology questions below, using bioinformatic methods. You will be randomly assigned one of the questions and a group. Over the coming sessions, you will gather the data necessary to answer this question, format and align it in order to finally analyze it and present your results to the entire class.
+For the remaining labs you will work in groups on a bioinformatics project where you will try to answer one of the evolutionary biology questions below, using bioinformatic methods. 
+Over the coming sessions, you will gather the data necessary to answer this question, format and align it in order to finally analyze it and present your results to the entire class.
 
 We (the lab assistants) will help and guide you through this project, but ultimately the decisions are yours and you will need to consider the potential downstream effects of your choices. 
 
 We made a checklist to help you when a command does not do what you expect it to do [here](Troubleshooting_checklist.md). It includes instructions to use `SFTP` to transfer files to and from Solander.
 
 
-## Questions:
+## 1 Question per group:
+
 1. Are bats more closely related to horses than to cows?
 
 2. Both whales and sea cows originate from land-living animals. Do they have a common ancestor that transitioned from land-to-water or has this transition occurred twice independently?
