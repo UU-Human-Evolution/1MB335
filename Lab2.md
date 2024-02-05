@@ -64,7 +64,7 @@ If you have a hard time coming up with good candidate species you can use the [N
 
 In the end, you should have around 15-20 species in your dataset. 
 
-**Question 1**: Write down a few sentences on the selection of species and outgroup in your dataset. Which species did you choose and why?
+**Question 1**: Write down a few sentences on the selection of species and outgroup in your dataset. Which species did you choose and why? Explain how the species you picked you think would resolve the phylogenetic relationship the question posed.  
 
 **Comment**: it is possible that you do not find data for some of the species. In that case, update your answer accordingly and add more species if needed.
 
@@ -73,7 +73,10 @@ This will help you later to reflect upon the question and your results. It also 
 
 ## Getting the sequences
 
-Your task is to gather the full **mitochondrial** genome sequences for your species as well as the gene **CytB** (Cytochrome b). You should thus have two fasta files per species!
+Your task for today is to gather:
+- the full **mitochondrial** genome sequences for all the species in your dataset.
+- the **CytB** (Cytochrome b) gene for all the species in your dataset.
+*In the end, you should end up with two fasta files per species! Ex. Monkey_mt.fasta & Monkey_cytB.fasta*
 
 #### Collecting sequences from Genbank
 
