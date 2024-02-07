@@ -102,10 +102,12 @@ Preferably you should get the two types of sequences for all species in your dat
 
 #### Create fasta files for the entire dataset
 
-Once you found all the sequences for your dataset, you will need to put them together in a single fasta file (OBS! One fasta file for the entire mitochondria and one for *cytB*) using the `cat` command for example.
+Once you found all the sequences for your dataset, you will need to put them together in a single fasta file (OBS! One fasta file for the entire mitochondria and one for *cytB*). 
+P.S. There are smarter ways than doing it manually one by one (think about combining `cat`,`>>`,`*` for example.
 
-## Create a name conversion file.
+## Create a name conversion table file.
 
+For your script to be able to switch between a long/medium/short version of the headers, it should use a conversion table which you will create. 
 Create two different files (one for the mitochondrial sequences and one for *cytB*). Both files are to be **tab-separated** into three columns. 
 (I.e. there should be a tab charachter `\t` between each column.) 
 
@@ -122,7 +124,6 @@ H_sapiens	cytb_Homo_Sapiens	NC_003562.2 Homo Sapiens mitochondrion, complete gen
 N_nean	cytB_Homo_Neanderthalensis	NC_004571.2 Homo Neanderthalensis mitochondrion, complete genome	
   ```
 
-
 **Question 2** Now you should create a Python script that: 
 - takes one of your merged fasta file as input (which at that point has one of the three types of headers in the conversion table);
 - uses your conversion table;
@@ -135,6 +136,10 @@ N_nean	cytB_Homo_Neanderthalensis	NC_004571.2 Homo Neanderthalensis mitochondrio
 - *chatGPT* and other AI tools based on LLMs are very useful for writing such scripts -- feel free to use them but make sure to test the script so it does what you think it should. Also instruct the AI to *not* use any extra libraries/packages (e.g. BioPython) for this task.
 
 *Hint* It's probably a good idea to create a mock fasta file and a mock conversion table, on which you can test your code. Something that is short and simple to analyze.
+
+The simplest way to run your code should be:
+
+```my_code.py combined_fastas_mitochondria.fasta conversion_table``` and then an option to pick between ```S/M/L```.
 
 Submit the script, the two conversion tables and the fasta files for *cytB* and the full mitogenome.
 
