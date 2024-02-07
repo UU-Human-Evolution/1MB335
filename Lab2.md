@@ -133,8 +133,11 @@ N_nean	cytB_Homo_Neanderthalensis	NC_004571.2 Homo Neanderthalensis mitochondrio
 **Hints**: 
 - When your script is reading the table **remember that your columns are tab separated**, you can use that to differentiate between your different columns (Making them in Excel will probably cause issues as they might not be tab-separated)
 - Remember that you can `sys.argv` to get inputs from the command line.
-- *chatGPT* and other AI tools based on LLMs are very useful for writing such scripts -- feel free to use them but make sure to test the script so it does what you think it should. Also instruct the AI to *not* use any extra libraries/packages (e.g. BioPython) for this task.
-
+- *chatGPT* and other AI tools based on LLMs are very useful for writing such scripts -- feel free to use them but make sure to test the script. 
+- You can use chatGpt to create the python script but obviously do not have to. Maybe it's confusing and not the way you have been taught to code previously;
+- If you do use chatGpt, make sure you are using a prompt that makes (coding) sense for the task you want to accomplish;
+- Also instruct the AI to *not* use any extra libraries/packages (e.g. BioPython) for this task.
+  
 *Hint* It's probably a good idea to create a mock fasta file and a mock conversion table, on which you can test your code. Something that is short and simple to analyze.
 
 The simplest way to run your code should be:
