@@ -75,7 +75,7 @@ This will help you later to reflect upon the question and your results. It also 
 
 Your task for today is to gather:
 - the full **mitochondrial** genome sequences for all the species in your dataset.
-- the **CytB** (Cytochrome b) gene for all the species in your dataset.
+- the **CytB** (Cytochrome b) gene (which is a gene in the ) for all the species in your dataset.
 *In the end, you should end up with two fasta files per species! Ex. Monkey_mt.fasta & Monkey_cytB.fasta*
 
 #### Collecting sequences from Genbank
@@ -131,7 +131,7 @@ N_nean	cytB_Homo_Neanderthalensis	NC_004571.2 Homo Neanderthalensis mitochondrio
 - your script should be able to change the original file you send in and should not create a new fasta file!
 
 **Hints**: 
-- When your script is reading the table **remember that your columns are tab separated**, you can use that to differentiate between your different columns. 
+- When your script is reading the table **remember that your columns are tab separated**, you can use that to differentiate between your different columns (Making them in Excel will probably cause issues as they might not be tab-separated)
 - Remember that you can `sys.argv` to get inputs from the command line.
 - *chatGPT* and other AI tools based on LLMs are very useful for writing such scripts -- feel free to use them but make sure to test the script so it does what you think it should. Also instruct the AI to *not* use any extra libraries/packages (e.g. BioPython) for this task.
 
