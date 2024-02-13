@@ -38,7 +38,7 @@ In this session, you will focus on alignments. As you have seen in the lecture, 
 
 Please go through the tutorial on [this page](https://teaching.healthtech.dtu.dk/22111/index.php/ExPairwiseAlignment).
 
-Questions are numbered from 1 to 14. Submit answers to all the questions (you can number them 1-1, 1-2, etc to distinguish them from the answers to the next part).
+Answer questions 1 to 14 (Not 0.0). Submit answers to all the questions (you can number them 1-1, 1-2, etc to distinguish them from the answers to the next part).
 
 ### Step 2: Multiple alignments
 
