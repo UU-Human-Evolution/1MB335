@@ -52,7 +52,12 @@ Finally, we will start by aligning your **full mitochondrial** genomes! We are g
 
 Aligning this set of mitochondrial genomes is a computationally intensive task. 
 
-In order to execute MAFFT, just type `mafft`. You will be asked several questions, among others: the input file name, the output file name (include the file extension, `.fasta` in this case), output file format, algorithm.  For the algorithm, choose `FFT-NS-1 (fast)`.
+In order to execute MAFFT, just type `mafft`. 
+You will be asked several questions, among others: 
+- the input file name (type in the fasta file you prepared),
+- the output file name (type in the name of the fasta file you want to be called after alignment and include the file extension, `.fasta` in this case),
+- output file format (sorted fasta),
+- algorithm (choose `FFT-NS-1 (fast)`).
 
 Once you have chosen all the options, the corresponding command-line will be printed on the screen.
 
