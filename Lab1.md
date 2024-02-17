@@ -278,9 +278,9 @@ scp fullpathto/file my_user@solander.ibg.uu.se:fullpathto/directorywhereyouwanti
 ```
 *You will be asked for your password.*
 
+```
 ### Same thing for copying files from Solander to your local computer:
 
-```
 scp my_user@solander.ibg.uu.se:fullpathto/filesyouwanttocopy fullpathto/directorywhereyouwantitcopiedto
 ```
 
