@@ -237,7 +237,7 @@ grep PCA short_pca.txt | wc -l
 Try it for the full article as well!
 
 **Question 2:** **Write down how many times the term`"PCA"` appears in both the full `PCA.txt` and the `short_pca.txt` files.** 
-Remember that there can be more than one hit per line so you need to account for that!
+Remember that there can be more than one hit per line so you need to account for that! Using grep alone might not lead to the correct answer (Hint! Try combining it with flags!)
 
 --
 
@@ -272,10 +272,20 @@ wget https://github.com/UU-Human-Evolution/1MB335/raw/master/test.bam
 Another example of transfering files from a local to a remote server:
 First, download a file to your computer.
 ```
-### Standing at the local server 
-scp fullpathto/file my_user@remote_server:fullpathto/directory
+### Open a local terminal window (not Solander). Then, standing at the local server:
+
+scp fullpathto/file my_user@solander.ibg.uu.se:fullpathto/directorywhereyouwantitcopiedto
 ```
 *You will be asked for your password.*
+
+### Same thing for copying files from Solander to your local computer:
+
+```
+scp my_user@solander.ibg.uu.se:fullpathto/filesyouwanttocopy fullpathto/directorywhereyouwantitcopiedto
+```
+
+**Remember this command. You will be using it regularly further down!!**
+
 
 You'll be working on the **BAM** but before that, take a look at the file sizes of the two different formats.
 
@@ -288,7 +298,7 @@ With that information, you can probably see why it's a generally good idea to st
 ##### The `.bam` file is just for a small part of the genome, which one (hint - the information is in the header)? 
 
 **Question 4:** use `samtools view` and `head` and `tail` to **figure out the first and last nucleotide as well as the basepair position in the file**.  
-Also include the exact command you used!
+(Hint! We are looking for the position in base pairs on the specific chromosome at hand. Include the exact command you used!)
 
 ##### Use `cut` to extract only the name and nucleotide sequence from the `.bam` file. 
 
