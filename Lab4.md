@@ -54,9 +54,9 @@ tblastn -query CYTB.fasta -db your_alignment_of_full_mitogenomes.fasta -outfmt 6
 
 Make sure to use the names of your respective files. Open the output file. What do you see? Can you make sense of the different columns?
 ```
-Col	name	Description
-qseqid	query (e.g., unknown gene) sequence id
-sseqid	subject (e.g., reference genome) sequence id
+Column_name	Description
+**qseqid**	query (e.g., unknown gene) sequence id
+**sseqid**	subject (e.g., reference genome) sequence id
 pident	percentage of identical matches
 length	alignment length (sequence overlap)
 mismatch	number of mismatches
