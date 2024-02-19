@@ -44,7 +44,7 @@ First, we need to prepare our sequence file for BLAST searches. We use the comme
 makeblastdb -in your_alignment_of_full_mitogenomes.fasta -dbtype nucl 
 ```
 
-**Question 2.** How many new files are created? Can you read them?
+**Question 2.** How many new files are created? Can you read them? Try to find out what they are.
 
 Now we can perform the BLAST search for our first protein, let's start with *CytB*.
 
@@ -53,7 +53,21 @@ tblastn -query CYTB.fasta -db your_alignment_of_full_mitogenomes.fasta -outfmt 6
 ```
 
 Make sure to use the names of your respective files. Open the output file. What do you see? Can you make sense of the different columns?
-
+```
+Col	name	Description
+qseqid	query (e.g., unknown gene) sequence id
+sseqid	subject (e.g., reference genome) sequence id
+pident	percentage of identical matches
+length	alignment length (sequence overlap)
+mismatch	number of mismatches
+gapopen	number of gap openings
+qstart	start of alignment in query
+qend	end of alignment in query
+sstart	start of alignment in subject
+send	end of alignment in subject
+evalue	expect value
+bitscore	bit score
+```
 **Question 3.** Did you find a good hit in your species of interest? Is this actually the best hit compared to the other species (in terms of how long the hit is, identity and E-value)?
 
 Now repeat these steps for *COX1* and *ND6* using informative names for the output files so you don't overwrite your previous results.
