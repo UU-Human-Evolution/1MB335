@@ -21,7 +21,7 @@ During the last sessions, you collected and aligned mitochondrial sequences from
 **Figure 2: Map of the Human mitochondira**
 By Emmanuel Douzery - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=46726514
 
-From the full mitochondrial genome sequences you collected in lab 2, ***select just one species of interest*** (your choice!). Please check the Genbank entry for that sequence to make sure that it contains information about the start and end positions of the genes.
+From the full mitochondrial genome sequences you collected in lab 2, ***select just one species of interest*** that you will test (your choice!). Please check the Genbank entry for that sequence to make sure that it contains information about the start and end positions of the genes.
 
 **Question 1** What species did you select? Please record the ID of the Genbank entry.
 
