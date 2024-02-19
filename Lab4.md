@@ -25,7 +25,12 @@ From the full mitochondrial genome sequences you collected in lab 2, ***select j
 
 **Question 1** What species did you select? Please record the ID of the Genbank entry.
 
-Now that you have a species that you want to focus on, we want to obtain protein sequences for three genes of interest. Protein sequences can be obtained from e.g. [UniProt](https://www.uniprot.org/). Search the database for the proteins *CytB*, *COX1* and *ND6*, and download each sequence into a separate FASTA file.
+Now that you have a species that you want to focus on, we want to obtain protein sequences ***for three genes of interest***. Protein sequences can be obtained from e.g. [UniProt](https://www.uniprot.org/). 
+Search the database for the **proteins** 
+- *CytB*,
+- *COX1* and
+- *ND6*
+  and download each sequence into a **separate FASTA file**. Make sure you mark them correctly.
 
 We now want to search for these protein sequences in our mitochondrial genomes to identify the corresponding coding regions in that nucleotide sequence. For obvious reasons, we cannot directly align protein sequences with a nucleotide sequence as they are composed from a different alphabet and there are often alternative codons in the translation process, so the assignment of an amino acid to three nucleotides is ambiguous. [tblastn](https://ftp.ncbi.nlm.nih.gov/pub/factsheets/HowTo_BLASTGuide.pdf) is a handy tool for this purpose as it takes a protein sequence as input and compares this to a nucleotide database. As part of the process, the nucleotides in the database are translated into hypothetical proteins using all six possible reading frames.
 
