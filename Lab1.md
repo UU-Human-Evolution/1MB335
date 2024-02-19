@@ -3,7 +3,7 @@
 Before doing anything, make sure you open the terminal window and log in, using the credentials you received from uppmax into your Solander accounts.
 
 ```
-ssh username@solander.uu.ibg.se
+ssh username@solander.ibg.uu.se
 ```
 - You might be asked to type in yes/no - type `yes`.
 - Then type in your password (*you won't be able to see what you're typing in in the password field but it is working*)
