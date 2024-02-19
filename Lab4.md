@@ -30,13 +30,15 @@ Search the database for the **proteins**
 - *CytB*,
 - *COX1* and
 - *ND6*
-  and download each sequence into a **separate FASTA file**. Make sure you mark them correctly.
+and download each sequence into a **separate FASTA file**. Make sure you mark them correctly.
 
-We now want to search for these protein sequences in our mitochondrial genomes to identify the corresponding coding regions in that nucleotide sequence. For obvious reasons, we cannot directly align protein sequences with a nucleotide sequence as they are composed from a different alphabet and there are often alternative codons in the translation process, so the assignment of an amino acid to three nucleotides is ambiguous. [tblastn](https://ftp.ncbi.nlm.nih.gov/pub/factsheets/HowTo_BLASTGuide.pdf) is a handy tool for this purpose as it takes a protein sequence as input and compares this to a nucleotide database. As part of the process, the nucleotides in the database are translated into hypothetical proteins using all six possible reading frames.
+We now want to search for these protein sequences **in our mitochondrial genomes** to identify the **corresponding coding regions in that nucleotide sequence**. 
+For obvious reasons, we cannot directly align protein sequences with a nucleotide sequence as they are composed from a **different alphabet** and there are often alternative codons in the translation process, so the assignment of an amino acid to three nucleotides is ambiguous. 
+[tblastn](https://ftp.ncbi.nlm.nih.gov/pub/factsheets/HowTo_BLASTGuide.pdf) is a handy tool for this purpose as it takes a protein sequence as input and compares this to a nucleotide database. As part of the process, the nucleotides in the database are translated into hypothetical proteins using all six possible reading frames.
 
-We want to compare the proteins to the specific sequences you collected earlier, so we want to run BLAST using it as a custom database. This means we cannot actually use the online version of BLAST as illustrated in the lectures but we need to run it locally (for us: Solander).
+We want to **compare the proteins to the specific sequences you collected earlier**, so we want to run BLAST using it as a custom database. This means we cannot actually use the online version of BLAST as illustrated in the lectures but we need to run it locally (for us: Solander).
 
-First, we need to prepare our sequence file for BLAST searches. We use the comment makeblastdb to preprocess the database. This preprocessing of the database for multiple searches is one of the main reasons why BLAST is such an efficient search algorithm.
+First, we need to prepare our sequence file for BLAST searches. We use the comment **makeblastdb** to preprocess the database. This preprocessing of the database for multiple searches is one of the main reasons why BLAST is such an efficient search algorithm.
 
 ```
 makeblastdb -in your_alignment_of_full_mitogenomes.fasta -dbtype nucl 
