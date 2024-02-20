@@ -78,7 +78,7 @@ Now repeat these steps for *COX1* and *ND6* using informative names for the outp
 Return to the Genbank entry for the full mitochondrial genome of your species of interest. Locate the position information of the three genes.
 
 **Question 5.** Has your BLAST search identified the same start and end locations as listed in Genbank? If there are differences, can you speculate about their reason? 
-Some gene poistions might start at a higher position and end at a lower one. Any idea why?  
+Some genes might start at a higher position and end at a lower one. Any idea why?  
 
 
 ---
