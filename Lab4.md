@@ -41,7 +41,7 @@ We want to **compare the proteins to the specific sequences you collected earlie
 First, we need to prepare our sequence file for BLAST searches. We use the comment **makeblastdb** to preprocess the database. This preprocessing of the database for multiple searches is one of the main reasons why BLAST is such an efficient search algorithm.
 
 ```
-makeblastdb -in your_alignment_of_full_mitogenomes.fasta -dbtype nucl 
+makeblastdb -in full_nonaligned_mitogenomes.fasta -dbtype nucl 
 ```
 
 **Question 2.** How many new files are created? Can you read them? Try to find out what they are.
@@ -77,7 +77,9 @@ Now repeat these steps for *COX1* and *ND6* using informative names for the outp
 
 Return to the Genbank entry for the full mitochondrial genome of your species of interest. Locate the position information of the three genes.
 
-**Question 5.** Has your BLAST search identified the same start and end locations as listed in Genbank? If there are differences, can you speculate about their reason?
+**Question 5.** Has your BLAST search identified the same start and end locations as listed in Genbank? If there are differences, can you speculate about their reason? 
+Some gene poistions might start at a higher position and end at a lower one. Any idea why?  
+
 
 ---
 ## Report:
