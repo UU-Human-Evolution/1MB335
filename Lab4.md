@@ -49,7 +49,7 @@ makeblastdb -in full_nonaligned_mitogenomes.fasta -dbtype nucl
 Now we can perform the BLAST search for our first protein, let's start with *CytB*.
 
 ```
-tblastn -query CYTB.fasta -db your_alignment_of_full_mitogenomes.fasta -outfmt 6 -out CYTB.blast
+tblastn -query CYTB.fasta -db full_nonaligned_mitogenomes.fasta -outfmt 6 -out CYTB.blast
 ```
 
 Make sure to use the names of your respective files. Open the output file. What do you see? Can you make sense of the different columns?
