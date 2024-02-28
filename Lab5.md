@@ -119,19 +119,15 @@ Before you export your tree, think about what else you can do to show your resul
 
 IQ-TREE creates several types of trees (e.g. a Neighbour Joining tree saved as .bionj file and an ML tree saved as .treefile). In order to properly visualize your tree, you'll need to use specific software, as trees are not represented in a way we can easily understand in our files. In order to plot them, we are going to use [FigTree](SRC/FigTree_v1.4.4). Download it onto your computer and start it. 
 
-**Question 2: Compare the *.bionj* tree with the ML tree. Are there any differences? If so, explain what they are and why do you believe they are there.**
 
-Now let's look at the .iqtree file.
-
-#####Question 3:
+#####Question 2:
 1. **Which model did ModelFinder choose? From all the criteria calculated by this software, which was used to determine the best-fitting model?**
 
 2. **Briefly explain the best-fitting model.**
 
 #####Question 4:
-1. **Now look at both your Maximum Likelihood tree and Consensus Tree. Are they the same? If not, where do they differ?**
 
-2. **In both trees you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question?**
+2. **In your tree, you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question?**
 
 
 **Repeat these steps for the full mitochondrial genome alignments. Remember to adapt the command above to run IQ-TREE and be careful to not over-write your files.** 
