@@ -89,7 +89,7 @@ Now run IQ-TREE in your open terminal with the CytB data, and set your model to 
 
 In the .iqtree file, you have a representation of the trees. However, it is an unrooted tree. You can root the tree, and do many other things, with the program FigTree.
 
-*If you can't get FigTree to work in a terminal you can try downloading it from https://github.com/rambaut/figtree/releases and installing it locally on your computer.*
+*If you can't get FigTree to work in a terminal you can try downloading it from https://github.com/rambaut/figtree/releases and installing it locally on your computer. It's very simple to run and even recommendable*
   
 When you call FigTree, a ***visual interface will open***. In `File`, choose `Open` and select one of your Maximum Likelihood trees. If the software asks you to select a name for the labels on the tree, you can keep the default or choose a keyword, for example `bootstrap`. **Note that you do *not* want the `.iqtree`, that file is more of a logfile than an actual tree.**
 
