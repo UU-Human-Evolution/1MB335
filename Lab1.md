@@ -34,7 +34,11 @@ Enough exposition, let's get going. Open up the terminal and proceed with the ex
 
 *(By Huihermit - Own work, CC0, https://commons.wikimedia.org/w/index.php?curid=30560188)*
 
-#### For Mac users (Only if you are using your own computer)
+### Before starting
+
+#### OBS! Do steps A/B **only if you are using your own computer** and not the local computers in the Labs. Any downstream issues you may encounter are solely your responsibility if you choose to do so. We strongly recommend using the computers in the labs but it is still a matter of choice.
+
+#### A. For Mac users (Only if you are using your own computer)
 The macOS operating system is a Unix-system so modern Macs can natively interact with other Unix systems. macOS comes with an inbuilt terminal application called simply `Terminal`. 
 It is functional and gets the job down, we, however, recommend that you instead install `iTerm2`, which comes with several quality of life improvements.
 Download it from [https://iterm2.com/](https://iterm2.com/)
@@ -57,8 +61,8 @@ Then you can install some useful tools:
 
 ```
 
-#### For Windows users (Only if you are using your own computer)
-If you are on a Windows machine then the easiest option for you is to download `MomaXterm`.
+#### B. For Windows users (Only if you are using your own computer)
+If you are on a Windows machine then the easiest option for you is to download `MobaXterm`.
 
 [https://mobaxterm.mobatek.net/](https://mobaxterm.mobatek.net/)
 
@@ -71,9 +75,7 @@ Open a local terminal and run the following command to install `w3m` which we wi
 apt-get install -y w3m-img
 ```
 
-### Before starting
-If you have problem with missing software on your installation of Unix/Linux you can choose to work on Uppmax directly. You can read the instructions under Working remotely then continue for here.
-
+### Baby steps in Terminal
 
 #### Moving around
 When you connect to a system you usually end up in your home directory. To see the path to where you stand use the `pwd` command. Try it now:
