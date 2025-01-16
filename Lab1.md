@@ -251,65 +251,8 @@ Submit the hidden word.
 
 Do not continue with the next part until you are done with the hidden word exercise. 
 
-
-### BAM files
-
-The SAM/BAM (Sequence Alignment/Map & Binary Alignment Map) format is a very popular format for storing nucleotide data that is **aligned to a reference**. 
-
-If you want to read more about the file format(s) you can have a look at the official documentation:
-https://samtools.github.io/hts-specs/SAMv1.pdf
-
-If you want a simpler (and easier to read) text to give you an overview have a look at the Wikipedia article: 
-https://en.wikipedia.org/wiki/SAM_(file_format)
-
-The main tool for working with SAM/BAM files is called `samtools` and it's installed through the module system on Uppmax. To get access to it:
-
-The **BAM** file and corresponding **SAM** file can be found [here](test.bam) and [here](test.sam).
-
-One way of transfering the files to your home directory is:
-
-```
-wget https://github.com/UU-Human-Evolution/1MB335/raw/master/test.bam
-```
-
-Another example of transfering files from a local to a remote server:
-First, download a file to your computer.
-```
-### Open a local terminal window (not Solander). Then, standing at the local server:
-
-scp fullpathto/file my_user@solander.ibg.uu.se:fullpathto/directorywhereyouwantitcopiedto
-```
-*You will be asked for your password.*
-
-```
-### Same thing for copying files from Solander to your local computer:
-
-scp my_user@solander.ibg.uu.se:fullpathto/filesyouwanttocopy fullpathto/directorywhereyouwantitcopiedto
-```
-
-**Remember this command. You will be using it regularly further down!!**
-
-
-You'll be working on the **BAM** but before that, take a look at the file sizes of the two different formats.
-
-```
-ls -lh 
-```
-
-With that information, you can probably see why it's a generally good idea to store data in binary formats as much as possible. The original full file was **117 GB** for reference.
-
-##### The `.bam` file is just for a small part of the genome, which one (hint - the information is in the header)? 
-
-**Question 4:** use `samtools view` and `head` and `tail` to **figure out the first and last nucleotide as well as the basepair position in the file**.  
-(Hint! We are looking for the position in base pairs on the specific chromosome at hand. Include the exact command you used!)
-
-##### Use `cut` to extract only the name and nucleotide sequence from the `.bam` file. 
-
-First, figure out which fields it is that you want and then investigate `man cut` to figure out how to access them.
-
-**Question 5:** Write down the command you used to extract the name and nucleotide sequence!
+**Question 4:** Write down the command you used to extract the name and nucleotide sequence!
 This should be done in **one** command.
-
 
 ### sed and regex
 Regular expressions(regex) are used to catch and match certain words or phrases. E.g
@@ -322,7 +265,6 @@ P674353
 454646464 P 
 ```
 These types of expression can be very useful and powerful 
-
 
 `sed` is a powerful tool for editing streams of files. It is a common way of using rexes in Unix. It's often used to replace one thing with another:
 
@@ -343,13 +285,10 @@ sed 's/dog/cat/g' My_file.txt. # sg - substitute globally
 cat cat cat
 ```
 
-
 You can use `sed` on piped output from another program or straight on a single file. For a summary of some things that you can do with it have a look at [this link](https://github.com/tldr-pages/tldr/blob/master/pages/common/sed.md).
 
-
-
-**Question 6 :**
-You have been given a that has been exported from excel in an odd format (something that is all too common in the life of a bioinformatician). Your task is to transform the file [orange.csv](example_data/orange.csv) into a normally formatted `.csv`-file. That is the decimal point should be a `.` and the delimiter (what separates one column from another) should be `,`. It also looks like someone has accidentally inserted some letters among the numbers, they also need to be removed.
+**Question 5 :**
+You have been given a file that has been exported from excel in an odd format (something that is all too common in the life of a bioinformatician). Your task is to transform the file [orange.csv](example_data/orange.csv) into a normally formatted `.csv`-file. That is the decimal point should be a `.` and the delimiter (what separates one column from another) should be `,`. It also looks like someone has accidentally inserted some letters among the numbers, they also need to be removed.
 
 Submit what `sed` command(s) you used to clean the file. (Make sure that it looks correct, i.e. **all** columns are separated with a comma)
 
@@ -391,5 +330,80 @@ python my_python_script.py inputfile.txt
 
 This is the end of the lab, please make sure that you did and wrote down the answers to all of the questions.
 Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
+
+
+
+
+Exercise: Downloading, Unzipping, and Transferring Files Using ssh and scp In this exercise, you will practice using ssh and scp to download a zipped file from GitHub, unzip it on your local machine, and then transfer the unzipped files to your profile on the Solander server. This workflow is common in bioinformatics for managing and transferring data.
+
+Step 1: Download the Zipped File from GitHub Using scp
+
+Note: Typically, scp is used for copying files between local and remote systems via SSH. To download files directly from GitHub, tools like git, wget, or curl are more commonly used. However, for the purpose of this exercise, we will simulate downloading a file using scp.
+
+First, you'll use scp (Secure Copy) to download a zipped file from a GitHub repository to your local computer. Replace <github-username>, <repository>, and <file.zip> with the appropriate GitHub username, repository name, and file name.
+
+scp <github-username>@github.com:<repository>/<file.zip> ~/Downloads/
+
+Example:
+
+scp johndoe@github.com:bioinformatics-tools/data.zip ~/Downloads/
+
+This command copies data.zip from the GitHub repository bioinformatics-tools owned by johndoe to the Downloads directory on your local machine.
+
+Step 2: Unzip the Downloaded File Using unzip
+
+Once the file is downloaded, navigate to the Downloads directory and unzip the file using unzip. Note that gunzip is typically used for .gz files. If you're dealing with a .zip file, it's better to use unzip.
+
+cd ~/Downloads/ unzip data.zip
+
+If you're dealing with a .gz file:
+
+gunzip data.gz
+
+This command extracts the contents of data.zip into the current directory.
+
+Step 3: Transfer the Unzipped Files to Your Solander Server Profile Using scp
+
+After unzipping the files, you can transfer them to your profile on the Solander server. There are two methods to specify the destination directory on the server: using an absolute path or using . to represent the current directory.
+
+Method 1: Using an Absolute Path Replace <your-username> with your actual username on the Solander server and <solander-server-address> with the server's address.
+
+scp -r ~/Downloads/data <your-username>@<solander-server-address>:~/your-profile-directory/
+
+Example:
+
+scp -r ~/Downloads/data johndoe@solander.server.edu:~/bioinformatics_project/
+
+The -r flag is used to copy directories recursively. ~/Downloads/data is the path to the unzipped data on your local machine. johndoe@solander.server.edu is your SSH username and the Solander server address. ~/bioinformatics_project/ is the destination directory on the Solander server where you want to store the data.
+
+Method 2: Using . to Represent the Current Directory Alternatively, you can use . to indicate that the files should be copied to the current directory on the remote server. This method is especially useful when you are already within the desired destination directory on the server.
+
+SSH into the Solander Server and Navigate to the Desired Directory
+
+ssh johndoe@solander.server.edu
+
+Once logged in, navigate to the directory where you want to place the files:
+
+cd ~/bioinformatics_project/
+
+Open a New Terminal Window or Tab on Your Local Machine Keep the SSH session open in the first terminal.
+
+Use scp with . as the Destination
+
+scp -r ~/Downloads/data johndoe@solander.server.edu:.
+
+Here, . represents the current directory (~/bioinformatics_project/) on the Solander server where you navigated in the SSH session. This command copies the data directory directly into the current directory on the server without needing to specify the full path.
+
+Advantages of Using .:
+
+Simplicity: Reduces the need to type or remember long directory paths. Flexibility: Especially useful when you have already navigated to the desired directory via SSH.
+
+Step 4: Verify the Transfer
+
+To ensure that the files have been successfully transferred, you can SSH into the Solander server and list the contents of the destination directory.
+
+ssh johndoe@solander.server.edu ls ~/bioinformatics_project/
+
+You should see the transferred data directory listed.
 
 
