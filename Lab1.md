@@ -288,28 +288,26 @@ Note that if you want to upload the file to your Uppmax results you can use the 
 
 ### 3. Hidden file exercize
 
-### 3.1 Download a file from GitHub Using `wget`
-
 Okay, let's refresh our memory for a sec. We should have been doing the things up until now on the ***server***. Let's take a moment and see where we are standing by typing ```pwd``` in the terminal. What does it say? Are you in the right place where you want to be? If not, you can use ```cd``` followed by the directory you want to move into. If you took a wrong turn, use ```cd ..``` to go back. 
 
-While in the directory with your name (on the server), create two new directories called ```MethodA``` and ```MethodB```.
+On the server: While in the directory with your name (on the server), create two new directories called ```MethodA``` and ```MethodB```.
 
-Now that you have set up your working directory on the server, open a new terminal window on your ***local machine***. It may be confusing in the beginning, but it’s important to always know whether you are working on the local machine or the server. This will help you avoid mistakes when transferring files.
+Locally: Now that you have set up your working directory on the server, open a new terminal window on your ***local machine***. It may be confusing in the beginning, but it’s important to always know whether you are working on the local machine or the server. This will help you avoid mistakes when transferring files.
 
-Now create a directory with your name on the ***local*** computer just like we did before.
+Now create a directory with your name on the ***local*** computer just like we did before and move into it.
 
 ```cd yourdirectory```
 
-type ```pwd``` and use that as the ***full path*** to this directory.
+type ```pwd``` and what you now see is the ***full path*** to this directory.
 
-The file needed for this exercise is hosted on GitHub:  
+### 3.1 Download a file from GitHub Using `wget`
 
-**Hidden word exercise** – 
+The file needed for this exercise is hosted on GitHub, here ```https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip```.  
 
-While on the local machine and in the directory you created, try using ```wget```:
+Locally: To get it, while on the ***local*** machine and standing in the directory you created, try using the command ```wget```:
 
 ```
-wget https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip -O thefullpathtoyourdirectory/hidden_word_exercise.zip
+wget https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip -O fullpathtoyourdirectory/hidden_word_exercise.zip
 ```
 
 This command downloads ```hidden_word_exercise.zip``` into your specified directory.
@@ -334,15 +332,17 @@ This extracts the contents of `hidden_word_exercise.zip` into the current direct
 
 ---
 
-### Step 3.3 Transfer the Unzipped Files to the server (via the gateway - Solander) using `scp`
+### Step 3.3 Transfer the Unzipped Files to the server using `scp`
 
-After unzipping the files locally, transfer them from the local machine to your Solander server profile. 
+After unzipping the files locally, we want to transfer them from the local machine to your server profile via the gateway Solander. 
 
 ## There are two methods to specify the destination directory on the server:
 
 ### Method A: using an **absolute path** or ### Method B: using `.` to represent the **current directory**. 
 
 #### 3.3.1 **Method A: Using an Absolute Path to the directory you want to copy into**
+
+Using the absolute paths when copying stuff means it doesn't matter where you are standing in that moment, the files will go where your command instructs them to go.
 
 Replace `<your-username>` with your actual username on the server.
 
@@ -366,7 +366,7 @@ scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.u
 
 #### 3.3.2 **Method B: Using `.` to Represent the Current Directory**
 
-Alternatively, open the ***server*** window now, and move into the MethodB directory using ```cd```
+On the server: Alternatively, open the ***server*** window now, and move into the MethodB directory using ```cd```
 
 ```
 cd /thefullpathtoyourdirectory/MethodB
@@ -386,12 +386,12 @@ Here, ```.``` represents the current MethodB directory (`thefullpathtoyourdirect
 
 - **Simplicity:** No need to type long directory paths.
 - **Flexibility:** Useful when you have already navigated to the desired directory via SSH.
-
+- But it means that you have to move to the directory you want to copy stuff into.
 ---
 
 ### Step 3.4 Verify that the transfer went smoothly
 
-To ensure that the files have been successfully transferred, while in the ***server*** window, list the contents of the destination directory using ```ls```.
+On the server: To ensure that the files have been successfully transferred, while in the ***server*** window, list the contents of the destination directory using ```ls```.
 
 You should see the `hidden_word_exercise` directory listed in both directories (Method A and Method B).
 
@@ -409,7 +409,7 @@ You should only see MethodA remaining.
 ### (extra) Step 3.5 Now, let’s try copying a file from the server back to the local machine. 
 
 This can be useful when you need to download results or processed data.
-Open a new terminal window on your ***local machine*** and navigate to the directory where you want to place the copied file:
+Locally: Open a new terminal window on your ***local machine*** and navigate to the directory where you want to place the copied file:
 
 Local window: 
 ```
@@ -427,13 +427,15 @@ This will copy the hidden_word_exercise directory from the server's MethodA dire
 We will be using these commands a lot so it's really important that you grasp the logic behind transferring files from one place to another, moving around and some of the basic commands. It is always important to know if you are standing in the right place or you are moving a file to the right place. The constant moving between ***Local*** machine vs ***Server*** can be confusing but as long as you keep track of your steps, you should be okay. Keep what we did above in mind and you can always go back to Lab1 to refresh your memory.
 
 #### **Question 4: Extracting the Hidden Word**
-Now that you have some basic UNIX tools at your disposal, go and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
+
+Back on the server: Now that you have some basic UNIX tools at your disposal, go and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
 
  **Submit the hidden word.**  
 
 ---
 
 ### 4. Basic bash scripting for future reference 
+
 Bash is a programming language in itself so it is possible to set up quite advanced workflows with it. The most simple bash script is just a normal command you would type on the command line saved to a file. Or more realistically you might want to run a couple of things that take a few minutes or hours after each other.
 This is something that you definitely will do in your future bioinformatics career.
 
@@ -446,7 +448,7 @@ echo “Completed”
 
 ```
 
-Add the above text to a file called `sleep.sh` and execute it with:
+On the server: In your directory, add the above text to a file called `sleep.sh` and execute it with:
 
 ```
 bash sleep.sh
