@@ -12,7 +12,7 @@ ssh username@solander.ibg.uu.se
 
 Awesome. Once that's done we can start with the exercizes.
 
-### What is UNIX?
+### 0.0 What is UNIX?
 Unix is an operating system that was originally developed at Bell Labs in the 1970s. It is based around a "modular design" where tools do very distinct and narrow tasks. To complete more complex tasks multiple modules are then combined through the use of "pipes" - more about those later. 
 If you are interested in learning more about UNIX then you can have a look at the [wikipedia article](https://en.wikipedia.org/wiki/Unix) for UNIX, it's quite thorough and well written.  
 ### Why are Unix systems so popular in science?
@@ -20,7 +20,7 @@ While there is no straightforward answer to this question there are some things 
 While the original UNIX operating system is a commercial system there are many Unix-like operating systems such as Linux which are free and open-source (_these are generally based on the Linux kernel_).
 The ecosystem of open source and free distribution suits the academic world very well. It is not science if you aren't sharing your findings and how you came to your conclusions - that generally includes your code. 
 
-#### Using UNIX
+#### 0.1 Using UNIX
 Interaction with UNIX-style systems is typically done through a command-line interface (CLI) - a `terminal` of some sort. There is generally no GUI (graphical user interface), though there exist protocols to display graphics through the terminal such as `X11`.
 
 To communicate with the system there needs something to interpret the user's command. In a UNIX-like system, this is called a `shell`, one of the most common ones - and the one found on `Uppmax` is called Bourn-Again shell or simply `bash`.
@@ -34,7 +34,7 @@ Enough exposition, let's get going. Open up the terminal and proceed with the ex
 
 *(By Huihermit - Own work, CC0, https://commons.wikimedia.org/w/index.php?curid=30560188)*
 
-### Before starting
+### 0.2 Before starting
 
 #### OBS! Do steps A/B **only if you are using your own computer** and not the local computers in the Labs. Any downstream issues you may encounter are solely your responsibility if you choose to do so. We strongly recommend using the computers in the labs but it is still a matter of choice.
 #### For everyone using the local computers, jump directly to the 'Baby steps in Terminal' section below.
@@ -76,9 +76,9 @@ Open a local terminal and run the following command to install `w3m` which we wi
 apt-get install -y w3m-img
 ```
 
-### Baby steps in Terminal
+### 1.0 Baby steps in Terminal
 
-#### Moving around
+#### 1.1 Moving around
 When you connect to a system you usually end up in your home directory. To see the path to where you stand use the `pwd` command. Try it now:
 
 ```
@@ -172,9 +172,10 @@ cd -
 takes you back to the last place you were standing.
 Just `cd` with no options takes you to your home directory.
 
+## Now create a directory with your name. This is your profile directory and this is where you work from now on. Use the above instructions to move into the directory. ##
 
 
-### Playing around with files
+### 1.2 Playing around with files
 
 ```
 w3m -dump https://en.wikipedia.org/wiki/Principal_component_analysis > PCA.txt
@@ -217,8 +218,7 @@ In our example we can use it to figure out how many lines contain the word `PCA`
 grep PCA short_pca.txt
 ``` 
 
-
-### Pipes and multiple commands
+### 1.3 Pipes and multiple commands
 One of the fundamental concepts behind UNIX from the beginning was an emphasis on small task-specific programs. These programs could then be chained together into pipelines to perform more complex tasks.
 
 Imagine that you have a machine that cuts down trees, de-barks them, and cuts them into planks. If you have trees and want planks then this is fine, but what happens if you want to cut down the tree and keep the whole log? Your big fancy machine only makes planks.
@@ -244,17 +244,7 @@ Remember that there can be more than one hit per line so you need to account for
 
 --
 
-### Hidden word exercise 
-**Question 3:**
-Now that you have some basic UNIX tools at your disposal go and do the [hidden word_exercise](hidden_word_exercise_instructions.md). (*Note*: You will need to download a file for this exercise. When working remotely, you can download it to your local computer first and then use `scp` (Description at the bottom of this page) to copy it to the remote computer.)
-Submit the hidden word.
-
-Do not continue with the next part until you are done with the hidden word exercise. 
-
-**Question 4:** Write down the command you used to extract the name and nucleotide sequence!
-This should be done in **one** command.
-
-### sed and regex
+### 2. Using sed and regex
 Regular expressions(regex) are used to catch and match certain words or phrases. E.g
 ^
 `^P[0-9]+` will match at the beginning of a line(`^`) the letter P literally, any  number (`[0-9]`) repeating (`+`)
@@ -287,16 +277,150 @@ cat cat cat
 
 You can use `sed` on piped output from another program or straight on a single file. For a summary of some things that you can do with it have a look at [this link](https://github.com/tldr-pages/tldr/blob/master/pages/common/sed.md).
 
-**Question 5 :**
+**Question 3:**
+
 You have been given a file that has been exported from excel in an odd format (something that is all too common in the life of a bioinformatician). Your task is to transform the file [orange.csv](example_data/orange.csv) into a normally formatted `.csv`-file. That is the decimal point should be a `.` and the delimiter (what separates one column from another) should be `,`. It also looks like someone has accidentally inserted some letters among the numbers, they also need to be removed.
 
 Submit what `sed` command(s) you used to clean the file. (Make sure that it looks correct, i.e. **all** columns are separated with a comma)
 
-_You will probably have to look up more information on how to do this. You can use `man sed` or `info sed` for more information, or google your way to it. As long as you know what your command does_
+You will probably have to look up more information on how to do this. You can use `man sed` or `info sed` for more information, or google your way to it. As long as you know what your command does_
 
 Note that if you want to upload the file to your Uppmax results you can use the `scp` command, you can find an example of how to use it at the bottom of the page.
 
-### Basic bash scripting for future reference 
+
+### 3. Hidden file exercize
+
+### 3.1 Download a file from GitHub Using `wget`
+
+Okay, let's refresh our memory for a sec. We should have been doing the things up until now on the ***server***. Let's take a moment and see where we are standing by typing ```pwd``` in the terminal. What does it say? Are you in the right place where you want to be? If not, you can use ```cd``` followed by the directory you want to move into. If you took a wrong turn, use ```cd ..``` to go back. 
+
+While in the directory with your name (on the server), create two new directories called ```MethodA``` and ```MethodB```.
+
+Now that you have set up your working directory on the server, open a new terminal window on your ***local machine***. It may be confusing in the beginning, but it’s important to always know whether you are working on the local machine or the server. This will help you avoid mistakes when transferring files.
+
+Now create a directory with your name on the ***local*** computer just like we did before.
+
+```cd yourdirectory```
+
+type ```pwd``` and use that as the ***full path*** to this directory.
+
+The file needed for this exercise is hosted on GitHub:  
+
+**Hidden word exercise** – [hidden_word_exercise.zip](https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip)
+
+While on the local machine and in the directory you created, try using ```wget```:
+
+```wget https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip -O thefullpathtoyourdirectory/hidden_word_exercise.zip```
+
+
+This command downloads ```hidden_word_exercise.zip``` into your specified directory.
+
+---
+
+### Step 3.2 Unzip the downloaded file
+
+Once the file is downloaded, you can see that you can't read it as it is because it has been zipped (compressed). To unzip it:
+
+```
+unzip hidden_word_exercise.zip
+```
+
+OBS! In the future you may encounter a `.gz` file instead. In such cases use:
+
+```gunzip hidden_word_exercise.gz```
+
+This extracts the contents of `hidden_word_exercise.zip` into the current directory.
+
+---
+
+### Step 3.3 Transfer the Unzipped Files to the server (via the gateway - Solander) using `scp`
+
+After unzipping the files locally, transfer them from the local machine to your Solander server profile. 
+
+## There are two methods to specify the destination directory on the server:
+
+### 3.3.1 MethodA: using an **absolute path** 
+
+or 
+
+### MethodB: using `.` to represent the **current directory**. ###
+
+
+#### **Method A: Using an Absolute Path**
+Replace `<your-username>` with your actual username on the server.
+
+``` 
+scp -r thefullpathtoyourdirectory/hidden_word_exercise your-username@solander.ibg.uu.se:/your-profile-directory/MethodA
+```
+
+**Example:**
+```
+scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/
+```
+
+Explanation:
+- `-r` is used to copy directories recursively.
+- `thefullpathtoyourdirectory/hidden_word_exercise` is the local path to the unzipped files.
+- `lilleskutt@solander.ibg.uu.se` is your SSH username and Solander server address.
+- `~/lilleskutt/MethodA/` is the destination directory on the Solander server. Make sure you are writing the correct path.
+
+
+#### 3.3.2 **Method B: Using `.` to Represent the Current Directory**
+
+Alternatively, open the ***server*** window now, and move into the MethodB directory using ```cd```
+
+```cd /thefullpathtoyourdirectory/MethodB”```
+
+then you can use `.` (a dot) to copy files directly there/here:
+
+```scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.uu.se:.```
+
+Please note the ```:``` symbol we used before the ```.```
+
+Here, ```.``` represents the current MethodB directory (`thefullpathtoyourdirectory/MethodB`) on the server (via Solander).
+
+**Advantages of Using `.`:**
+- **Simplicity:** No need to type long directory paths.
+- **Flexibility:** Useful when you have already navigated to the desired directory via SSH.
+
+---
+
+### Step 3.4 Verify that the transfer went smoothly
+
+To ensure that the files have been successfully transferred, while in the ***server*** window, list the contents of the destination directory using ```ls```.
+
+You should see the `hidden_word_exercise` directory listed in both directories (MethodA and MethodB).
+
+You now have the same data in both MethodA and MethodB. If you'd like to free up space, you can remove MethodB using: ```rm -r MethodB```. However, be sure you're inside the correct directory before running this command. Now check if you deleted it.
+
+```ls```
+
+You should only see MethodA remaining.
+
+### 3.5 Extra step: Now, let’s try copying a file from the server back to the local machine. 
+
+This can be useful when you need to download results or processed data.
+Open a new terminal window on your ***local machine*** and navigate to the directory where you want to place the copied file:
+
+Local window: ```cd your-local-directory```
+
+Now, run:
+
+```
+scp -r lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/hidden_word_exercise .
+```
+
+This will copy the hidden_word_exercise directory from the server's MethodA directory to your current ***local*** directory."
+
+We will be using these commands a lot so it's really important that you grasp the logic behind transferring files from one place to another, moving around and some of the basic commands. It is always important to know if you are standing in the right place or you are moving a file to the right place. Keep what we did above in mind and you can always go back to Lab1 to refresh your memory.
+
+#### **Question 4: Extracting the Hidden Word**
+Now that you have some basic UNIX tools at your disposal, go and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
+
+ **Submit the hidden word.**  
+
+
+### 4. Basic bash scripting for future reference 
 Bash is a programming language in itself so it is possible to set up quite advanced workflows with it. The most simple bash script is just a normal command you would type on the command line saved to a file. Or more realistically you might want to run a couple of things that take a few minutes or hours after each other.
 This is something that you definitely will do in your future bioinformatics career.
 
@@ -330,80 +454,3 @@ python my_python_script.py inputfile.txt
 
 This is the end of the lab, please make sure that you did and wrote down the answers to all of the questions.
 Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
-
-
-
-
-Exercise: Downloading, Unzipping, and Transferring Files Using ssh and scp In this exercise, you will practice using ssh and scp to download a zipped file from GitHub, unzip it on your local machine, and then transfer the unzipped files to your profile on the Solander server. This workflow is common in bioinformatics for managing and transferring data.
-
-Step 1: Download the Zipped File from GitHub Using scp
-
-Note: Typically, scp is used for copying files between local and remote systems via SSH. To download files directly from GitHub, tools like git, wget, or curl are more commonly used. However, for the purpose of this exercise, we will simulate downloading a file using scp.
-
-First, you'll use scp (Secure Copy) to download a zipped file from a GitHub repository to your local computer. Replace <github-username>, <repository>, and <file.zip> with the appropriate GitHub username, repository name, and file name.
-
-scp <github-username>@github.com:<repository>/<file.zip> ~/Downloads/
-
-Example:
-
-scp johndoe@github.com:bioinformatics-tools/data.zip ~/Downloads/
-
-This command copies data.zip from the GitHub repository bioinformatics-tools owned by johndoe to the Downloads directory on your local machine.
-
-Step 2: Unzip the Downloaded File Using unzip
-
-Once the file is downloaded, navigate to the Downloads directory and unzip the file using unzip. Note that gunzip is typically used for .gz files. If you're dealing with a .zip file, it's better to use unzip.
-
-cd ~/Downloads/ unzip data.zip
-
-If you're dealing with a .gz file:
-
-gunzip data.gz
-
-This command extracts the contents of data.zip into the current directory.
-
-Step 3: Transfer the Unzipped Files to Your Solander Server Profile Using scp
-
-After unzipping the files, you can transfer them to your profile on the Solander server. There are two methods to specify the destination directory on the server: using an absolute path or using . to represent the current directory.
-
-Method 1: Using an Absolute Path Replace <your-username> with your actual username on the Solander server and <solander-server-address> with the server's address.
-
-scp -r ~/Downloads/data <your-username>@<solander-server-address>:~/your-profile-directory/
-
-Example:
-
-scp -r ~/Downloads/data johndoe@solander.server.edu:~/bioinformatics_project/
-
-The -r flag is used to copy directories recursively. ~/Downloads/data is the path to the unzipped data on your local machine. johndoe@solander.server.edu is your SSH username and the Solander server address. ~/bioinformatics_project/ is the destination directory on the Solander server where you want to store the data.
-
-Method 2: Using . to Represent the Current Directory Alternatively, you can use . to indicate that the files should be copied to the current directory on the remote server. This method is especially useful when you are already within the desired destination directory on the server.
-
-SSH into the Solander Server and Navigate to the Desired Directory
-
-ssh johndoe@solander.server.edu
-
-Once logged in, navigate to the directory where you want to place the files:
-
-cd ~/bioinformatics_project/
-
-Open a New Terminal Window or Tab on Your Local Machine Keep the SSH session open in the first terminal.
-
-Use scp with . as the Destination
-
-scp -r ~/Downloads/data johndoe@solander.server.edu:.
-
-Here, . represents the current directory (~/bioinformatics_project/) on the Solander server where you navigated in the SSH session. This command copies the data directory directly into the current directory on the server without needing to specify the full path.
-
-Advantages of Using .:
-
-Simplicity: Reduces the need to type or remember long directory paths. Flexibility: Especially useful when you have already navigated to the desired directory via SSH.
-
-Step 4: Verify the Transfer
-
-To ensure that the files have been successfully transferred, you can SSH into the Solander server and list the contents of the destination directory.
-
-ssh johndoe@solander.server.edu ls ~/bioinformatics_project/
-
-You should see the transferred data directory listed.
-
-
