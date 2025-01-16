@@ -340,14 +340,9 @@ After unzipping the files locally, transfer them from the local machine to your 
 
 ## There are two methods to specify the destination directory on the server:
 
-### 3.3.1 MethodA: using an **absolute path** 
+### Method A: using an **absolute path** or ### Method B: using `.` to represent the **current directory**. 
 
-or 
-
-### MethodB: using `.` to represent the **current directory**. 
-
-
-#### **Method A: Using an Absolute Path**
+#### 3.3.1 **Method A: Using an Absolute Path to the directory you want to copy into**
 
 Replace `<your-username>` with your actual username on the server.
 
@@ -361,18 +356,21 @@ scp -r thefullpathtoyourdirectory/hidden_word_exercise your-username@solander.ib
 scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/
 ```
 
-Explanation:
+#### Explanation:
+```
 - `-r` is used to copy directories recursively.
 - `thefullpathtoyourdirectory/hidden_word_exercise` is the local path to the unzipped files.
 - `lilleskutt@solander.ibg.uu.se` is your SSH username and Solander server address.
 - `~/lilleskutt/MethodA/` is the destination directory on the Solander server. Make sure you are writing the correct path.
-
+```
 
 #### 3.3.2 **Method B: Using `.` to Represent the Current Directory**
 
 Alternatively, open the ***server*** window now, and move into the MethodB directory using ```cd```
 
-```cd /thefullpathtoyourdirectory/MethodB```
+```
+cd /thefullpathtoyourdirectory/MethodB
+```
 
 then you can use `.` (a dot) to copy files directly there/here:
 
@@ -384,7 +382,7 @@ Please note the ```:``` symbol we used before the ```.```
 
 Here, ```.``` represents the current MethodB directory (`thefullpathtoyourdirectory/MethodB`) on the server (via Solander).
 
-**Advantages of Using `.`:**
+#### Advantages of Using Method B (`.`):
 
 - **Simplicity:** No need to type long directory paths.
 - **Flexibility:** Useful when you have already navigated to the desired directory via SSH.
@@ -395,15 +393,20 @@ Here, ```.``` represents the current MethodB directory (`thefullpathtoyourdirect
 
 To ensure that the files have been successfully transferred, while in the ***server*** window, list the contents of the destination directory using ```ls```.
 
-You should see the `hidden_word_exercise` directory listed in both directories (MethodA and MethodB).
+You should see the `hidden_word_exercise` directory listed in both directories (Method A and Method B).
 
-You now have the same data in both MethodA and MethodB. If you'd like to free up space, you can remove MethodB using: ```rm -r MethodB```. However, be sure you're inside the correct directory before running this command. Now check if you deleted it.
+You now have the same data in both MethodA and MethodB. If you'd like to free up space, you can remove MethodB using: 
+
+```
+rm -r MethodB
+```
+However, be sure you're inside the correct directory before running this command. Now check if you deleted it.
 
 ```ls```
 
 You should only see MethodA remaining.
 
-### 3.5 Extra step: Now, let’s try copying a file from the server back to the local machine. 
+### (extra) Step 3.5 Now, let’s try copying a file from the server back to the local machine. 
 
 This can be useful when you need to download results or processed data.
 Open a new terminal window on your ***local machine*** and navigate to the directory where you want to place the copied file:
@@ -421,7 +424,7 @@ scp -r lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/hidden_word_exercise .
 
 This will copy the hidden_word_exercise directory from the server's MethodA directory to your current ***local*** directory."
 
-We will be using these commands a lot so it's really important that you grasp the logic behind transferring files from one place to another, moving around and some of the basic commands. It is always important to know if you are standing in the right place or you are moving a file to the right place. Keep what we did above in mind and you can always go back to Lab1 to refresh your memory.
+We will be using these commands a lot so it's really important that you grasp the logic behind transferring files from one place to another, moving around and some of the basic commands. It is always important to know if you are standing in the right place or you are moving a file to the right place. The constant moving between ***Local*** machine vs ***Server*** can be confusing but as long as you keep track of your steps, you should be okay. Keep what we did above in mind and you can always go back to Lab1 to refresh your memory.
 
 #### **Question 4: Extracting the Hidden Word**
 Now that you have some basic UNIX tools at your disposal, go and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
@@ -450,8 +453,6 @@ bash sleep.sh
 ```
 
 You can see that the code is executed sequentially, it does not progress to the next line until the previous one has finished.
-
----
 
 
 You can chain any type of program/script that you can run on the commandline like this, even those you have written yourself like the `perl` programs you ran in the hidden word excercise or the scripts you will write in Lab 2:
