@@ -344,7 +344,7 @@ After unzipping the files locally, transfer them from the local machine to your 
 
 or 
 
-### MethodB: using `.` to represent the **current directory**. ###
+### MethodB: using `.` to represent the **current directory**. 
 
 
 #### **Method A: Using an Absolute Path**
@@ -372,7 +372,7 @@ Explanation:
 
 Alternatively, open the ***server*** window now, and move into the MethodB directory using ```cd```
 
-```cd /thefullpathtoyourdirectory/MethodB”```
+```cd /thefullpathtoyourdirectory/MethodB```
 
 then you can use `.` (a dot) to copy files directly there/here:
 
