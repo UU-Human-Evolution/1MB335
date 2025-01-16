@@ -243,7 +243,8 @@ Remember that there can be more than one hit per line so you need to account for
 --
 
 ### 2. Using sed and regex
-Regular expressions(regex) are used to catch and match certain words or phrases. E.g
+
+#### 2.1 Regular expressions (regex) are used to catch and match certain words or phrases. E.g
 ^
 `^P[0-9]+` will match at the beginning of a line(`^`) the letter P literally, any  number (`[0-9]`) repeating (`+`)
 it will thus catch the top line but not the second:
@@ -254,7 +255,7 @@ P674353
 ```
 These types of expression can be very useful and powerful 
 
-`sed` is a powerful tool for editing streams of files. It is a common way of using rexes in Unix. It's often used to replace one thing with another:
+#### 2.2 `sed` is a powerful tool for editing streams of files. It is a common way of using rexes in Unix. It's often used to replace one thing with another:
 
 if `My_file.txt ` contains:
 
@@ -277,14 +278,32 @@ You can use `sed` on piped output from another program or straight on a single f
 
 **Question 3:**
 
-You have been given a file that has been exported from excel in an odd format (something that is all too common in the life of a bioinformatician). Your task is to transform the file [orange.csv](example_data/orange.csv) into a normally formatted `.csv`-file. That is the decimal point should be a `.` and the delimiter (what separates one column from another) should be `,`. It also looks like someone has accidentally inserted some letters among the numbers, they also need to be removed.
+Go to this file [orange.csv](example_data/orange.csv) and click on the ***Copy raw file*** option. 
 
-Submit what `sed` command(s) you used to clean the file. (Make sure that it looks correct, i.e. **all** columns are separated with a comma)
+On the server and in your directory: Type in:
 
-You will probably have to look up more information on how to do this. You can use `man sed` or `info sed` for more information, or google your way to it. As long as you know what your command does_
+```nano```
 
-Note that if you want to upload the file to your Uppmax results you can use the `scp` command, you can find an example of how to use it at the bottom of the page.
+And use `Ctrl` + `V` (or Command + V on macOS) to paste the raw contents of the file. 
+Press `Ctrl` + `X` (or Command + X on macOS) to save the file. When prompted, press `Y` (yes) to confirm saving changes. When asked for the file name, type ```orange.csv``` and press `Enter`
 
+What you have just done is similar to saving a file in Notepad, but we used a program called Nano. Type ```ls``` to see if the file is indeed created and saved successfully.
+
+Try looking at the contents of the file by typing ```cat orange.csv```
+
+
+
+You have received an Excel-exported file in a strange format—a common scenario in bioinformatics. Now, the task is to clean and reformat this ```orange.csv``` file into a proper .csv by ensuring:
+- Decimal points are '.'
+- Delimiters (the separators between columns) are commas ','
+- Any stray letters mixed in with numeric data are removed
+
+OBS!: You can use regular expressions (regex) alongside the sed command to accomplish these fixes.
+Consult the manual with ```man sed``` or ```info sed```, or search online for examples of `sed` and `regex` usage.
+
+*** Bonus points: Attempt to do this in one **single line** if you feel adventurous!
+Double-check that each column is correctly separated by a comma and that decimals and numbers are displayed properly in the final file.
+Submit the exact command(s) you used to transform orange.csv into a properly formatted file. Be sure you understand what your command does.
 
 ### 3. Hidden file exercize
 
