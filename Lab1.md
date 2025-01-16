@@ -37,6 +37,7 @@ Enough exposition, let's get going. Open up the terminal and proceed with the ex
 ### Before starting
 
 #### OBS! Do steps A/B **only if you are using your own computer** and not the local computers in the Labs. Any downstream issues you may encounter are solely your responsibility if you choose to do so. We strongly recommend using the computers in the labs but it is still a matter of choice.
+#### For everyone using the local computers, jump directly to the 'Baby steps in Terminal' section below.
 
 #### A. For Mac users (Only if you are using your own computer)
 The macOS operating system is a Unix-system so modern Macs can natively interact with other Unix systems. macOS comes with an inbuilt terminal application called simply `Terminal`. 
