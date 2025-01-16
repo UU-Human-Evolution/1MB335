@@ -161,7 +161,7 @@ So now your current directory should be `home/your_usename/directory1/directory2
 cd ..
 ```
 
-Check that it took you to the right place. Here are two need things to know about `cd`
+Check that it took you to the right place. Here are two neat things to know about `cd`
 
 ```
 cd -
@@ -307,14 +307,14 @@ The file needed for this exercise is hosted on GitHub, here ```https://github.co
 Locally: To get it, while on the ***local*** machine and standing in the directory you created, try using the command ```wget```:
 
 ```
-wget https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip -O fullpathtoyourdirectory/hidden_word_exercise.zip
+wget https://github.com/UU-Human-Evolution/1MB335/raw/master/hidden_word_exercise.zip -O fullpathtoyourdirectory/hidden_word_exercise.zip
 ```
 
 This command downloads ```hidden_word_exercise.zip``` into your specified directory.
 
 ---
 
-### Step 3.2 Unzip the downloaded file
+### 3.2 Unzip the downloaded file
 
 Once the file is downloaded, you can see that you can't read it as it is because it has been zipped (compressed). To unzip it:
 
@@ -332,7 +332,7 @@ This extracts the contents of `hidden_word_exercise.zip` into the current direct
 
 ---
 
-### Step 3.3 Transfer the Unzipped Files to the server using `scp`
+### 3.3 Transfer the Unzipped Files to the server using `scp`
 
 After unzipping the files locally, we want to transfer them from the local machine to your server profile via the gateway Solander. 
 
@@ -364,65 +364,53 @@ scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.u
 - `~/lilleskutt/MethodA/` is the destination directory on the Solander server. Make sure you are writing the correct path.
 ```
 
-#### 3.3.2 **Method B: Using `.` to Represent the Current Directory**
-
-On the server: Alternatively, open the ***server*** window now, and move into the MethodB directory using ```cd```
-
-```
-cd /thefullpathtoyourdirectory/MethodB
-```
-
-then you can use `.` (a dot) to copy files directly there/here:
-
-```
-scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.uu.se:.
-```
-
-Please note the ```:``` symbol we used before the ```.```
-
-Here, ```.``` represents the current MethodB directory (`thefullpathtoyourdirectory/MethodB`) on the server (via Solander).
-
-#### Advantages of Using Method B (`.`):
-
-- **Simplicity:** No need to type long directory paths.
-- **Flexibility:** Useful when you have already navigated to the desired directory via SSH.
-- But it means that you have to move to the directory you want to copy stuff into.
----
-
-### Step 3.4 Verify that the transfer went smoothly
+### 3.4 Verify that the transfer went smoothly
 
 On the server: To ensure that the files have been successfully transferred, while in the ***server*** window, list the contents of the destination directory using ```ls```.
 
-You should see the `hidden_word_exercise` directory listed in both directories (Method A and Method B).
+You should see the `hidden_word_exercise` directory listed in Method A.
 
-You now have the same data in both MethodA and MethodB. If you'd like to free up space, you can remove MethodB using: 
+
+### 3.5 Now, let’s try copying a file from the server back to the local machine. And for this we'll use Method B:
+
+#### 3.5.1 **Method B: Copying files using `.` to represent the current directory**
+
+Let's say we want to "pull" (scp remote→local) a file from the server onto the local computer.
+
+In a local terminal window : Navigate to the your directory and create a new `MethodB` directory, where you want to copy files to. 
+
+```
+cd /your-profile-directory/MethodB
+```
+and then try the following:
+
+```
+scp -r lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/hidden_word_exercise* .
+```
+
+The dot (.) means “copy onto my current (standing) directory.” In this example, you are standing in your local computer's 'MethodB' directory.
+
+**Explanation and advantages of Using Method B (`.`):**
+- The `.` represents the current directory I'm standing in (`MethodB`).
+- **Simplicity:** No need to type long directory paths.
+- **Flexibility:** Useful when you have already navigated to the desired directory via SSH.
+- The `scp` command in Method B should be executed from the **local machine**, targeting the server's current directory.
+- This (method) can be useful when you need to download results or processed data.
+  
+---
+
+### 3.6 Verify that the transfer went smoothly using Method B
+
+Okay, you now have the same data in both MethodA (server) and MethodB (local). Since this was just to test copying files using Method B, we can free up space by removing MethodB from the local computer: 
 
 ```
 rm -r MethodB
 ```
-However, be sure you're inside the correct directory before running this command. Now check if you deleted it.
+Always make sure you're inside the correct directory before running this command. Now check if you deleted it.
 
 ```ls```
 
-You should only see MethodA remaining.
-
-### (extra) Step 3.5 Now, let’s try copying a file from the server back to the local machine. 
-
-This can be useful when you need to download results or processed data.
-Locally: Open a new terminal window on your ***local machine*** and navigate to the directory where you want to place the copied file:
-
-Local window: 
-```
-cd your-local-directory
-```
-
-Now, run:
-
-```
-scp -r lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/hidden_word_exercise .
-```
-
-This will copy the hidden_word_exercise directory from the server's MethodA directory to your current ***local*** directory."
+### 3.7 Reflect on what you just learnt
 
 We will be using these commands a lot so it's really important that you grasp the logic behind transferring files from one place to another, moving around and some of the basic commands. It is always important to know if you are standing in the right place or you are moving a file to the right place. The constant moving between ***Local*** machine vs ***Server*** can be confusing but as long as you keep track of your steps, you should be okay. Keep what we did above in mind and you can always go back to Lab1 to refresh your memory.
 
@@ -439,7 +427,9 @@ Back on the server: Now that you have some basic UNIX tools at your disposal, go
 Bash is a programming language in itself so it is possible to set up quite advanced workflows with it. The most simple bash script is just a normal command you would type on the command line saved to a file. Or more realistically you might want to run a couple of things that take a few minutes or hours after each other.
 This is something that you definitely will do in your future bioinformatics career.
 
-An example of something like that:
+### 4.1 Run a short script
+
+An example:
 
 ```
 echo “Wait for 5 seconds”
@@ -457,12 +447,15 @@ bash sleep.sh
 You can see that the code is executed sequentially, it does not progress to the next line until the previous one has finished.
 
 
+### 4.2 Chaining commands and files 
+
 You can chain any type of program/script that you can run on the commandline like this, even those you have written yourself like the `perl` programs you ran in the hidden word excercise or the scripts you will write in Lab 2:
 
 ```
 python my_python_script.py inputfile.txt
 
 ```
+### 5. Reflect on Lab 1 and final remarks
 
 This is the end of Lab1, please make sure that you did and wrote down the answers to all of the questions.
 Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
