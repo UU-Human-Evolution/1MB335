@@ -59,7 +59,6 @@ Then you can install some useful tools:
  brew install wget
  brew install w3m
  brew install tree
-
 ```
 
 #### B. For Windows users (Only if you are using your own computer)
@@ -72,7 +71,6 @@ Another option is to use the Ubuntu app from the Windows app store or to set up 
 Open a local terminal and run the following command to install `w3m` which we will use in today's lab:
 
 ```
-
 apt-get install -y w3m-img
 ```
 
@@ -172,7 +170,7 @@ cd -
 takes you back to the last place you were standing.
 Just `cd` with no options takes you to your home directory.
 
-## Now create a directory with your name. This is your profile directory and this is where you work from now on. Use the above instructions to move into the directory. ##
+#### Now create a directory with your name. This is your profile directory and this is where you work from now on. Use the above instructions to move into the directory. 
 
 
 ### 1.2 Playing around with files
@@ -310,8 +308,9 @@ The file needed for this exercise is hosted on GitHub:
 
 While on the local machine and in the directory you created, try using ```wget```:
 
-```wget https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip -O thefullpathtoyourdirectory/hidden_word_exercise.zip```
-
+```
+wget https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip -O thefullpathtoyourdirectory/hidden_word_exercise.zip
+```
 
 This command downloads ```hidden_word_exercise.zip``` into your specified directory.
 
@@ -327,7 +326,9 @@ unzip hidden_word_exercise.zip
 
 OBS! In the future you may encounter a `.gz` file instead. In such cases use:
 
-```gunzip hidden_word_exercise.gz```
+```
+gunzip hidden_word_exercise.gz
+```
 
 This extracts the contents of `hidden_word_exercise.zip` into the current directory.
 
@@ -347,6 +348,7 @@ or
 
 
 #### **Method A: Using an Absolute Path**
+
 Replace `<your-username>` with your actual username on the server.
 
 ``` 
@@ -354,6 +356,7 @@ scp -r thefullpathtoyourdirectory/hidden_word_exercise your-username@solander.ib
 ```
 
 **Example:**
+
 ```
 scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/
 ```
@@ -373,13 +376,16 @@ Alternatively, open the ***server*** window now, and move into the MethodB direc
 
 then you can use `.` (a dot) to copy files directly there/here:
 
-```scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.uu.se:.```
+```
+scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.uu.se:.
+```
 
 Please note the ```:``` symbol we used before the ```.```
 
 Here, ```.``` represents the current MethodB directory (`thefullpathtoyourdirectory/MethodB`) on the server (via Solander).
 
 **Advantages of Using `.`:**
+
 - **Simplicity:** No need to type long directory paths.
 - **Flexibility:** Useful when you have already navigated to the desired directory via SSH.
 
@@ -402,7 +408,10 @@ You should only see MethodA remaining.
 This can be useful when you need to download results or processed data.
 Open a new terminal window on your ***local machine*** and navigate to the directory where you want to place the copied file:
 
-Local window: ```cd your-local-directory```
+Local window: 
+```
+cd your-local-directory
+```
 
 Now, run:
 
@@ -419,6 +428,7 @@ Now that you have some basic UNIX tools at your disposal, go and complete the **
 
  **Submit the hidden word.**  
 
+---
 
 ### 4. Basic bash scripting for future reference 
 Bash is a programming language in itself so it is possible to set up quite advanced workflows with it. The most simple bash script is just a normal command you would type on the command line saved to a file. Or more realistically you might want to run a couple of things that take a few minutes or hours after each other.
@@ -427,7 +437,6 @@ This is something that you definitely will do in your future bioinformatics care
 An example of something like that:
 
 ```
-
 echo “Wait for 5 seconds”
 sleep 5
 echo “Completed”
@@ -452,5 +461,5 @@ python my_python_script.py inputfile.txt
 
 ```
 
-This is the end of the lab, please make sure that you did and wrote down the answers to all of the questions.
+This is the end of Lab1, please make sure that you did and wrote down the answers to all of the questions.
 Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
