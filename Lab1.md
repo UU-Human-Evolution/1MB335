@@ -304,7 +304,7 @@ type ```pwd``` and use that as the ***full path*** to this directory.
 
 The file needed for this exercise is hosted on GitHub:  
 
-**Hidden word exercise** – [hidden_word_exercise.zip](https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip)
+**Hidden word exercise** – 
 
 While on the local machine and in the directory you created, try using ```wget```:
 
