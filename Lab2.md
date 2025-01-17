@@ -77,7 +77,7 @@ Prepare a summary including:
 - **Save your best-looking phylogenies and be ready to present them to the TAs!**  
 
 ---
-## 0.1.2 **Final Notes**  
+### 0.1.2 **Final Notes**  
 
 - Keep in mind that you're analyzing only mitochondrial genes, which represent just a small portion of the genome. Your results may not always align perfectly with broader evolutionary relationships.
 If your findings seem unexpected, consider possible explanations such as incomplete lineage sorting, hybridization, or selection pressures.
@@ -85,7 +85,7 @@ If your findings seem unexpected, consider possible explanations such as incompl
 - Since you will be producing numerous files, use **self-explanatory filenames** and maintain a **good folder structure**. This will make your work easier. It might be a good idea to write a short description about how the archive is organized and where the files are located (e.g., trees, scripts, alignments, etc.).
 - Think critically about your choices—species selection, data quality, and analysis parameters will all influence your results. The lab assistants are here to guide you, but ultimately, your decisions shape your conclusions.
 
-### 0.2 **What is an Outgroup?**
+## 0.2 **What is an Outgroup?**
 
 An outgroup is a species or group that is outside the main group of interest (the ingroup) but still related enough to be useful for comparison. It serves as a reference point to root the phylogenetic tree and determine the direction of evolutionary change. By comparing the ingroup to the outgroup, we can infer which traits or genetic differences are ancestral and which are derived.
 
@@ -169,7 +169,7 @@ Outgroup: A non-arachnid arthropod.
 
 # 1.0 **Data Gathering and Dataset Preparation**
 
-## **Objective**
+#### **Objective**
 In this segment of the Lab2, you will:
 1. **Select species** relevant to your phylogenetic question.
 2. **Choose appropriate outgroups** for rooting your phylogenetic tree.
@@ -296,7 +296,7 @@ Panthera leo mitochondrion complete genome
 - Repeat the same process for **CytB**.  
 ```Panthera_leo_CytB.fasta```
 
-#### OBS! Make sure you aren't saving entire mitochondrial genomes! These will be a lot bigger than the lenght of a single gene. Always check the lenghts (in base pairs) of the genes you are saving. Mitochondrial genes will be in the range of hundreds to a thousand while entire genomes will be tens of thousands BP long!
+#### ** OBS! Make sure you aren't saving entire mitochondrial genomes! These will be a lot bigger than the lenght of a single gene. Always check the lenghts (in base pairs) of the genes you are saving. Mitochondrial genes will be in the range of hundreds to a thousand while entire genomes will be tens of thousands BP long!**
 
 You can check using:
 ```
