@@ -309,7 +309,7 @@ wc -l Panthera_leo_COX1.fasta
 
 **By the end of this step, you should have two FASTA files per species, one for COX1 and one for CytB!**
 
-## 1.4 **Organize and Name Your Files**
+#### 1.4 **Organize and Name Your Files**
 
 To ensure clarity, follow a consistent naming convention for your files:
 
@@ -321,8 +321,7 @@ Example:
 ```Pan_troglodytes_Cox1.fasta```
 ```Pan_troglodytes_CytB.fasta```
 
-## 1.5 **Transfer Files to your directory on the server**
-
+#### 1.5 **Transfer Files to your directory on the server**
 #### **Upload Files Using SCP**  
 
 On the server: Create the two directories `CytB` and `COX`.
@@ -342,7 +341,7 @@ Write a few sentences on the selection of species and outgroup in your dataset. 
 
 **This may be a good place for a short break**
 
-# 2.0 **Let's take a look at FASTA files**
+# 2.0 **Working with FASTA files**
 
 Now that you have the sequences, let’s take a quick look inside a FASTA file.
 FASTA is a simple text-based format used for storing biological sequences. Each entry follows this structure:
@@ -401,7 +400,7 @@ and make sure you haven't duplicated anything.
 
 ---
 
-## 2.3 **reate a Name Conversion Table**
+## 2.3 **Create a Name Conversion Table**
 
 To facilitate working with the FASTA files, you will create **conversion tables** that map different versions of sequence headers. This will allow switching between:
 1. **Short names** (e.g., `cytB_V_ursinus` for CytB or `cox1_V_ursinus` for COX1)
