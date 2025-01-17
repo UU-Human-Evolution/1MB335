@@ -1,6 +1,6 @@
 # **Lab 2 - Database Search & Phylogenetics**
 
-## **Introduction**  
+## 0.0 **Introduction**  
 
 Mitochondria are present in all eukaryotic cells, where they play a crucial role in energy production (ATP synthesis). Their genomes are relatively small (~16,000 bp in humans), making them easier to analyze compared to nuclear genomes. Additionally, they exist in multiple copies per cell, making them easier to sequence, even in challenging conditions such as environmental DNA or ancient DNA studies.  
 
@@ -14,14 +14,9 @@ Despite differences between species, mitochondrial genomes contain a core set of
 
 ---
 
-## **Overview of Sessions 2 to 6**  
-
+## 0.1 **Overview of Sessions 2 to 6 in the next few weeks to come**  
 
 In this multi-session project, you will work in groups to answer an **evolutionary question** using bioinformatics methods.  
-
----
-
-## **Project Workflow & Lab Breakdown**  
 
 | **Lab**  | **Focus**  | **Tools Used**  |
 |----------|-------------------------------|------------------------------------|
@@ -33,7 +28,7 @@ In this multi-session project, you will work in groups to answer an **evolutiona
 
 ---
 
-## **Project Steps**  
+## 0.1.1 **Project Steps explained**  
 
 ### **Step 1: Define Your Research Question (Lab2)**  
 
@@ -82,8 +77,7 @@ Prepare a summary including:
 - **Save your best-looking phylogenies and be ready to present them to the TAs!**  
 
 ---
-
-### Final Notes
+## 0.1.2 **Final Notes**  
 
 - Keep in mind that you're analyzing only mitochondrial genes, which represent just a small portion of the genome. Your results may not always align perfectly with broader evolutionary relationships.
 If your findings seem unexpected, consider possible explanations such as incomplete lineage sorting, hybridization, or selection pressures.
@@ -91,7 +85,7 @@ If your findings seem unexpected, consider possible explanations such as incompl
 - Since you will be producing numerous files, use **self-explanatory filenames** and maintain a **good folder structure**. This will make your work easier. It might be a good idea to write a short description about how the archive is organized and where the files are located (e.g., trees, scripts, alignments, etc.).
 - Think critically about your choices—species selection, data quality, and analysis parameters will all influence your results. The lab assistants are here to guide you, but ultimately, your decisions shape your conclusions.
 
-### What is an Outgroup?
+### 0.2 **What is an Outgroup?**
 
 An outgroup is a species or group that is outside the main group of interest (the ingroup) but still related enough to be useful for comparison. It serves as a reference point to root the phylogenetic tree and determine the direction of evolutionary change. By comparing the ingroup to the outgroup, we can infer which traits or genetic differences are ancestral and which are derived.
 
@@ -110,7 +104,7 @@ _By Ngilbert202 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.
 In this example, the goal is to determine whether C is more closely related to B or D. The analysis shows that C is closer to D, as they share a more recent common ancestor. 
 
 
-## Group Tasks (Each Group gets one of these questions to answer):
+## 0.3 Group Tasks (Each Group gets one of these questions to answer):
 
 1. Canids and the Domestication of Dogs
 Among living canids (wolves, coyotes, jackals, etc.), which lineage is the closest relative of domestic dogs, and how do different wolf populations group relative to domestic dogs?
@@ -173,17 +167,17 @@ Among spiders, scorpions, harvestmen (opiliones), and pseudoscorpions, which are
 - At least one scorpion, one harvestman, and a pseudoscorpion if you can find data.
 Outgroup: A non-arachnid arthropod.
 
-# **Data Gathering and Dataset Preparation**
+# 1.0 **Data Gathering and Dataset Preparation**
 
 ## **Objective**
-In this lab, you will:
+In this segment of the Lab2, you will:
 1. **Select species** relevant to your phylogenetic question.
 2. **Choose appropriate outgroups** for rooting your phylogenetic tree.
 3. **Retrieve mitochondrial gene sequences (COX1 and CytB) from GenBank**.
-4. **Organize your files properly** on the UPPMAX server.
+4. **Organize your files properly** on the server.
 
 ---
-## **Step 1: Set Up Your Workspace on the Server**
+## 1.1 **Set Up Your Workspace on the Server**
 
 Since you will be working with multiple species and genes, it’s important to maintain a **structured directory setup**.
 
@@ -192,8 +186,8 @@ Open a terminal and connect to the server just like in Lab1:
 ```
 ssh username@solander.ibg.uu.se
 ```
+#### **Create a Project Directory**  
 
-1.2. Create a Project Directory
 Once logged in, navigate to your profile directory and create a new folder for this project:
 
 ```
@@ -203,7 +197,8 @@ mkdir -p ~/Lab2_Phylogenetics
 cd ~/Lab2_Phylogenetics
 ```
 
-1.3. Create Subdirectories for Each Gene
+#### **Create Subdirectories for Each Gene**  
+
 To keep your files organized, create separate folders for the two mitochondrial genes:
 
 ```mkdir COX1``` and ```mkdir CytB```
@@ -216,7 +211,7 @@ Your directory structure should now look like this:
 │── CytB/  # All CytB gene sequences go here
 ```
 
-Step 2: Select Your Species
+## 1.2 **Make a list and select the species you will work with**
 
 - Discuss within your group which species you need to answer your chosen question.
 - Choose an appropriate outgroup species that is distantly related to the groups you are comparing.
@@ -224,16 +219,14 @@ Step 2: Select Your Species
 - Make a list and aim for around 15-20 species, including at least one outgroup.
 - The outgroup should be evolutionarily distant but not too far (avoid excessively long branch lengths in the phylogenetic tree).
 
-## **Step 3: Retrieve Sequences from GenBank**
+## 1.3 **Retrieve Sequences from GenBank**
 
 Your task is to **download the mitochondrial genes COX1 and CytB** for all species in your dataset. There are many ways you can get to the sequences of interest so it may be confusing at first. Below are **two methods** you can use to obtain the sequences.
 
----
-
-### **Method 1: Direct Search for COX1 & CytB**  
+### 1.3.A **Method 1: Direct Search for COX1 & CytB**  
 This is the **quickest** way to retrieve mitochondrial genes if they are available as standalone entries.
 
-#### **3.1. Access GenBank**  
+#### **Access GenBank**  
 - Go to **[NCBI GenBank](https://www.ncbi.nlm.nih.gov/nucleotide/)**.  
 - In the **search bar**, type:  
 ```[Species Name] COX1```
@@ -243,63 +236,59 @@ This is the **quickest** way to retrieve mitochondrial genes if they are availab
 
 - Press **Enter**.
 
-#### **3.2. Filter the Results**  
+#### **Filter the Results**  
 - If there are many results, use the **filters on the left sidebar**:  
 - Under **Genetic compartments**, select `mitochondrion`.  
 - This will narrow down the search to **mitochondrial COX1 sequences**.
 
-#### **3.3. Download the COX1 Gene**  
+#### **Download the COX1 Gene**  
 - Click on the most **relevant** entry.  
 - Click on the **FASTA** format option.  
 - Save the file as:  
 ```Panthera_leo_COX1.fasta```
 
 
-#### **3.4. Repeat for CytB**  
+#### **Repeat for CytB**  
 - In the **search bar**, type:  
 ```
 [Species Name] CytB
 ```
-
 **Example:**  
 ```
 Panthera leo CytB
 ```
-
 - Click on the most **relevant** entry.  
 - Select **FASTA** format.  
 - Save the file as:  
 ```Panthera_leo_CytB.fasta```
 
-
 This method is the fastest and easiest for downloading mitochondrial genes if they are available as standalone sequences. They may not always be available though!
 
 ---
 
-### **Method 2: Extract COX1 & CytB from Full Mitochondrial Genome**  
+### 1.3.B **Method 2: Extract COX1 & CytB from Full Mitochondrial Genome**  
 If standalone COX1 or CytB sequences are **not available**, use this method.
 
-#### **4.1. Search for Full Mitochondrial Genome**  
+#### **Search for Full Mitochondrial Genome**  
 - In the **NCBI GenBank** search bar, type:  
 ```
 [Species Name] mitochondrion complete genome
 ```
-
 **Example:**  
 ```
 Panthera leo mitochondrion complete genome
 ```
 - Press **Enter**.
 
-#### **4.2. Select the Correct Entry**  
+#### **Select the Correct Entry**  
 - Look for an entry labeled **“complete genome”** in the search results.  
 - Click on the entry to open the **full genome record**.
 
-#### **4.3. Scroll Down to the "FEATURES" Section**  
+#### **Scroll Down to the "FEATURES" Section**  
 - Find the section labeled **"CDS" (Coding Sequences)**.  
 - Look for **COX1 (Cytochrome c oxidase subunit I)** and **CytB (Cytochrome b)**.
 
-#### **4.4. Extract COX1 & CytB**  
+#### **Extract COX1 & CytB**  
 - Click on **COX1** to open its detailed page.  
 - Click **FASTA format** to download.  
 - Save the file as:  
@@ -320,7 +309,7 @@ wc -l Panthera_leo_COX1.fasta
 
 **By the end of this step, you should have two FASTA files per species, one for COX1 and one for CytB!**
 
-Step 5: Organize and Name Your Files
+## 1.4 **Organize and Name Your Files**
 
 To ensure clarity, follow a consistent naming convention for your files:
 
@@ -332,17 +321,13 @@ Example:
 ```Pan_troglodytes_Cox1.fasta```
 ```Pan_troglodytes_CytB.fasta```
 
-### Step 6: Transfer Files to your directory on the server
+## 1.5 **Transfer Files to your directory on the server**
 
-6.1. Upload Files Using SCP
+#### **Upload Files Using SCP**  
 
 On the server: Create the two directories `CytB` and `COX`.
 
-Locally: Just like in Lab1, navigate to the directory where you downloaded your sequences on your ***local machine*** and use the same commands to transfer the files to your COX1 and CytB directories ***on the server***:
-
-6.2. Verify File Transfer
-
-On the server: Navigate to your directories to confirm that the files have been uploaded. 
+Locally: Just like in Lab1, navigate to the directory where you downloaded your sequences on your ***local machine*** and use the same commands to transfer the files to your COX1 and CytB directories ***on the server***. Make sure you verify the file transfer and confirm the files have been uploaded.
 
 Example:
 ```
@@ -350,29 +335,16 @@ ls thecorrectpathto/Lab2_Phylogenetics/COX1/
 ls thecorrectpathto/Lab2_Phylogenetics/CytB/
 ```
 
-***To finish the first task:***
+***Question 1***
 
 You have by now probably obtained both Cox1 and CytB sequences for every species in your dataset.
 Write a few sentences on the selection of species and outgroup in your dataset. Which species did you choose and why? Explain how your selections will help resolve the phylogenetic relationship posed by your question. If you had difficulties finding some, write that as well.
 
+**This may be a good place for a short break**
 
-
-
-Summary of Tasks for Lab 2
-
-✔ Set up directories on UPPMAX (mkdir for COX1 and CytB).
-✔ Select your species and outgroups (~15-20 total).
-✔ Download mitochondrial COX1 and CytB genes from GenBank.
-✔ Transfer files to UPPMAX and verify their presence.
-✔ Ensure clear and standardized file naming.
-✔ Document missing sequences and select alternatives if needed.
-
-
-
-### **Step 7: Explore a FASTA File**
+# 2.0 **Let's take a look at FASTA files**
 
 Now that you have the sequences, let’s take a quick look inside a FASTA file.
-
 FASTA is a simple text-based format used for storing biological sequences. Each entry follows this structure:
 
 ```
@@ -380,7 +352,7 @@ Header (contains species name & gene info)
 ACTGACTGACTGACTGACTGACTGACTG 
 ACTGACTGACTGACTGACTGACTGACTG
 ````
-#### **7.1. Open a FASTA File**
+#### 2.1 **Open a FASTA File**
 
 Use `more` or `less` to view the contents of a FASTA file:
 
@@ -396,23 +368,25 @@ GAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA
 GAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA
 ```
 
-#### **7.2. Close the Viewer**
+#### **Close the Viewer**
 To **exit** the `less` or `more` viewer, press:
 ```q```
 
-#### **7.3. What You Just Saw**
+#### **What You Just Saw**
 - The **first line** (starting with `>`): Contains the sequence ID, species name, and gene information.
 - The **following lines**: The nucleotide sequence (A, T, C, G).
 
 Understanding the structure of FASTA files will be important when performing sequence alignment in the next lab.
 
-## **Step 8: Merge FASTA Files for the Entire Dataset**
+## 2.2 **Data Gathering and Dataset Preparation**
+
+#### **2.2.1 Merge FASTA Files for the Entire Dataset**
 
 Now that you have downloaded individual COX1 and CytB sequences for each species, you will need to **combine them into two single FASTA files**:
 - **One for COX1** (all species in one file)
 - **One for CytB** (all species in one file)
 
-### **8.1. Merge Sequences into a Single FASTA File**
+#### **2.2.2 Merge Sequences into a Single FASTA File**
 You can go step by step and copy each of the Fasta file's content into a file, or, much more elegantly, you use the `cat` command to merge all sequences.
 
 ```
@@ -425,16 +399,15 @@ less ../merged_Cox1.fasta
 ```
 and make sure you haven't duplicated anything.
 
-
 ---
 
-## **Step 9: Create a Name Conversion Table**
+## 2.3 **reate a Name Conversion Table**
 
 To facilitate working with the FASTA files, you will create **conversion tables** that map different versions of sequence headers. This will allow switching between:
 1. **Short names** (e.g., `cytB_V_ursinus` for CytB or `cox1_V_ursinus` for COX1)
 2. **Full headers** (the original header from GenBank)
 
-### **9.1. Create Two Conversion Tables**
+### **2.3.1. Create Two Conversion Tables**
 You will create two **tab-separated** files:
 - **`conversion_table_Cox1.tsv`** → For COX1 dataset
 - **`conversion_table_CytB.tsv`** → For CytB dataset
@@ -465,8 +438,7 @@ less conversion_table_CytB.tsv less conversion_table_Cox1.tsv
 ```
 
 ---
-
-## **Step 10: Create a Python Script to Modify FASTA Headers**
+## 2.4 **Create a Python Script that can easily switch between FASTA Headers**
 
 Now, you will write a **Python script** that:
 1. **Takes a merged FASTA file as input** (`merged_Cox1.fasta` or `merged_CytB.fasta`).
@@ -474,7 +446,7 @@ Now, you will write a **Python script** that:
 3. **Allows switching between short and full headers** based on user input.
 4. **Overwrites the original FASTA file** rather than creating a new one.
 
-### **10.1. Example Script (`rename_headers.py`)**
+### **2.4.1 Example Script (`rename_headers.py`)**
 Create a new Python script called `rename_headers.py` with the following functionality:
 
 - The script will take **two arguments**:
@@ -484,22 +456,20 @@ Create a new Python script called `rename_headers.py` with the following functio
 
 ---
 
-### **10.2. Expected Usage:**
+### **2.4.2 Expected Usage:**
 
 To rename headers to short format:
-
 ```
 python rename_headers.py merged_Cox1.fasta conversion_table_Cox1.tsv short
 ```
 
 To rename headers to full format:
-
 ```
 python rename_headers.py merged_Cox1.fasta conversion_table_Cox1.tsv full
 ```
 ---
 
-## **Step 11: Final Checks**
+## **2.5 Final Checks**
 Before submitting:
 - **Run the script on both merged FASTA files.**  
 - **Verify that headers change correctly by inspecting the output with `less` or `head`.**  
@@ -508,7 +478,6 @@ Before submitting:
 - If you encounter issues with tab separation in your `.tsv` files, **check them with `cat -A conversion_table_Cox1.tsv`** to ensure tabs (`^I`) are correctly formatted.
 - If something unexpected appears in your results, check for **hidden spaces or misformatted input files**.
 - If your script does not work as expected, try running it on a **smaller test dataset** to debug before applying it to the full dataset.
-
 
 ### ** Question 2 **
 Once your script works, submit:
@@ -535,4 +504,3 @@ Submit the following files:
 - **Double-check that your script works before submission.**  
 
 Good luck!
-
