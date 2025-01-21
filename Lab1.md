@@ -444,6 +444,8 @@ OBS! Just a heads up - when you run into files that end in ```.pl``` (Perl files
 ```
 and then see what it outputs.
 
+For thorough instructions visit ```https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise_instructions.md```
+
  **Submit the hidden word.**  
 
 ---
