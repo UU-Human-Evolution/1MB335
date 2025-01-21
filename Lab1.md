@@ -181,7 +181,6 @@ w3m -dump https://en.wikipedia.org/wiki/Principal_component_analysis > PCA.txt
 
 The above command reads the Wikipedia page for Principal Component Analysis and extracts the body text and saves it to the file `PCA.txt`. The `>` is used to redirect output to a file.
 
-
 Now that we have some text to work here are some tools for inspecting files, try them out on `PCA.txt`.
 
 ```
@@ -280,7 +279,7 @@ You can use `sed` on piped output from another program or straight on a single f
 
 Go to this file [orange.csv](example_data/orange.csv) and click on the ***Copy raw file*** option. 
 
-On the server and in your directory: Type in:
+In your directory: Type in:
 
 ```nano```
 
@@ -290,8 +289,6 @@ Press `Ctrl` + `X` (or Command + X on macOS/Linux) to save the file. When prompt
 What you have just done is similar to saving a file in Notepad, but we used a program called Nano. Type ```ls``` to see if the file is indeed created and saved successfully.
 
 Try looking at the contents of the file by typing ```cat orange.csv```
-
-
 
 You have received an Excel-exported file in a strange format—a common scenario in bioinformatics. Now, the task is to clean and reformat this ```orange.csv``` file into a proper .csv by ensuring:
 - Decimal points are '.'
@@ -305,25 +302,15 @@ Consult the manual with ```man sed``` or ```info sed```, or search online for ex
 Double-check that each column is correctly separated by a comma and that decimals and numbers are displayed properly in the final file.
 Submit the exact command(s) you used to transform orange.csv into a properly formatted file. Be sure you understand what your command does.
 
-### 3. Hidden file exercize
+### 4. Hidden file exercize
 
 Okay, let's refresh our memory for a sec. We should have been doing the things up until now on the ***server***. Let's take a moment and see where we are standing by typing ```pwd``` in the terminal. What does it say? Are you in the right place where you want to be? If not, you can use ```cd``` followed by the directory you want to move into. If you took a wrong turn, use ```cd ..``` to go back. 
 
-On the server: While in the directory with your name (in the server window), create two new directories called ```MethodA``` and ```MethodB```.
-
-Locally: Now that you have set up your working directory on the server, open a new terminal window on your ***local machine***. It may be confusing in the beginning, but it’s important to always know whether you are working on the local machine or the server. This will help you avoid mistakes when transferring files.
-
-Now create another directory and name it for example ```yourname_LOCAL```  and move into it.
-
-```cd yourdirectory```
-
-type ```pwd``` and what you now see is the ***full path*** to this directory.
-
-### 3.1 Download a file from GitHub Using `wget`
+### 4.1 Download a file from GitHub Using `wget`
 
 The file needed for this exercise is hosted on GitHub, here ```https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise.zip```.  
 
-Locally: To get it, while on the ***local*** machine and standing in the directory you created, try using the command ```wget```:
+To get it, stand in the directory you created, try using the command ```wget```:
 
 ```
 wget https://github.com/UU-Human-Evolution/1MB335/raw/master/hidden_word_exercise.zip -O fullpathtoyourdirectory/hidden_word_exercise.zip
@@ -333,7 +320,7 @@ This command downloads ```hidden_word_exercise.zip``` into your specified direct
 
 ---
 
-### 3.2 Unzip the downloaded file
+### 4.2 Unzip the downloaded file
 
 Once the file is downloaded, you can see that you can't read it as it is because it has been zipped (compressed). To unzip it:
 
@@ -351,100 +338,23 @@ gunzip hidden_word_exercise.gz
 
 ---
 
-### 3.3 Transfer the Unzipped Files to the server using `scp`
+### 4.3 Reflect on what you just learnt
 
-After unzipping the files locally, we want to transfer them from the local machine to your server profile via the gateway Solander. 
-
-## There are two methods to specify the destination directory on the server:
-
-### Method A: using an **absolute path** or ### Method B: using `.` to represent the **current directory**. 
-
-#### 3.3.1 **Method A: Using an Absolute Path to the directory you want to copy into**
-
-Using the absolute paths when copying stuff means it doesn't matter where you are standing in that moment, the files will go where your command instructs them to go.
-
-Replace `<your-username>` with your actual username on the server.
-
-``` 
-scp -r thefullpathtoyourdirectory/unix_tutorial_modified your-username@solander.ibg.uu.se:/your-profile-directory/MethodA
-```
-
-**Example:**
-
-```
-scp -r thefullpathtoyourdirectory/unix_tutorial_modified lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/
-```
-
-#### Explanation:
-```
-- `-r` is used to copy directories recursively.
-- `thefullpathtoyourdirectory/hidden_word_exercise` is the local path to the unzipped files.
-- `lilleskutt@solander.ibg.uu.se` is your SSH username and Solander server address.
-- `~/lilleskutt/MethodA/` is the destination directory on the Solander server. Make sure you are writing the correct path.
-```
-
-### 3.4 Verify that the transfer went smoothly
-
-On the server: To ensure that the files have been successfully transferred, while in the ***server*** window, list the contents of the destination directory using ```ls```.
-
-You should see the `hidden_word_exercise` directory listed in Method A.
-
-
-### 3.5 Now, let’s try copying a file from the server back to the local machine. And for this we'll use Method B:
-
-#### 3.5.1 **Method B: Copying files using `.` to represent the current directory**
-
-Let's say we want to "pull" (scp remote→local) a file from the server onto the local computer.
-
-In a local terminal window : Navigate to the your directory and create a new `MethodB` directory, where you want to copy files to. 
-
-```
-cd /your-profile-directory/MethodB
-```
-and then try the following:
-
-```
-scp -r lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/hidden_word_exercise* .
-```
-
-The dot (.) means “copy onto my current (standing) directory.” In this example, you are standing in your local computer's 'MethodB' directory.
-
-**Explanation and advantages of Using Method B (`.`):**
-- The `.` represents the current directory I'm standing in (`MethodB`).
-- **Simplicity:** No need to type long directory paths.
-- **Flexibility:** Useful when you have already navigated to the desired directory via SSH.
-- The `scp` command in Method B should be executed from the **local machine**, targeting the server's current directory.
-- This (method) can be useful when you need to download results or processed data.
-  
----
-
-### 3.6 Verify that the transfer went smoothly using Method B
-
-Okay, you now have the same data in both MethodA (server) and MethodB (local). Since this was just to test copying files using Method B, we can free up space by removing MethodB from the local computer: 
-
-```
-rm -r MethodB
-```
-Always make sure you're inside the correct directory before running this command. Now check if you deleted it.
-
-```ls```
-
-### 3.7 Reflect on what you just learnt
-
-We will be using these commands a lot so it's really important that you grasp the logic behind transferring files from one place to another, moving around and some of the basic commands. It is always important to know if you are standing in the right place or you are moving a file to the right place. The constant moving between ***Local*** machine vs ***Server*** can be confusing but as long as you keep track of your steps, you should be okay. Keep what we did above in mind and you can always go back to Lab1 to refresh your memory.
+We will be using these commands a lot so it's really important that you grasp the logic behind transferring files from one place to another, moving around and some of the basic commands. It is always important to know if you are standing in the right place or you are moving a file to the right place. 
 
 #### **Question 4: Extracting the Hidden Word**
 
-Back on the server: Now that you have some basic UNIX tools at your disposal, go into ```unix_tutorial_modified``` and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
+Now that you have some basic UNIX tools at your disposal, go into ```unix_tutorial_modified``` and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
 
 OBS! Just a heads up - when you run into files that end in ```.pl``` (Perl files), run them by:
 
 ```
-./someprogramname.pl
+perl someprogramname.pl
 ```
 and then see what it outputs.
 
-For thorough instructions visit ```https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise_instructions.md```
+
+For step-by-step instructions visit https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise_instructions.md
 
  **Submit the hidden word.**  
 
@@ -483,7 +393,31 @@ You can chain any type of program/script that you can run on the commandline lik
 python my_python_script.py inputfile.txt
 
 ```
-### 5. Reflect on Lab 1 and final remarks
+### 5. Transfer files from a local computer to the server using `scp`
+
+Just to show you how it's done, try doing the following set of instructions. 
+
+In the server window: Create a dicrectory with your name followed by ```_SERVER``` and move into it.
+
+Open a local terminal window, without logging into the server. 
+Create a directory with your name followed by ```_LOCAL```
+Create a text file called ```Bamse.txt``` and write something in it.
+
+Type ```pwd``` to see the path to the directory and copy it.
+
+Now run the following and press Enter:
+
+``` 
+scp -r thefullpathtoyour_LOCALdirectory/Bamse.txt your-username@solander.ibg.uu.se:/fullpathto_SERVERdirectory/
+```
+
+Replace `<your-username>` with your actual username on the server.
+
+
+You will be asked for a password. After you type it in and hit Enter, you should be able to see ```Bamse.txt``` in the ```_SERVER``` directory.
+
+
+### 6. Reflect on Lab 1 and final remarks
 
 This is the end of Lab1, please make sure that you did and wrote down the answers to all of the questions.
 Also, make sure to delete any files that you no longer need - you can copy them somewhere else if you want to keep them.
