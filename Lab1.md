@@ -366,7 +366,7 @@ Using the absolute paths when copying stuff means it doesn't matter where you ar
 Replace `<your-username>` with your actual username on the server.
 
 ``` 
-scp -r thefullpathtoyourdirectory/hidden_word_exercise your-username@solander.ibg.uu.se:/your-profile-directory/MethodA
+scp -r thefullpathtoyourdirectory/unix_tutorial_modified your-username@solander.ibg.uu.se:/your-profile-directory/MethodA
 ```
 
 **Example:**
