@@ -309,11 +309,11 @@ Submit the exact command(s) you used to transform orange.csv into a properly for
 
 Okay, let's refresh our memory for a sec. We should have been doing the things up until now on the ***server***. Let's take a moment and see where we are standing by typing ```pwd``` in the terminal. What does it say? Are you in the right place where you want to be? If not, you can use ```cd``` followed by the directory you want to move into. If you took a wrong turn, use ```cd ..``` to go back. 
 
-On the server: While in the directory with your name (on the server), create two new directories called ```MethodA``` and ```MethodB```.
+On the server: While in the directory with your name (in the server window), create two new directories called ```MethodA``` and ```MethodB```.
 
 Locally: Now that you have set up your working directory on the server, open a new terminal window on your ***local machine***. It may be confusing in the beginning, but it’s important to always know whether you are working on the local machine or the server. This will help you avoid mistakes when transferring files.
 
-Now create another directory on the ***local*** computer just like we did before and move into it.
+Now create another directory and name it for example ```yourname_LOCAL```  and move into it.
 
 ```cd yourdirectory```
 
