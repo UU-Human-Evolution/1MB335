@@ -340,14 +340,14 @@ Once the file is downloaded, you can see that you can't read it as it is because
 ```
 unzip hidden_word_exercise.zip
 ```
+This extracts the contents of `hidden_word_exercise.zip` into the current directory.
+When the unzipping is done, type ```ll``` and take a look at the files in your directory. Now we have the ```hidden_word_exercise.zip``` file and a directory called ```unix_tutorial_modified``` which was the output of the unzip command. 
 
 OBS! In the future you may encounter a `.gz` file instead. In such cases use:
 
 ```
 gunzip hidden_word_exercise.gz
 ```
-
-This extracts the contents of `hidden_word_exercise.zip` into the current directory.
 
 ---
 
@@ -372,7 +372,7 @@ scp -r thefullpathtoyourdirectory/hidden_word_exercise your-username@solander.ib
 **Example:**
 
 ```
-scp -r thefullpathtoyourdirectory/hidden_word_exercise lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/
+scp -r thefullpathtoyourdirectory/unix_tutorial_modified lilleskutt@solander.ibg.uu.se:/lilleskutt/MethodA/
 ```
 
 #### Explanation:
