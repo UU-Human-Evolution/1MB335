@@ -285,7 +285,7 @@ On the server and in your directory: Type in:
 ```nano```
 
 And use `Ctrl` + `V` (or Command + V on macOS) to paste the raw contents of the file. 
-Press `Ctrl` + `X` (or Command + X on macOS) to save the file. When prompted, press `Y` (yes) to confirm saving changes. When asked for the file name, type ```orange.csv``` and press `Enter`
+Press `Ctrl` + `X` (or Command + X on macOS/Linux) to save the file. When prompted, press `Y` (yes) to confirm saving changes. When asked for the file name, type ```orange.csv``` and press `Enter`
 
 What you have just done is similar to saving a file in Notepad, but we used a program called Nano. Type ```ls``` to see if the file is indeed created and saved successfully.
 
@@ -313,7 +313,7 @@ On the server: While in the directory with your name (on the server), create two
 
 Locally: Now that you have set up your working directory on the server, open a new terminal window on your ***local machine***. It may be confusing in the beginning, but it’s important to always know whether you are working on the local machine or the server. This will help you avoid mistakes when transferring files.
 
-Now create a directory with your name on the ***local*** computer just like we did before and move into it.
+Now create another directory on the ***local*** computer just like we did before and move into it.
 
 ```cd yourdirectory```
 
