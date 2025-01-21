@@ -435,7 +435,14 @@ We will be using these commands a lot so it's really important that you grasp th
 
 #### **Question 4: Extracting the Hidden Word**
 
-Back on the server: Now that you have some basic UNIX tools at your disposal, go and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
+Back on the server: Now that you have some basic UNIX tools at your disposal, go into ```unix_tutorial_modified``` and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
+
+OBS! Just a heads up - when you run into files that end in ```.pl``` (Perl files), run them by:
+
+```
+./someprogramname.pl
+```
+and then see what it outputs.
 
  **Submit the hidden word.**  
 
