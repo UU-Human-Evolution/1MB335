@@ -344,7 +344,7 @@ We will be using these commands a lot so it's really important that you grasp th
 
 #### **Question 4: Extracting the Hidden Word**
 
-Now that you have some basic UNIX tools at your disposal, go into ```unix_tutorial_modified``` and complete the **hidden word exercise** you just moved to your directory on the ***server***.  
+Now that you have some basic UNIX tools at your disposal, go into ```unix_tutorial_modified``` and complete the **hidden word exercise**. 
 
 OBS! Just a heads up - when you run into files that end in ```.pl``` (Perl files), run them by:
 
@@ -352,7 +352,6 @@ OBS! Just a heads up - when you run into files that end in ```.pl``` (Perl files
 perl someprogramname.pl
 ```
 and then see what it outputs.
-
 
 For step-by-step instructions visit https://github.com/UU-Human-Evolution/1MB335/blob/master/hidden_word_exercise_instructions.md
 
@@ -376,7 +375,7 @@ echo “Completed”
 
 ```
 
-On the server: In your directory, add the above text to a file called `sleep.sh` and execute it with:
+In your directory, add the above text to a file called `sleep.sh` and execute it with:
 
 ```
 bash sleep.sh
@@ -397,14 +396,12 @@ python my_python_script.py inputfile.txt
 
 Just to show you how it's done, try doing the following set of instructions. 
 
-In the server window: Create a dicrectory with your name followed by ```_SERVER``` and move into it.
+**In the server window:** Create a dicrectory with your name followed by ```_SERVER``` and move into it.
 
-Open a local terminal window, without logging into the server. 
+**Open a local terminal window**, without logging into the server. 
 Create a directory with your name followed by ```_LOCAL```
 Create a text file called ```Bamse.txt``` and write something in it.
-
 Type ```pwd``` to see the path to the directory and copy it.
-
 Now run the following and press Enter:
 
 ``` 
@@ -412,10 +409,7 @@ scp -r thefullpathtoyour_LOCALdirectory/Bamse.txt your-username@solander.ibg.uu.
 ```
 
 Replace `<your-username>` with your actual username on the server.
-
-
 You will be asked for a password. After you type it in and hit Enter, you should be able to see ```Bamse.txt``` in the ```_SERVER``` directory.
-
 
 ### 6. Reflect on Lab 1 and final remarks
 
