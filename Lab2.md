@@ -107,48 +107,56 @@ In this example, the goal is to determine whether C is more closely related to B
 ## 0.3 Group Tasks (Each Group gets one of these questions to answer):
 
 **1. Canids and the Domestication of Dogs**
+
 Among living canids (wolves, coyotes, jackals, etc.), which lineage is the closest relative of domestic dogs, and how do different wolf populations group relative to domestic dogs?
 - Consider including domestic dogs and various wild canids.
 - You might want to sample more than one wolf population to see how they cluster.
 Outgroup suggestion: A more distantly related carnivore, that is cunning and farmers hate.
 
 **2. Ape Relationships Within Hominidae**
+
 Describe the relationship among humans, chimpanzees, bonobos, gorillas, orangutans, and gibbons. Which lineages split first, and which are most closely related? Do both genes tell the same story?
 - Include multiple apes.
 - You might want to sample different subspecies if available (e.g., for gorillas or orangutans).
 Outgroup suggestion: An Old World or New World animal that climbs trees and loves bananas.
 
 **3. Big vs. Small Cats in Felidae**
+
 How do ‘big cats’ (lions, tigers, leopards, jaguars) compare to smaller felids (domestic cats, lynxes, pumas, ocelots, cheetahs)? Which lineages diverged earliest?
 - Consider multiple species from both large and small cat lineages.
 - Feel free to include extra small cat species (e.g., servals, caracals) if data are available.
 Outgroup suggestion: A carnivoran that doesn't 'meow'.
 
 **4. True Bears vs. Pandas**
+
 Among the bear family (Ursidae), is the giant panda truly a bear, or does it form a separate lineage?
 - Focus on diverse bear species from around the globe.
 - Be sure to include the giant panda and at least two or three other bears.
 Outgroup suggestion: Another carnivoran that is not a bear.
 
 **5. Deer Family Dynamics Question**
+
 In the deer family (Cervidae), how do moose, reindeer, white-tailed deer, red deer, fallow deer, and roe deer cluster? Do moose and reindeer group together, or do they pair with other deer first?
 - Pick multiple deer species from different genera.
 - Consider including a few lesser-known deer if available.
 Outgroup suggestion: A different artiodactyl, perhaps something with a really long neck.
 
 **6. Turtles and Tortoises**
+
 How do sea turtles (green, loggerhead, hawksbill) cluster relative to freshwater turtles and giant tortoises, and which lineages seem most ancient?
 - Include more than one sea turtle, and at least one freshwater turtle.
 - You might include giant tortoises and a box turtle if possible.
 Outgroup suggestion: Try something that is a close friend of Voldemort or something that does model work for Lacoste.
 
 **7. Cetacean Radiation**
+
 Describe the relationships among cetaceans. How do baleen whales (e.g., blue, humpback, fin) compare with toothed whales (sperm whale, orca, dolphins)? Which group appears most basal?
 - Try more than one baleen whale species and multiple toothed whales.
 - Look for any species with complete or partial sequences in databases.
 Outgroup suggestion: Try a mud-loving artiodactyl.
 
 **8. The Land Down Under**
+
 How do Australian marsupials—including macropods (kangaroos, wallabies, quokkas), possums, and the Tasmanian devil — cluster relative to their closest marsupial relatives in mainland Asia (e.g., cuscuses and phalangers)? Do Australian marsupials form a single evolutionary group distinct from their Asian cousins, or do some species share closer relationships across the regions?
 - Include different kangaroo and wallaby species.
 - Include Tasmanian devils, wombats, koalas, and possums to see how they fit in the tree.
@@ -156,12 +164,14 @@ How do Australian marsupials—including macropods (kangaroos, wallabies, quokka
 Outgroup suggestions: A South American marsupial (Opossum for example) or Perry the Platipus. 
 
 **9. Penguins and Their Allies**
+
 Within living penguins (emperor, king, gentoo, Adélie, chinstrap, rockhopper, little blue, etc.), which cluster closely, and which lineages diverged first?
 - Try sampling multiple penguin species from different genera or habitats.
 - Look for both subantarctic and Antarctic species if possible.
 Outgroup suggestions: A non-penguin seabird.
 
 **10. Arachnid Phylogeny**
+
 Among spiders, scorpions, harvestmen (opiliones), and pseudoscorpions, which are closest relatives, and do scorpions cluster more closely with spiders or other arachnids?
 - Include different spider species (orb weaver, tarantula, jumping spider).
 - At least one scorpion, one harvestman, and a pseudoscorpion if you can find data.
