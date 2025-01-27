@@ -226,7 +226,7 @@ Your directory structure should now look like this:
 - Discuss within your group which species you need to answer your chosen question.
 - Choose an appropriate outgroup species that is distantly related to the groups you are comparing.
 - If you need guidance, use the NCBI Taxonomy Browser.
-- Make a list and aim for around 15-20 species, including at least one outgroup.
+- Make a list and aim for around 10 species, including at least one outgroup.
 - The outgroup should be evolutionarily distant but not too far (avoid excessively long branch lengths in the phylogenetic tree).
 
 ## 1.3 **Retrieve Sequences from GenBank**
@@ -399,12 +399,12 @@ Now that you have downloaded individual COX1 and CytB sequences for each species
 You can go step by step and copy each of the Fasta file's content into a file, or, much more elegantly, you use the `cat` command to merge all sequences.
 
 ```
-cat ExampleSpecies_Cox1.fasta >> ../merged_Cox1.fasta
+cat *.fasta > merged_Cox1.fasta
 ```
 
 Check your progress with 
 ```
-less ../merged_Cox1.fasta
+less merged_Cox1.fasta
 ```
 and make sure you haven't duplicated anything.
 
