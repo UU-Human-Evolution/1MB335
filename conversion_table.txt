@@ -1,0 +1,2 @@
+>MN999551.1 Panthera leo isolate Lion_A cytochrome b (cytb) gene, partial cds; mitochondrial	>Panthera_leo_cyt_b
+>KY296615.1 Macaca mulatta isolate M8 cytochrome b (CYTB) gene, partial cds; mitochondrial	>Macama_cyt_b
