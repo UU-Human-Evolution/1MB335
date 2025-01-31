@@ -2,53 +2,40 @@
 
 ## Introduction / Background information to Session 3
 
-In this session, you will focus on alignments. As you have seen in the lecture, you can align two sequences (pairwise alignment) or multiple sequences (multiple alignments). Here, you will do a bit of both. For the pairwise alignment part, you will follow a tutorial that was developed by Rasmus Wernersson. For the multiple alignment part, you will continue to work with the mitochondrial genomes from the previous sessions. Obtaining a good alignment of your sequences will be essential for answering your groups question.
+In this session, you will focus on alignments. As you have seen in the lecture, you can align two sequences (pairwise alignment) or multiple sequences (multiple alignments). You will align your COX1 and CytB sequences using multiple alignments. Obtaining a good alignment of your sequences will be essential for answering your groups question.
 
 ## Goals
-
-  + Perform local and global pairwise alignments with different algorithms
-  + Explore parameters of pairwise alignments
   + Perform multiple alignments and visualize them
   + Manipulate files
 
 ## Input(s)
 
-  + complete mitochondrial genomes
-  + sequences for cytB
+  + COX1 sequences
+  + cytB sequences
 
 ## Output(s)
 
-  + An alignment of mitochondrial genomes
-  + An alignment of cytB
+  + An alignment of Cox1 sequences
+  + An alignment of cytB sequences
 
 ## Tools
-
-  + Online alignment tools
   + Alignment program: [mafft](https://mafft.cbrc.jp/alignment/software/)
-  + Alignment visualization program: clustalw / clustalx
+  + Alignment visualization program: AliView
 
 ## Steps
-
-  + Step 1: Pairwise alignment exercise
-  + Step 2: Multiple alignment exercise
+ Multiple alignment exercise and visualisation
 
 ## Details
 
-### Step 1: Pairwise alignment
+###Multiple alignments
 
-Please go through the tutorial on [this page](https://teaching.healthtech.dtu.dk/22111/index.php/ExPairwiseAlignment).
+You will now be working with the sequences you have collected last time. This also means that the results will depend on your selection. An outcome of today could also be that you decide to replace certain sequences as the alignment indicates some issues with them (e.g. they are not covering the full length or seem to show many mismatches/gaps). **During this session, we only perform the alignments, if you decide that you need to replace or add sequences, you can discuss that with the TAs
 
-Answer questions 1 to 14 (Not 0.0). Submit answers to all the questions (you can number them 1-1, 1-2, etc to distinguish them from the answers to the next part).
-
-### Step 2: Multiple alignments
-
-You will now be working with the sequences you have collected last time. This also means that the results will depend on your selection. An outcome of today could also be that you decide to replace certain sequences as the alignment indicates some issues with them (e.g. they are not covering the full length or seem to show many mismatches/gaps). **During this session, we only perform the alignments, if you decide that you need to replace or add sequences, we will do that as part of Lab 4.**
-
-#### Step 2a: Align the entire mitochondria
+#### Step a: Align the Cox1 sequences
 
 Start by login into Solander.
 
-Finally, we will start by aligning your **full mitochondrial** genomes! We are going to use a software called `mafft`. 
+Finally, we will start by aligning your **COX1 and cytB** sequences! We are going to use a software called `mafft`. 
 
 Aligning this set of mitochondrial genomes is a computationally intensive task. 
 
@@ -59,42 +46,39 @@ You will be asked several questions, among others:
 - output file format (sorted fasta),
 - algorithm (choose `FFT-NS-1 (fast)`).
 
-Once you have chosen all the options, the corresponding command-line will be printed on the screen.
+Once you have chosen all the options, the corresponding command will be printed on the screen.
 
-**Question 2-1. Write down the command.**
+**Question 1. Write down the command.**
 
-Now, launch the alignment. It will take a while. In the meantime, you can work on the next step on another terminal window, which is another alignment, of a single gene. It is also a good time to take a break!
+Now, launch the alignment. It will take a while (maybe not as these computers are new). In the meantime, you can work on the next step on another terminal window, which is another alignment, of a single gene.
 
-#### Step 2b: Align the sequences for the cytochrome B gene (cytB)
-
-Nowadays there is an abundance of genomic data available, for organelles and entire genomes, for a large number of species. This is why in this session and the bioinformatics project, you are aligning the entire mitochondria. However, for a long time, it was more common to work with alignments of single genes (and in some cases, for instance when exploring the diversity in a given environment, it is still a common approach). Aligning single genes might also be a good approach when working with diverse species. And of course, it is much faster!
-
-*Cytochrome b* is a gene found in the mitochondria of eukaryotic cells. The protein is part of the respiratory chain complex III, making it an essential part of the energy metabolism. Since all eukaryotes should have *cytB*, the gene can be used for species identification, and is often used to assess phylogenetic relationships between organisms
-
-Proceed to the alignment with `mafft`. You can take the same command as the one you created when aligning for the entire genome.
-
-We are using the tool `clustalx` to view the alignment. In "File", choose "Load Sequences" and choose your alignment. Can you make sense of what you see? What do you think the bottom window shows?
-
-**Question 2-2. Visually inspect your alignment. Do you notice anything odd? Does any sequence stand out visually (e.g. the outgroup)?**
+#### Step b: Align the sequences for the cytochrome B gene (cytB)
 
 
-**Question 2-3. Show your new alignment to a teaching assistant. If you cannot show it, submit the corresponding alignment file (.fasta).**
+*Cytochrome b* and *COX1* are genes found in the mitochondria of eukaryotic cells. In *Cytochrome b*, the protein is part of the respiratory chain complex III, making it an essential part of the energy metabolism. Since all eukaryotes should have *cytB*, the gene can be used for species identification, and is often used to assess phylogenetic relationships between organisms
+
+Proceed to the alignment with `mafft`. You can take the same command as the one you created when aligning for the COX1.
+
+We are using the tool `AliView` to view the alignment. In "File", choose "Open File" and choose your alignment. Can you make sense of what you see? What do you think the window shows?
+
+**Question 2. Visually inspect your alignment. Do you notice anything odd? Does any sequence stand out visually (e.g. the outgroup)?**
+
+
+**Question 3. Show your new alignment to a teaching assistant. If you cannot show it, submit the corresponding alignment file (.fasta).**
 
 The main take-home message from this step is that it is important to examine your alignments well. Sometimes some sequences will genuinely be longer or shorter than other sequences; however, it might also be due to some errors!
 
-#### Back to Step 2a
+#### Back to Step a
 
 
-By now the alignment of the entire mitochondria should be ready for you to look at! Open it with `clustalx`. What do you see?
+By now the alignment of the COX1 should be ready for you to look at! Open it with `AliView`. What do you see?
 
-**Question 2-4. Visually inspect the alignment of the full mitochondrial genome the same way you did for cytB in Q2-4. What do you notice? Are the same species standing out?**
+**Question 4. Visually inspect the alignment of the COX1 gene the same way you did for cytB in Q2-4. What do you notice? Are the same species standing out?**
 
 ---
 ## REPORT
 
-Pairwise alignment tutorial: submit answers to all questions (you can number them 1-1, 1-2, etc).
-
-Multiple alignment: submit answers to questions 2-1 through 2-4. For Question 2-2 and 2-4, it can be useful to include a screenshot of what you saw. Only submit the alignment (FASTA file) if you cannot show it to a teaching assistant.
+Multiple alignment: submit answers to questions 1 through 4. For Question 2 and 4, it can be useful to include a screenshot of what you saw. Only submit the alignment (FASTA file) if you cannot show it to a teaching assistant.
 
 
 ---
