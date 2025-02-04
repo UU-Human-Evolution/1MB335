@@ -25,19 +25,58 @@ In this session, you will focus on alignments. As you have seen in the lecture, 
 ## Steps
  Multiple alignment exercise and visualisation
 
-## Details
-
-###Multiple alignments
+## Multiple alignments
 
 You will now be working with the sequences you have collected last time. This also means that the results will depend on your selection. An outcome of today could also be that you decide to replace certain sequences as the alignment indicates some issues with them (e.g. they are not covering the full length or seem to show many mismatches/gaps). **During this session, we only perform the alignments, if you decide that you need to replace or add sequences, you can discuss that with the TAs
 
-*Cytochrome b* and *COX1* are genes found in the mitochondria of eukaryotic cells. In *Cytochrome b*, the protein is part of the respiratory chain complex III, making it an essential part of the energy metabolism. Since all eukaryotes should have *cytB*, the gene can be used for species identification, and is often used to assess phylogenetic relationships between organisms
+Both *Cytochrome b* and *COX1* are genes found in the mitochondria of eukaryotic cells. In *Cytochrome b*, the protein is part of the respiratory chain complex III, making it an essential part of the energy metabolism. Since all eukaryotes should have *cytB*, the gene can be used for species identification, and is often used to assess phylogenetic relationships between organisms
+
+## Software we are using in this lab
+### 1. MAFFT (Multiple Alignment using Fast Fourier Transform) 
+
+MAAFT is a software tool used to align multiple sequences (DNA, RNA, or proteins) simultaneously. It offers various algorithms that balance speed and accuracy, making it especially useful for large datasets. Each algorithm is tuned for different scenarios, so your choice will depend on the characteristics of your sequences and the precision required for your analysis.
+
+MAAFT is broadly used to:
+- Find similarities and differences: By aligning sequences, scientists can identify conserved regions, mutations, or functional domains.
+- Study evolution and function: Sequence alignments help in building phylogenetic trees and understanding evolutionary relationships.
+- Prepare data for further analysis: Accurate alignments are a key starting point for many bioinformatics analyses, such as structure prediction or comparative genomics.
+
+Some examples of the algorithms it offers are:
+```
+- FFT-NS-1 (Fast):
+What It Does: Uses Fast Fourier Transform (FFT) to quickly perform a one-cycle progressive alignment without iterative refinement.
+Why You’d Pick It: Ideal for very large datasets or when you need a quick, rough alignment. The trade-off is that it may be less accurate than slower methods.
+- FFT-NS-2:
+What It Does: Similar to FFT-NS-1 but adds one round of iterative refinement.
+Why You’d Pick It: Offers a bit more accuracy than FFT-NS-1 while still being relatively fast. It’s a good middle-ground when you need slightly improved quality without a huge increase in computation time.
+- L-INS-i:
+What It Does: Incorporates local pairwise alignments along with iterative refinement, focusing on aligning conserved regions within otherwise variable sequences.
+Why You’d Pick It: Best when your sequences have conserved motifs amid variable regions. It is slower but tends to be more accurate for complex alignments.
+- G-INS-i:
+What It Does: Uses global pairwise alignment information with iterative refinement, considering the entire sequence for alignment.
+Why You’d Pick It: Ideal when your sequences are overall similar (global homology) and you need high accuracy, though at the cost of increased computation time.
+- E-INS-i:
+What It Does: Designed for sequences that include long unalignable regions or large insertions, using a consistency-based approach with iterative refinement.
+Why You’d Pick It: Best for sequences with multiple conserved domains separated by long gaps. It’s slower but can handle complex insertions and variable regions effectively.
+```
+OBS! Choosing an Algorithm:
+Speed vs. Accuracy: If you’re working with a large dataset or need a fast result, **FFT-NS-1 might be best, which is why we are using this one today**.
+Sequence Complexity: For sequences with significant variability or long gaps, methods like L-INS-i, G-INS-i, or E-INS-i are more appropriate despite being slower, because they provide more reliable alignments.
+
+#### 2. AliView
+
+AliView is a lightweight, fast, and user-friendly software tool designed for viewing and editing multiple sequence alignments. It is generally used to:
+
+- Inspect alignments: Quickly browse through large alignment files to check for errors or areas that might need manual adjustment.
+- Edit alignments: Make corrections or refinements to automatically generated alignments (for example, those produced by MAFFT) to ensure the data is accurate.
+- Work efficiently with big datasets: Its speed and simplicity make it ideal for handling large alignment files without performance issues.
 
 #### Step a: Align the Cox1 sequences
 
-Start by login into Solander.
+Start by logging into Solander.
 
-Finally, we will start by aligning your **COX1 and cytB** sequences! We are going to use a software called `mafft`. 
+Since our datasets for each gene are now complete (Lab2) we will start by aligning your **COX1 and cytB** sequences. 
+We are going to start by using the software called `mafft`. 
 
 Aligning this set of mitochondrial genomes is a computationally intensive task. 
 
