@@ -6,7 +6,8 @@ During the last sessions, you collected and aligned mitochondrial sequences, COX
 + Learn how to compute a **distance matrix** from a multiple sequence alignment.  
 + Interpret **genetic relationships** based on sequence similarity.  
 + Become familiar with the **Newick format** for phylogenetic trees.  
-+ Construct a **phylogenetic tree manually** in iTOL.  
++ Construct a **phylogenetic tree manually** in iTOL.
++ Visualize the tree in iTOL and analyze sister relationships.  
 
 ## **Input(s)**  
 + Aligned mitochondrial sequences from the previous lab.  
@@ -24,7 +25,9 @@ During the last sessions, you collected and aligned mitochondrial sequences, COX
 ---  
 
 ## **Generating a Distance Matrix**  
-A **distance matrix** is a table that shows the genetic distances between sequences. A smaller distance means the sequences are more closely related.  
+A **distance matrix** is a table that quantifies the genetic distances between sequences. A smaller distance means the sequences are more closely related.  
+In today's lab, it is generated from the multiple sequence alignment created in Lab3.  This matrix helps determine evolutionary relationships by identifying closely related sequences. Using these distances, species with the smallest values are grouped first in a Newick format tree, which is then manually constructed and visualized in iTOL. This process allows for interpreting evolutionary relationships and identifying sister species.
+
 
 We will use the **EMBOSS DistMat** tool:  
 
@@ -42,6 +45,7 @@ We will use the **EMBOSS DistMat** tool:
 ## **Understanding the Newick Format**  
 
 The **Newick format** is a simple way to represent tree structures using parentheses and commas.  
+It encodes tree structures in a compact, text-based format where closely related species are grouped together in parentheses and branch points (nodes) indicate common ancestors. This format is widely used in bioinformatics tools like iTOL for visualizing evolutionary trees.
 
 ### **Example of a Newick Tree:**  
 ```
@@ -62,6 +66,7 @@ To manually create a tree, you will use your **distance matrix** to determine wh
 ## **Constructing a Tree in iTOL**  
 
 Now that you have your **Newick tree**, you will visualize it in **iTOL**.  
+iTOL (Interactive Tree of Life) is an online tool for visualizing, editing, and annotating phylogenetic trees. It allows users to upload trees in Newick format, customize their appearance, and analyze evolutionary relationships. iTOL supports features like color-coding, branch labeling, and metadata integration, making it useful for interpreting phylogenetic data.
 
 ### **Steps:**  
 1.)  Go to **[iTOL](https://itol.embl.de)** and create a **New Tree**.  
@@ -70,8 +75,8 @@ Now that you have your **Newick tree**, you will visualize it in **iTOL**.
 
 ### **Question 3:**  
 - Based on this tree can you write down the sister relationships between different groups or species 
-- Can you use this tree to answer your question (for eg: which ape is closely related to humans)? 
- 
+- Can you use this tree to answer your question (for eg: which ape is closely related to humans)?
+  
 ---
 
 ## **Report Submission**  
