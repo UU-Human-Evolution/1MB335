@@ -25,15 +25,20 @@ During the last sessions, you collected and aligned mitochondrial sequences, COX
 ---  
 
 ## **Generating a Distance Matrix**  
+
 A **distance matrix** is a table that quantifies the genetic distances between sequences. A smaller distance means the sequences are more closely related.  
-In today's lab, it is generated from the multiple sequence alignment created in Lab3.  This matrix helps determine evolutionary relationships by identifying closely related sequences. Using these distances, species with the smallest values are grouped first in a Newick format tree, which is then manually constructed and visualized in iTOL. This process allows for interpreting evolutionary relationships and identifying sister species.
+In this lab, it is generated from a multiple sequence alignment (MSA) using tools like EMBOSS DistMat. 
 
+EMBOSS DistMat is an online bioinformatics tool that calculates pairwise genetic distances from a multiple sequence alignment (MSA). It supports different distance metrics, such as Kimura and Percent Identity, to measure sequence similarity. 
 
-We will use the **EMBOSS DistMat** tool:  
+This matrix helps determine evolutionary relationships by identifying closely related sequences. Using these distances, species with the smallest values are grouped first in a Newick format tree, which is then manually constructed and visualized in iTOL. This process allows for interpreting evolutionary relationships and identifying sister species.
+
+Let's try the **EMBOSS DistMat** tool:  
 
 ### **Steps:**  
-1️⃣ Upload your **aligned FASTA file** from the previous lab.  
-2️⃣ Select a distance calculation method: **Kimura** or **Percent Identity**.  
+
+1. Upload your **aligned FASTA file** from the previous lab.
+2. Select a distance calculation method: **Kimura** or **Percent Identity**.  
 
 ### **Question 1:**  
 - Which species have the **smallest** distance (most similar)?  
@@ -69,9 +74,10 @@ Now that you have your **Newick tree**, you will visualize it in **iTOL**.
 iTOL (Interactive Tree of Life) is an online tool for visualizing, editing, and annotating phylogenetic trees. It allows users to upload trees in Newick format, customize their appearance, and analyze evolutionary relationships. iTOL supports features like color-coding, branch labeling, and metadata integration, making it useful for interpreting phylogenetic data.
 
 ### **Steps:**  
-1.)  Go to **[iTOL](https://itol.embl.de)** and create a **New Tree**.  
-2.) Click on Upload, go to Upload new tree section and paste your **Newick tree** in the tree text box and click on Upload.    
-3.) Save and export the tree as an image or pdf.  
+
+1. Go to **[iTOL](https://itol.embl.de)** and create a **New Tree**.  
+2. Click on Upload, go to Upload new tree section and paste your **Newick tree** in the tree text box and click on Upload.    
+3. Save and export the tree as an image or pdf.  
 
 ### **Question 3:**  
 - Based on this tree can you write down the sister relationships between different groups or species 
