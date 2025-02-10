@@ -29,10 +29,12 @@ During the last sessions, you collected and aligned mitochondrial sequences, COX
 A **distance matrix** is a table that quantifies the genetic distances between sequences. A smaller distance means the sequences are more closely related.  
 In this lab, it is generated from a multiple sequence alignment (MSA) using tools like EMBOSS DistMat. 
 
-EMBOSS DistMat is an online bioinformatics tool that calculates pairwise genetic distances from a multiple sequence alignment (MSA). It supports different distance metrics, such as Kimura and Percent Identity, to measure sequence similarity. 
+EMBOSS DistMat is an online bioinformatics tool that calculates pairwise genetic distances from a multiple sequence alignment (MSA). It supports different distance metrics, such as Kimura, Tamura, Jukes-Cantor etc, to measure sequence similarity. 
 
-Very shortly, the Kimura model accounts for mutations occurring more than once at the same position, giving a more refined estimate of genetic distance.
-On the other hand, 'Percent Identity' is a straightforward method that calculates the percentage of identical bases or amino acids between sequences, providing a basic measure of similarity.
+Very shortly: 
+- the Kimura model accounts for mutations occurring more than once at the same position, giving a more refined estimate of genetic distance.
+- The Jukes-Cantor model does not take into account that transition rates between purines (A-G exchanges and between pyrimidines (C-T exchanges) are different from transversions rates between purines and pyrimidines (A<->C, A<->T, C<->G, G<->T). The Kimura model corrects for this effect.
+- 'Percent Identity' is a straightforward method that calculates the percentage of identical bases or amino acids between sequences, providing a basic measure of similarity.
 
 This matrix helps determine evolutionary relationships by identifying closely related sequences. Using these distances, species with the smallest values are grouped first in a Newick format tree, which is then manually constructed and visualized in iTOL. This process allows for interpreting evolutionary relationships and identifying sister species.
 
@@ -41,7 +43,7 @@ Let's try the **EMBOSS DistMat** tool:
 ### **Steps:**  
 
 1. Upload your **aligned FASTA file** from the previous lab.
-2. Select a distance calculation method: **Kimura** or **Percent Identity**.
+2. Select a distance calculation method, for example **Kimura**.
 3. You can leave the other options as they are/empty.  
 
 ### **Question 1:**  
@@ -78,7 +80,7 @@ This translates to:
 
 Now, your task is to manually create a tree, using your **distance matrix** (you already created this with EMBOSS DistMat) to determine which species should be grouped together. Use the information provided by the distance matrix and do this for all 10-ish samples you have chosen. 
 
-Now, try the same but using "Percent identity" if you used the "Kimura" method before and vice versa.
+Now, try the same but using "Jukes-Cantor" if you used the "Kimura" method. Since the point of this is to visualize the possible difference between these two models, it's enough if you ran JC just for COX1 (or CytB). And compare the trees produced using Kimura and JC. You don't have to run it for both COX1 and CytB, but you obviously can if you want to.
 
 ### **Question 2:**  
 
