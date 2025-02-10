@@ -66,7 +66,17 @@ This means:
 - **C & D** are also closely related.  
 - The **(C,D) group** is more distant from **A & B**.  
 
-To manually create a tree, you will use your **distance matrix** to determine which species should be grouped together.  
+Or, in the following example:
+
+```(Human, Chimp, (Horse, (Lizard, Spider)))```
+
+This translates to:
+- Humans & Chimps are closely related.
+- Lizards & Spiders are more closely related to each other than to Horses.
+- Horses are more distant from Humans & Chimps but still closer than Lizards and Spiders.
+- The (Lizard, Spider) group is the most distantly related to the others.
+
+Now, your task is to manually create a tree, using your **distance matrix** (you already created this with EMBOSS DistMat) to determine which species should be grouped together.  
 
 ### **Question 2:**  
 
