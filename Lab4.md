@@ -41,7 +41,8 @@ Let's try the **EMBOSS DistMat** tool:
 ### **Steps:**  
 
 1. Upload your **aligned FASTA file** from the previous lab.
-2. Select a distance calculation method: **Kimura** or **Percent Identity**.  
+2. Select a distance calculation method: **Kimura** or **Percent Identity**.
+3. You can leave the other options as they are/empty.  
 
 ### **Question 1:**  
 
