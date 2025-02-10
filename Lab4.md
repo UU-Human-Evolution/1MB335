@@ -31,6 +31,9 @@ In this lab, it is generated from a multiple sequence alignment (MSA) using tool
 
 EMBOSS DistMat is an online bioinformatics tool that calculates pairwise genetic distances from a multiple sequence alignment (MSA). It supports different distance metrics, such as Kimura and Percent Identity, to measure sequence similarity. 
 
+Very shortly, the Kimura model accounts for mutations occurring more than once at the same position, giving a more refined estimate of genetic distance.
+On the other hand, 'Percent Identity' is a straightforward method that calculates the percentage of identical bases or amino acids between sequences, providing a basic measure of similarity.
+
 This matrix helps determine evolutionary relationships by identifying closely related sequences. Using these distances, species with the smallest values are grouped first in a Newick format tree, which is then manually constructed and visualized in iTOL. This process allows for interpreting evolutionary relationships and identifying sister species.
 
 Let's try the **EMBOSS DistMat** tool:  
@@ -41,6 +44,7 @@ Let's try the **EMBOSS DistMat** tool:
 2. Select a distance calculation method: **Kimura** or **Percent Identity**.  
 
 ### **Question 1:**  
+
 - Which species have the **smallest** distance (most similar)?  
 - Which species are the **most distant** from each other?  
 - Do you see anything unusual with the distance matrix? 
@@ -64,6 +68,7 @@ This means:
 To manually create a tree, you will use your **distance matrix** to determine which species should be grouped together.  
 
 ### **Question 2:**  
+
 - Based on your distance matrix, can you write a **Newick format tree** that represents the relationships between species?  
 
 ---
@@ -75,14 +80,18 @@ iTOL (Interactive Tree of Life) is an online tool for visualizing, editing, and 
 
 ### **Steps:**  
 
-1. Go to **[iTOL](https://itol.embl.de)** and create a **New Tree**.  
+1. Go to **[iTOL](https://itol.embl.de)** and create a **New Tree**.  (Click on `Upload a new tree`)
 2. Click on Upload, go to Upload new tree section and paste your **Newick tree** in the tree text box and click on Upload.    
 3. Save and export the tree as an image or pdf.  
 
 ### **Question 3:**  
 - Based on this tree can you write down the sister relationships between different groups or species 
 - Can you use this tree to answer your question (for eg: which ape is closely related to humans)?
-  
+
+OBS!
+**During this lab, we effectively used the Neighbor-Joining (NJ) method, since we are constructing a tree based on pairwise genetic distances from the distance matrix. NJ is a fast and simple way to build trees by progressively joining the closest sequences. 
+However, next time, we will use IQ-TREE, which applies Maximum Likelihood (ML), a more advanced statistical method that estimates the most probable evolutionary tree based on mutation models. ML trees are generally more accurate but require more computational power.**
+
 ---
 
 ## **Report Submission**  
