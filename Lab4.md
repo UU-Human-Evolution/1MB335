@@ -76,11 +76,14 @@ This translates to:
 - Horses are more distant from Humans & Chimps but still closer than Lizards and Spiders.
 - The (Lizard, Spider) group is the most distantly related to the others.
 
-Now, your task is to manually create a tree, using your **distance matrix** (you already created this with EMBOSS DistMat) to determine which species should be grouped together.  
+Now, your task is to manually create a tree, using your **distance matrix** (you already created this with EMBOSS DistMat) to determine which species should be grouped together. Use the information provided by the distance matrix and do this for all 10-ish samples you have chosen. 
+
+Now, try the same but using "Percent identity" if you used the "Kimura" method before and vice versa.
 
 ### **Question 2:**  
 
-- Based on your distance matrix, can you write a **Newick format tree** that represents the relationships between species?  
+- Based on your distance matrix, can you write a **Newick format tree** that represents the relationships between species?
+- In your answer, make sure you note which model generated which distance matrix and the suggested Newick format tree.
 
 ---
 
