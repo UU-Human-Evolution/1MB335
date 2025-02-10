@@ -1,100 +1,82 @@
-During the last sessions, you collected and aligned mitochondrial sequences from databases that you will be using for the remaining sessions. Today, you will attempt to find genes in them using a simple similarity-based approach with BLAST.
+## **Lab 4: Distance Matrix & Manual Tree Construction in iTOL**  
 
-## Goals
-+ Revisit sequence databases from Lab 2
-+ Become familiar with BLAST and its output
-+ Find coding regions in the mitochondrial genomes using a similarity-based approach
+During the last sessions, you collected and aligned mitochondrial sequences, COX1 and CytB, from databases that you will be using for the remaining sessions. Today, you will generate a **distance matrix** from your multiple sequence alignment and manually construct a phylogenetic tree using iTOL. You will also learn about **Newick format**, which is used to represent tree structures.  
 
-## Input(s)
-+ Full mitochondrial genomes collected in previous sessions
-+ Protein sequences in FASTA format
+## **Goals**  
++ Learn how to compute a **distance matrix** from a multiple sequence alignment.  
++ Interpret **genetic relationships** based on sequence similarity.  
++ Become familiar with the **Newick format** for phylogenetic trees.  
++ Construct a **phylogenetic tree manually** in iTOL.  
 
-## Output(s)
-+ Alignments of genes with full mitochondrial genomes
-+ Lists of hits in the different mitogenomes
+## **Input(s)**  
++ Aligned mitochondrial sequences from the previous lab.  
++ Online distance matrix calculation tools.  
 
-## Tools
-+ Sequence databases
-+ (command line) BLAST
+## **Output(s)**  
++ Distance matrix of mitochondrial sequences.  
++ A manually constructed phylogenetic tree in **Newick format**.  
++ A visualization of the tree using **iTOL**.  
 
-![](https://upload.wikimedia.org/wikipedia/commons/1/15/Map_of_the_human_mitochondrial_genome.svg)
-**Figure 2: Map of the Human mitochondira**
-By Emmanuel Douzery - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=46726514
+## **Tools**  
++ **EMBOSS DistMat** ([https://www.bioinformatics.nl/cgi-bin/emboss/distmat](https://www.bioinformatics.nl/cgi-bin/emboss/distmat))  
++ **iTOL (Interactive Tree of Life)** ([https://itol.embl.de](https://itol.embl.de))  
 
-From the full mitochondrial genome sequences you collected in lab 2, ***select just one species of interest*** that you will test (your choice!). Please check the Genbank entry for that sequence to make sure that it contains information about the start and end positions of the genes.
+---  
 
-**Question 1** What species did you select? Please record the ID of the Genbank entry.
+## **Generating a Distance Matrix**  
+A **distance matrix** is a table that shows the genetic distances between sequences. A smaller distance means the sequences are more closely related.  
 
-Now that you have a species that you want to focus on, we want to obtain protein sequences ***for three genes of interest***. Protein sequences can be obtained from e.g. [UniProt](https://www.uniprot.org/). 
-Search the database for the **proteins** 
-- *CytB*,
-- *COX1* and
-- *ND6*
-and download each sequence into a **separate FASTA file**. Make sure you mark them correctly.
+We will use the **EMBOSS DistMat** tool:  
 
-We now want to search for these protein sequences **in our mitochondrial genomes** to identify the **corresponding coding regions in that nucleotide sequence**. 
-For obvious reasons, we cannot directly align protein sequences with a nucleotide sequence as they are composed from a **different alphabet** and there are often alternative codons in the translation process, so the assignment of an amino acid to three nucleotides is ambiguous. 
-[tblastn](https://ftp.ncbi.nlm.nih.gov/pub/factsheets/HowTo_BLASTGuide.pdf) is a handy tool for this purpose as it takes a protein sequence as input and compares this to a nucleotide database. As part of the process, the nucleotides in the database are translated into hypothetical proteins using all six possible reading frames.
+### **Steps:**  
+1️⃣ Upload your **aligned FASTA file** from the previous lab.  
+2️⃣ Select a distance calculation method: **Kimura** or **Percent Identity**.  
 
-We want to **compare the proteins to the specific sequences you collected earlier**, so we want to run BLAST using it as a custom database. This means we cannot actually use the online version of BLAST as illustrated in the lectures but we need to run it locally (for us: Solander).
-
-First, we need to prepare our sequence file for BLAST searches. We use the comment **makeblastdb** to preprocess the database. This preprocessing of the database for multiple searches is one of the main reasons why BLAST is such an efficient search algorithm.
-
-```
-makeblastdb -in full_nonaligned_mitogenomes.fasta -dbtype nucl 
-```
-
-**Question 2.** How many new files are created? Can you read them? Try to find out what they are.
-
-Now we can perform the BLAST search for our first protein, let's start with *CytB*.
-
-```
-tblastn -query CYTB.fasta -db full_nonaligned_mitogenomes.fasta -outfmt 6 -out CYTB.blast
-```
-
-Make sure to use the names of your respective files. Open the output file. What do you see? Can you make sense of the different columns?
-
-```
-Column_name	Description
-qseqid	query (e.g., unknown gene) sequence id
-sseqid	subject (e.g., reference genome) sequence id
-pident	percentage of identical matches
-length	alignment length (sequence overlap)
-mismatch	number of mismatches
-gapopen	number of gap openings
-qstart	start of alignment in query
-qend	end of alignment in query
-sstart	start of alignment in subject
-send	end of alignment in subject
-evalue	expect value
-bitscore	bit score
-```
-**Question 3.** Did you find a good hit in your species of interest? Is this actually the best hit compared to the other species (in terms of how long the hit is, identity and E-value)?
-
-Now repeat these steps for *COX1* and *ND6* using informative names for the output files so you don't overwrite your previous results.
-
-**Question 4.** Answer the same questions as for Q3 for these other two proteins. Is one of the proteins standing out from the others?
-
-Return to the Genbank entry for the full mitochondrial genome of your species of interest. Locate the position information of the three genes.
-
-**Question 5.** Has your BLAST search identified the same start and end locations as listed in Genbank? If there are differences, can you speculate about their reason? 
-Some genes might start at a higher position and end at a lower one. Any idea why?  
-
-
----
-## Report:
-Please submit a text file with the answers to the following questions: 1, 2, 3 and 5.
+### **Question 1:**  
+- Which species have the **smallest** distance (most similar)?  
+- Which species are the **most distant** from each other?  
+- Do you see anything unusual with the distance matrix? 
 
 ---
 
-## Bonus: Collect additional mitochondrial genomes using online BLAST
+## **Understanding the Newick Format**  
 
-**This section only applies to those who did not find at least 15 sequences when performing their database searches in Lab 2**
+The **Newick format** is a simple way to represent tree structures using parentheses and commas.  
 
-You may not have found at least 15 sequences in Genbank in Lab 2, for example, due to the quality of annotation of certain entries. It is very likely that there are far more sequences that are homologous to your sequences of interest than those found with your initial Genbank search. Therefore, use a few of your full mitochondrial genomes and CytB sequences to perform an [online BLAST search](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome). You can copy the sequence from your FASTA file and paste them into the query field on the BLAST website. From your BLAST hits, download enough sequences in FASTA format to fill up your dataset to a total of 15. Download only one hit per species.
+### **Example of a Newick Tree:**  
+```
+(A,B,(C,D));
+```
+This means:  
+- **A & B** are closely related.  
+- **C & D** are also closely related.  
+- The **(C,D) group** is more distant from **A & B**.  
 
-*OBS!* Before choosing a sequence have a look at its length - the hits should not be much shorter than the query. Additionally, as a sanity check, you should see that all of your sequences have a relatively similar position on the mitochondrial genome (except possibly your outgroup sequences).
+To manually create a tree, you will use your **distance matrix** to determine which species should be grouped together.  
 
-Add the new sequences to the FASTA file you created in Lab 2 and repeat the alignment with MAFFT. We will use this multiple sequence alignment in the coming sessions. Remember that these steps need to be done for both, the full mitochondrial genome as well as CytB.
+### **Question 2:**  
+- Based on your distance matrix, can you write a **Newick format tree** that represents the relationships between species?  
 
+---
 
+## **Constructing a Tree in iTOL**  
+
+Now that you have your **Newick tree**, you will visualize it in **iTOL**.  
+
+### **Steps:**  
+1.)  Go to **[iTOL](https://itol.embl.de)** and create a **New Tree**.  
+2.) Click on Upload, go to Upload new tree section and paste your **Newick tree** in the tree text box and click on Upload.    
+3.) Save and export the tree as an image or pdf.  
+
+### **Question 3:**  
+- Based on this tree can you write down the sister relationships between different groups or species 
+- Can you use this tree to answer your question (for eg: which ape is closely related to humans)? 
+ 
+---
+
+## **Report Submission**  
+
+**Submit a pdf file with answers to the questions:**  
+**Q1:** All questions asked above 
+**Q2:** Your manually written **Newick tree**.  
+**Q3:** A screenshot of your tree in **iTOL** or the saved tree image in pdf or SVG format.  
