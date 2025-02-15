@@ -22,8 +22,8 @@ In this multi-session project, you will work in groups to answer an **evolutiona
 |----------|-------------------------------|------------------------------------|
 | **Lab 2**  | **Download genes & create datasets**  | NCBI GenBank, Python (data handling)  |
 | **Lab 3**  | **Sequence alignment & visualization**  | MAFFT (alignment), AliView (visualization)  |
-| **Lab 4**  | **BLAST search & sequence verification**  | BLAST (online + command line)  |
-| **Lab 5**  | **Phylogenetic tree construction & visualization**  | IQ-TREE (model selection), FigTree (tree visualization)  |
+| **Lab 4**  | **Distance matrix and simple trees**  | ITOL, Newick format  |
+| **Lab 5**  | **Blast, Phylogenetic tree construction & visualization**  | Online BLAST, IQ-TREE (model selection), FigTree (tree visualization)  |
 | **Lab 6**  | **Finalizing results & presentation**  | Compare findings to known phylogenies, finalize project report  |
 
 ---
