@@ -1,3 +1,45 @@
+#Before you start,  here is a basic introduction to alignments, its not a part of this lab but could be useful in future to work with gene data
+
+##The Basics of Sequence Alignment
+
+At the core of sequence analysis lies sequence alignment, a method for arranging DNA, RNA, or protein sequences to identify regions of similarity. These similarities may indicate functional, structural, or evolutionary relationships between the sequences. The two main types of sequence alignment are:
+1.) Pairwise Alignment: Compares two sequences directly to determine their similarity.
+
+2.) Multiple Sequence Alignment (MSA): Aligns multiple sequences to identify conserved regions across species or genes.
+
+##Pairwise alignment can be performed using two main approaches:
+1.) Global Alignment (Needleman-Wunsch algorithm) – Aligns sequences from start to end, best suited for highly similar sequences of roughly equal length.
+2.) Local Alignment (Smith-Waterman algorithm) – Finds the most similar subsections of two sequences, making it useful for sequences with only partial similarity.
+
+##Introduction to BLAST
+
+As genomic data exploded, researchers needed efficient ways to compare new sequences against existing databases. This led to the development of BLAST (Basic Local Alignment Search Tool), one of the most widely used bioinformatics tools.
+BLAST works by quickly identifying local similarities between a query sequence and sequences in a large database. Unlike traditional alignment methods that perform an exhaustive comparison, BLAST employs heuristics to speed up the process while maintaining accuracy. The main types of BLAST include:
+
+BLASTN – Compares a nucleotide query sequence to a nucleotide database.
+
+BLASTP – Compares a protein query sequence to a protein database.
+
+BLASTX – Translates a nucleotide query into proteins and compares it to a protein database.
+
+TBLASTN – Compares a protein query sequence to a translated nucleotide database.
+
+TBLASTX – Translates both query and database sequences and compares them at the protein level.
+
+##Applications of BLAST and Pairwise Alignment
+
+Sequence alignment and BLAST are indispensable in modern biology, with applications such as:
+
+Gene and protein identification: Determining the function of an unknown sequence by finding similar known sequences.
+
+Evolutionary studies: Investigating how genes and proteins have evolved across species.
+
+Medical and agricultural research: Identifying mutations, disease-associated genes, and antibiotic resistance genes.
+
+Forensics and environmental studies: Comparing unknown biological samples to known species.
+
+
+
 # Session 5 - Phylogenetic Analysis
 
 ## An Introduction to Phylogenetics
