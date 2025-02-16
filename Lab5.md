@@ -3,6 +3,7 @@
 ##The Basics of Sequence Alignment
 
 At the core of sequence analysis lies sequence alignment, a method for arranging DNA, RNA, or protein sequences to identify regions of similarity. These similarities may indicate functional, structural, or evolutionary relationships between the sequences. The two main types of sequence alignment are:
+
 1.) Pairwise Alignment: Compares two sequences directly to determine their similarity.
 
 2.) Multiple Sequence Alignment (MSA): Aligns multiple sequences to identify conserved regions across species or genes.
