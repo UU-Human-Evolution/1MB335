@@ -139,9 +139,8 @@ The three important things you have to do are:
   
   1. Root the tree with your outgroup (select the branch and then select `Reroot`)
   2. Show the bootstrap values (using `Branch labels` or `Node labels` and selecting the right value to display)
-  3. Make sure the tree can be easily understood. For example, you might need to change the name of the species, if you are using the short names that you created in [Session 2](Lab2.md). 
+  3. Make sure the tree can be easily understood. 
 
-You can use the script you created in Session 2 to change the names in your treefiles.
 Once you are done with those, you can play around with the other options (for example Rotate and different type of trees).
 
 Before you export your tree, think about what else you can do to show your results better. Look on Google for actually published trees, like the ones shown below
