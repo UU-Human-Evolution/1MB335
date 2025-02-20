@@ -6,12 +6,12 @@ If you remember, we ran multiple alignments in lab 3. While we are not aligning 
 ## The Basics of Sequence Alignment
 At the core of sequence analysis lies **sequence alignment**, a method for arranging DNA, RNA, or protein sequences to identify regions of similarity. These similarities may indicate functional, structural, or evolutionary relationships between the sequences. The two main types of sequence alignment are:
 
-1.) Pairwise Alignment: Compares two sequences directly to determine their similarity.
-2.) Multiple Sequence Alignment (MSA): Aligns multiple sequences to identify conserved regions across species or genes.
+- Pairwise Alignment: Compares two sequences directly to determine their similarity.
+- Multiple Sequence Alignment (MSA): Aligns multiple sequences to identify conserved regions across species or genes.
 
 ## Pairwise alignment can be performed using two main approaches:
-1.) Global Alignment (Needleman-Wunsch algorithm) – Aligns sequences from start to end, best suited for highly similar sequences of roughly equal length.
-2.) Local Alignment (Smith-Waterman algorithm) – Finds the most similar subsections of two sequences, making it useful for sequences with only partial similarity.
+- Global Alignment (Needleman-Wunsch algorithm) – Aligns sequences from start to end, best suited for highly similar sequences of roughly equal length.
+- Local Alignment (Smith-Waterman algorithm) – Finds the most similar subsections of two sequences, making it useful for sequences with only partial similarity.
 
 ## Introduction to BLAST
 
