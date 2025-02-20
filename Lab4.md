@@ -1,4 +1,4 @@
-# Session 4 -  Distance Matrix & Manual Tree Construction**  
+# Session 4 -  Distance Matrix & Manual Tree Construction
 
 During the last sessions, you collected and aligned mitochondrial sequences, COX1 and CytB, from databases that you will be using for the remaining sessions. Today, you will generate a **distance matrix** from your multiple sequence alignment and manually construct a phylogenetic tree using iTOL. You will also learn about **Newick format**, which is used to represent tree structures.  
 
