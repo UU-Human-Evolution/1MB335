@@ -1,7 +1,9 @@
-# Before you start,  here is a basic introduction to alignments, its not a part of this lab but could be useful in future to work with gene data
+# Session 5 - Phylogenetic Analysis
+
+## Background information/Refresher for Alignments
+If you remember, we ran multiple alignments in lab 3. While we are not aligning in this session, it could be useful information to know about pairwise alignnment as well as you may need it in the future.
 
 ## The Basics of Sequence Alignment
-
 At the core of sequence analysis lies **sequence alignment**, a method for arranging DNA, RNA, or protein sequences to identify regions of similarity. These similarities may indicate functional, structural, or evolutionary relationships between the sequences. The two main types of sequence alignment are:
 
 1.) Pairwise Alignment: Compares two sequences directly to determine their similarity.
@@ -29,8 +31,6 @@ Sequence alignment and BLAST are indispensable in modern biology, with applicati
 - Medical and agricultural research: Identifying mutations, disease-associated genes, and antibiotic resistance genes.
 - Forensics and environmental studies: Comparing unknown biological samples to known species.
   
-# Session 5 - Phylogenetic Analysis
-
 ## An Introduction to Phylogenetics
 Since the eve of Biology as a field of Science, one of the key questions has been how do the different organisms we see today relate to each other, and how they evolved. In the old days, we used anatomical similarities (also known as [homologies](https://en.wikipedia.org/wiki/Homology_(biology))) and dissimilarities to try to reconstruct their evolutionary history. 
 ![Example of Homologies](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Homology_vertebrates-en.svg/1280px-Homology_vertebrates-en.svg.png)
