@@ -1,46 +1,34 @@
-#Before you start,  here is a basic introduction to alignments, its not a part of this lab but could be useful in future to work with gene data
+# Before you start,  here is a basic introduction to alignments, its not a part of this lab but could be useful in future to work with gene data
 
-##The Basics of Sequence Alignment
+## The Basics of Sequence Alignment
 
-At the core of sequence analysis lies sequence alignment, a method for arranging DNA, RNA, or protein sequences to identify regions of similarity. These similarities may indicate functional, structural, or evolutionary relationships between the sequences. The two main types of sequence alignment are:
+At the core of sequence analysis lies **sequence alignment**, a method for arranging DNA, RNA, or protein sequences to identify regions of similarity. These similarities may indicate functional, structural, or evolutionary relationships between the sequences. The two main types of sequence alignment are:
 
 1.) Pairwise Alignment: Compares two sequences directly to determine their similarity.
-
 2.) Multiple Sequence Alignment (MSA): Aligns multiple sequences to identify conserved regions across species or genes.
 
-##Pairwise alignment can be performed using two main approaches:
+## Pairwise alignment can be performed using two main approaches:
 1.) Global Alignment (Needleman-Wunsch algorithm) – Aligns sequences from start to end, best suited for highly similar sequences of roughly equal length.
 2.) Local Alignment (Smith-Waterman algorithm) – Finds the most similar subsections of two sequences, making it useful for sequences with only partial similarity.
 
-##Introduction to BLAST
+## Introduction to BLAST
 
-As genomic data exploded, researchers needed efficient ways to compare new sequences against existing databases. This led to the development of BLAST (Basic Local Alignment Search Tool), one of the most widely used bioinformatics tools.
-BLAST works by quickly identifying local similarities between a query sequence and sequences in a large database. Unlike traditional alignment methods that perform an exhaustive comparison, BLAST employs heuristics to speed up the process while maintaining accuracy. The main types of BLAST include:
+As genomic data exploded, researchers needed efficient ways to compare new sequences against existing databases. This led to the development of BLAST (Basic Local Alignment Search Tool), one of the most widely used bioinformatics tools. BLAST works by quickly **identifying local similarities** between a query sequence and sequences in a large database. Unlike traditional alignment methods that perform an exhaustive comparison, BLAST employs heuristics to speed up the process while maintaining accuracy. The main types of BLAST include:
 
-BLASTN – Compares a nucleotide query sequence to a nucleotide database.
+- BLASTN – Compares a nucleotide query sequence to a nucleotide database.
+- BLASTP – Compares a protein query sequence to a protein database.
+- BLASTX – Translates a nucleotide query into proteins and compares it to a protein database.
+- TBLASTN – Compares a protein query sequence to a translated nucleotide database.
+- TBLASTX – Translates both query and database sequences and compares them at the protein level.
 
-BLASTP – Compares a protein query sequence to a protein database.
-
-BLASTX – Translates a nucleotide query into proteins and compares it to a protein database.
-
-TBLASTN – Compares a protein query sequence to a translated nucleotide database.
-
-TBLASTX – Translates both query and database sequences and compares them at the protein level.
-
-##Applications of BLAST and Pairwise Alignment
+## Applications of BLAST and Pairwise Alignment
 
 Sequence alignment and BLAST are indispensable in modern biology, with applications such as:
-
-Gene and protein identification: Determining the function of an unknown sequence by finding similar known sequences.
-
-Evolutionary studies: Investigating how genes and proteins have evolved across species.
-
-Medical and agricultural research: Identifying mutations, disease-associated genes, and antibiotic resistance genes.
-
-Forensics and environmental studies: Comparing unknown biological samples to known species.
-
-
-
+- Gene and protein identification: Determining the function of an unknown sequence by finding similar known sequences.
+- Evolutionary studies: Investigating how genes and proteins have evolved across species.
+- Medical and agricultural research: Identifying mutations, disease-associated genes, and antibiotic resistance genes.
+- Forensics and environmental studies: Comparing unknown biological samples to known species.
+  
 # Session 5 - Phylogenetic Analysis
 
 ## An Introduction to Phylogenetics
@@ -82,7 +70,6 @@ So, with this in mind, let's get going...
 For this Session, we will use the files we created in the previous labs. Please make sure you follow the instructions properly and that you have all the files you need. 
 #We will be using the fasta files with short name here
 
-
 Since we have produced an alignment in the previous session, we can proceed to infer **which tree, of all the possible trees, is the most likely one**. There are several methods to do this:
 
 + [Parsimony](https://www.mun.ca/biology/scarr/2900_Parsimony_Analysis.htm): "**the simplest explanation that can explain the data is to be preferred**", so the hypothesis with the smallest number of changes is the most likely. 
@@ -100,18 +87,17 @@ The last two are the state-of-the-art methods for phylogenetic analysis, and hav
 For our project, we are going to use: 
 - an implementation of the Maximum Likelihood approach called [IQ-TREE](http://www.iqtree.org/doc/Tutorial#first-running-example) 
 
-
 As we mentioned earlier, any Maximum Likelihood approach is **based on a model**. In phylogenetics, this model **describes the probability of each substitution to happen**. [Here](http://evomics.org/resources/substitution-models/nucleotide-substitution-models/) you can find a list of the more common models, and [here](http://www.iqtree.org/doc/Substitution-Models) the ones that are implemented in IQ-TREE. 
 ![Substitution model representation](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fnrg3186/MediaObjects/41576_2012_Article_BFnrg3186_Fig1_HTML.jpg?as=webp)
 
 *Graphical representation of some substitution models from Yang & Rannala, 2012. Nature Reviews Genetics: https://doi.org/10.1038/nrg3186*
 
-## IQ-Tree -- Generating ML trees
+## IQ-Tree -- Generating Maximum Likelihood trees
 
 Now that we have a general picture of what we are doing, let's start working with IQ-TREE. The basic syntax for this software is:
 
 ```
-iqtree -s ALIGNMENT -o OUTGROUP -m MODEL -pre OUTPUT_PREFIX -bb 1000
+iqtree -s ALIGNMENT -o OUTGROUP -m MODEL -pre SOME_OUTPUT_PREFIX -bb 1000
 ```
 Replace the capitalized variables with your choices, e.g. replace `ALIGNMENT` with the name of your aligned FASTA file for the cytB gene.
 
@@ -156,26 +142,27 @@ Before you export your tree, think about what else you can do to show your resul
 **Do not forget to export your trees as image files. You will have to show them during the presentation.**
 
 
-**Question 1: Which files do IQ-TREE output? Explain briefly what each of them is.**
+**Question 1:** 
+**Which files do IQ-TREE output? Explain briefly what each of them is.**
 
 IQ-TREE creates several types of trees (e.g. a Neighbour Joining tree saved as .bionj file and an ML tree saved as .treefile). In order to properly visualize your tree, you'll need to use specific software, as trees are not represented in a way we can easily understand in our files. In order to plot them, we are going to use [FigTree](SRC/FigTree_v1.4.4). Download it onto your computer and start it. 
 
+**Question 2:**
+**Which model did ModelFinder choose? From all the criteria calculated by this software, which was used to determine the best-fitting model?** (Hint: you can check the log file to find out, scroll a bit to find out)
 
-#####Question 2:
-1. **Which model did ModelFinder choose? From all the criteria calculated by this software, which was used to determine the best-fitting model?** (Hint: you can check the log file to find out)
+**Question 3:**
+**Briefly explain the best-fitting model.** (you can simply google it or find it on IQtree website)
 
-2. **Briefly explain the best-fitting model.** (you can simply google it or find it on IQtree website)
-
-#####Question 4:
-
-2. **In your tree, you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question i.e. are the groups that you need to answer your question not supported?** 
-
+**Question 4:**
+**In your tree, you can see a number at the base of each branch. That is the number of iterations that supported that branching during bootstrapping. Which is your least supported branch? What does that mean to your question i.e. are the groups that you need to answer your question not supported?** 
 
 **Repeat these steps for the Cox1 alignments. Remember to adapt the command above to run IQ-TREE and be careful to not over-write your files. (to be safe, work in a separate folder)** 
 
-#####Question 5:
-1. Are the trees similar for CytB and Cox1, if not what's the difference?
-2. Can you compare your CytB tree generated by IQtree to the one that you generated in the last lab in ITOL?
+**Question 5:**
+**Are the trees similar for CytB and Cox1, if not what's the difference?**
+
+**Question 6:**
+**Can you compare your CytB tree generated by IQtree to the one that you generated in the last lab in ITOL? Do they differ a lot? Which of the two do you trust more?**
 
 # REPORT
 
