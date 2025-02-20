@@ -46,7 +46,23 @@ The basic idea behind it all is quite simple: as species diverge over time, they
 
 Each tree is a hypothesis of the relationship between our sequences, and our goal is to identify (from all the possible trees), the one that is most likely to be a true tree, according to our data. This may vary depending on the region you are looking at, the models you are using or how you preprocess and align your sequences. 
 
-So, with this in mind, let's get going... 
+### Bootstrapping 
+
+Bootstrap resampling in phylogenetics works by randomly resampling columns (sites) from the multiple sequence alignment with replacement to generate new datasets. Then, a phylogenetic tree is reconstructed for each resampled dataset.
+
+What this practically represents:
+- Take your original alignment (e.g., 1000 nucleotide positions).
+- Randomly sample columns from this alignment, with replacement, until you generate a new alignment of the same length (1000 positions).
+- Some sites will be selected multiple times.
+- Some sites will be omitted in a given resampled dataset.
+- Build a phylogenetic tree from this new dataset.
+- Repeat this process many times (typically 100 or 1000 replicates).
+- Count how often each branch appears across all replicates.
+
+If a branch appears in 90% of the bootstrap replicates, it gets a bootstrap support value of 90.
+If it appears in only 54% of the replicates, it gets a bootstrap support value of 54.
+
+So, with all of the above in mind, let's get going... 
 
 ## Goals
 + Test which substitution model works best with our data;
@@ -128,7 +144,6 @@ The three important things you have to do are:
   3. Make sure the tree can be easily understood. 
 
 Once you are done with those, you can play around with the other options (for example Rotate and different type of trees).
-
 Before you export your tree, think about what else you can do to show your results better. Look on Google for actually published trees, like the ones shown below
  
 <p float ="left">
