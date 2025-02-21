@@ -3,8 +3,8 @@
 
 ## Introduction / Background information to session 6
 
-This is the last session of the bioinformatics project (and of the course). You will wrap up the project and present your results to the class in one of the slots in the following week. The first 2-hour session will be used to prepare for the presentation and you can chose to come in or work from home. 
-The second session is where your group presents the findings from the project you completed. This is supposed to be a powerpoint presentation of a few slides (it's going to be short ~5 minutes per group).
+This is the last session of the bioinformatics project (and of the course). You will wrap up the project and present your results to the class in one of the slots in the following week. The first session will be used to prepare for the presentation and you can choose to come in or work from home. 
+The second session is where your group presents the findings from the project you completed. This is supposed to be a PowerPoint presentation of a few slides (it's going to be short ~5 minutes per group).
 
 
 ### Reflect on your results
