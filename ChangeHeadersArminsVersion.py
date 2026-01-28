@@ -2,8 +2,7 @@
 ###run it like this
 ##python rename.headers.py Fasta.txt Fasta2.cnv long.name_Fasta.txt long
 
-########note the format of the file with headers should look like this (without the hasthtags)
-###so >long nameTAB>ShortName
+########note the format of the file with headers should look like this (without the hasthtags), so >long nameTAB>ShortName
 #>PQ130352.1 Tubastraea sp. COX1 (COX1) gene, complete cds; mitochondrial	>Tubastraea
 #>PQ554647.1 Salvinia molesta Cox1 (cox1) gene, complete cds; mitochondrial	>Salvinia_molesta
 #>PQ554610.1 Marsilea mutica Cox1 (cox1) gene, complete cds; mitochondrial	>Marsilea_mutica
